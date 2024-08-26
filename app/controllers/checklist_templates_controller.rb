@@ -1,0 +1,2 @@
+class ChecklistTemplatesController < ApplicationController
+end

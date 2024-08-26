@@ -10,9 +10,82 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_26_131137) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_26_140950) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "activities", force: :cascade do |t|
+    t.string "name"
+    t.date "start_date"
+    t.string "category"
+    t.text "description"
+    t.boolean "favorite"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "checklist_items", force: :cascade do |t|
+    t.bigint "item_id", null: false
+    t.string "checklistable_type", null: false
+    t.bigint "checklistable_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["checklistable_type", "checklistable_id"], name: "index_checklist_items_on_checklistable"
+    t.index ["item_id"], name: "index_checklist_items_on_item_id"
+  end
+
+  create_table "checklist_templates", force: :cascade do |t|
+    t.string "name"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_checklist_templates_on_user_id"
+  end
+
+  create_table "checklists", force: :cascade do |t|
+    t.string "name"
+    t.bigint "trip_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["trip_id"], name: "index_checklists_on_trip_id"
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.string "name"
+    t.boolean "checked"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "stops", force: :cascade do |t|
+    t.string "name"
+    t.date "start_date"
+    t.date "end_date"
+    t.text "address"
+    t.float "longitude"
+    t.float "latitude"
+    t.bigint "trip_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["trip_id"], name: "index_stops_on_trip_id"
+  end
+
+  create_table "trips", force: :cascade do |t|
+    t.string "name"
+    t.date "start_date"
+    t.date "end_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_trips", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "trip_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["trip_id"], name: "index_user_trips_on_trip_id"
+    t.index ["user_id"], name: "index_user_trips_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -26,4 +99,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_26_131137) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "checklist_items", "items"
+  add_foreign_key "checklist_templates", "users"
+  add_foreign_key "checklists", "trips"
+  add_foreign_key "stops", "trips"
+  add_foreign_key "user_trips", "trips"
+  add_foreign_key "user_trips", "users"
 end
