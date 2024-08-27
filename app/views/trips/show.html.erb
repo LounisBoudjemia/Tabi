@@ -1,0 +1,10 @@
+
+<h2><%= @trip.name %></h2>
+
+<% @trip.stops.each do |stop| %>
+<h2><%= @stop.name %></h2>
+<h2><%= @stop.name %></h2>
+<h2><%= @stop.start_date %></h2>
+<h2><%= @stop.end_date %></h2>
+<h2><%= @stop.address %></h2>
+<% end %>
