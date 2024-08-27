@@ -16,9 +16,23 @@ Trip.destroy_all
 User.create!(email: "lounisboudjemia@gmail.com", password: "password")
 
 japan = Trip.create!(name: "Japan", start_date: "2023-09-05", end_date: "2023-09-30")
+france = Trip.create!(name: "France", start_date: "2024-09-14", end_date: "2024-10-09")
 
 hiro = Stop.create!(trip: japan, name: "Hiroshima", start_date: "2023-09-06", end_date: "2023-09-09",
                     address: "3 Chome-1-1 Otemachi, Naka Ward, Hiroshima, 730-0051, Japon")
+
+paris = Stop.create!(trip: france, name: "Paris", start_date: "2024-09-14", end_date: "2024-09-20",
+             address: "Rueil-Malmaison")
+
+salavre = Stop.create!(trip: france, name: "Salavre", start_date: "2024-09-20", end_date: "2024-09-23",
+            address: "Salavre")
+
+jura = Stop.create!(trip: france, name: "Jura", start_date: "2024-09-23", end_date: "2024-09-27",
+            address: "Lons le Saunier, France")
+
+Activity.create!(stop: paris, name: "Day at Disneyland Paris",
+                start_date:"2024-09-16", favorite: true, category: "amusement park",
+                description: "Day trip at Disneyland Paris. Opens at 9.")
 
 Stop.create!(trip: japan, name: "Aso", start_date: "2023-09-09", end_date: "2023-09-12",
              address: "1506 Otohime, Aso, Kumamoto 869-2226, Japon")
