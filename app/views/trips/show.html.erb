@@ -1,8 +1,18 @@
 
 <h2><%= @trip.name %></h2>
-
-<% @trip.stops.each do |stop| %>
-    <h2><%= stop.name %></h2>
-    <h2><%= stop.start_date %></h2>
-    <h2><%= stop.end_date %></h2>
-<% end %>
+<div class="stops-grid">
+<div class="stop-list">
+ <% @trip.stops.each do |stop| %>
+      <div class="card">
+       <div class="card-img-top" >  <img src="#" /></div>
+        <div class="card-body">
+          <h5 class="card-title" ><%= stop.name  %></h5>
+          <p class = "d-flex justify-content-center" > <%= stop.start_date %> - <%= stop.end_date %></p>
+       <div class="d-grid gap-2 col-6 mx-auto"><%= link_to "Go to stop", stop_path(stop) , class:"btn-list btn-primary"%></div>
+    </div>
+    </div>
+  <% end %>
+  </div>
+  <div>Placeholder</div>
+   </div>
+</div>
