@@ -5,7 +5,7 @@ class TripsController < ApplicationController
   end
 
   def show
-    
+
   end
 
   def new
@@ -40,7 +40,7 @@ class TripsController < ApplicationController
   private
 
   def trip_params
-    params.require(:trip).permit(:name, :start_date, :end_date)
+    params.require(:trip).permit(:name, :start_date, :end_date, :photo)
   end
 
   def set_trip
