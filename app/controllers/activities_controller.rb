@@ -3,37 +3,35 @@ class ActivitiesController < ApplicationController
     @activities = Activity.all
   end
 
+  def new
+    @activity = Activity.new
+    @stop = Stop.find(params[:stop_id])
+  end
+
   def create
     @activity = Activity.new(activity_params)
     @activity.save
   end
-
   # def destroy
   #   @stop =
   #   @activity.destroy
   #   redirect_to activities_path(@activity)
   # end
 
-  def new
-    @activity = Activity.new
-  end
+  # def edit
+  # end
 
-  def edit
-  end
-
-  def update
-    if @activity.update(activity_params)
-      redirect_to @activity, notice: 'You updated this activity successfully.'
-    else
-      render :show
-    end
-    end
-  end
-
+  # def update
+  #   if @activity.update(activity_params)
+  #     redirect_to @activity, notice: 'You updated this activity successfully.'
+  #   else
+  #     render :show
+  #   end
+  # end
 
   private
 
   def activity_params
-    params.require(:activity).permit(:name, :start_date, :end_date,:address, :trip_id)
+    params.require(:activity).permit(:name, :start_date, :category, :description, :favorite, :stop_id)
   end
 end
