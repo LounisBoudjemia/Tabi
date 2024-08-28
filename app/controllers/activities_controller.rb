@@ -9,26 +9,28 @@ class ActivitiesController < ApplicationController
   end
 
   def create
+    @stop = Activity.find(params[:stop_id])
     @activity = Activity.new(activity_params)
     @activity.save
+    redirect_to stop_path(@stop), notice: 'You updated this activity successfully.'
   end
-  # def destroy
-  #   @stop =
-  #   @activity.destroy
-  #   redirect_to activities_path(@activity)
-  # end
+
+  def destroy
+    @stop = Activity.find(params[:stop_id])
+    @activity.destroy
+    redirect_to stop_path(@stop)
+  end
 
   def edit
     @activity = Activity.find(params[:id])
   end
 
   def update
-    raise
-    # if @activity.update(activity_params)
-    #   redirect_to @activity, notice: 'You updated this activity successfully.'
-    # else
-    #   render :show
-    # end
+    if @activity.update(activity_params)
+      redirect_to stop_path(@stop), notice: 'You updated this activity successfully.'
+    else
+      render :show
+    end
   end
 
   private
