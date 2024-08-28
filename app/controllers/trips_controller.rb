@@ -2,10 +2,19 @@ class TripsController < ApplicationController
   before_action :set_trip, only: [:show, :edit, :update, :destroy]
   def index
     @trips = Trip.all
+
   end
 
   def show
     # @stop = Stop.new
+    @stops = Stop.all
+    @markers = @stops.geocoded.map do |stop|
+      {
+        lat: stop.latitude,
+        lng: stop.longitude
+      }
+     
+    end
   end
 
   def new
