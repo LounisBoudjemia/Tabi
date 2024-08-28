@@ -4,7 +4,7 @@
 body {
   margin: 0;
   padding: 0;
-  background: linear-gradient(135deg, #ff5733, #ffbd33, #33ff57, #33b5e5);
+  background: linear-gradient(135deg, #FC7E57, #70417A,  #97D0D3, #301138);
   background-size: 400% 400%;
   animation: gradientAnimation 5s ease infinite;
 }
@@ -22,9 +22,9 @@ body {
 .landing-page {
   text-align: center;
   padding: 50px;
-  background: linear-gradient(135deg, #ffff29, #cc56ff, #fa0780, #33b5e5);
+  background: linear-gradient(135deg, #ebcaa3, #70417A, #FD7979, #97D0D3);
   background-size: 400% 400%;
-  animation: gradientAnimation 5s ease infinite;
+  animation: gradientAnimation 5s ease infinite, floatAnimation 3s ease-in-out infinite;
   border-radius: 30px;
 
 }
@@ -51,7 +51,7 @@ body {
 }
 
 .landing-page h1 {
-  font-size: 2.5em; // Larger font size for prominence
+    font-size: 2.5em; // Larger font size for prominence
   animation: fadeIn 2s ease-in-out; // Fade-in animation for heading
 }
 
@@ -60,7 +60,7 @@ body {
   animation: fadeIn 2s 1s ease-in-out; // Delayed fade-in for paragraph
 }
 
-.btn-secondary {
+.btn-second {
   background-color: #ff5733;
   color: white;
   padding: 10px 20px;
@@ -70,7 +70,7 @@ body {
   transition: background-color 0.3s ease, transform 0.3s ease; // Smooth transition for hover effects
 }
 
-.btn-primary {
+.btn-first {
   background-color: #ff5733;
   color: white;
   padding: 10px 20px;
@@ -80,21 +80,35 @@ body {
   transition: background-color 0.3s ease, transform 0.3s ease; // Smooth transition for hover effects
 }
 
-.btn-primary:hover {
+.btn-first:hover {
   background-color: #e04e2a; // Darker shade on hover
   transform: scale(1.05); // Slight zoom effect on hover
 }
 
-.btn-secondary:hover {
+.btn-second:hover {
   background-color: #e04e2a; // Darker shade on hover
   transform: scale(1.05); // Slight zoom effect on hover
 }
+
+@keyframes gradientAnimation {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 100%; }
+  100% { background-position: 0% 0%; }
+}
+
+@keyframes floatAnimation {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
 // Fade-in animation for text
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
 // Responsive Design
 @media (max-width: 768px) {
   .landing-page {
@@ -105,7 +119,7 @@ body {
     padding: 15px;
   }
 
-  .btn-primary .btn-secondary {
+  .btn-first .btn-second {
     padding: 8px 16px;
   }
 }
