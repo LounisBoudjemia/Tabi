@@ -9,8 +9,9 @@ class ActivitiesController < ApplicationController
   end
 
   def create
-    @stop = Activity.find(params[:stop_id])
-    @activity = Activity.new(activity_params)
+    @stop = Stop.find(params[:stop_id])
+    # @activity = Activity.new(activity_params)
+    @activity = @stop.activities.new(activity_params)
     @activity.save
     redirect_to stop_path(@stop), notice: 'You added this activity successfully.'
   end
