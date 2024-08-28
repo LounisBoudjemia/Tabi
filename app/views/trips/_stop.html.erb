@@ -1,0 +1,14 @@
+<li class="stop-list-item">
+  <div class="stop-card card d-flex flex-row justify-content-between rounded-pill px-2 py-1 bg-light-subtle">
+
+    <!-- STOP NAME -->
+    <div class="stop-name">
+      <%= stop.name %>
+    </div>
+
+    <!--STOP INFO-->
+    <div class="info">
+      <%= stop.start_date.strftime("%d-%m-%Y") %> - <%= stop.end_date.strftime("%d-%m-%Y") %></p>
+    </div>
+  </div>
+</li>
