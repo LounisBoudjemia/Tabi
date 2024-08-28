@@ -7,9 +7,14 @@
        <div class="card-img-top" >  <img src="#" /></div>
         <div class="card-body">
           <h5 class="card-title" ><%= trip.name  %></h5>
-          <p class = "d-flex justify-content-center" > <%= trip.start_date.strftime %> - <%= trip.end_date.strftime %></p>
+          <p class = "d-flex justify-content-center" > <%= trip.start_date.strftime("%d-%m-%Y") %> - <%= trip.end_date.strftime("%d-%m-%Y") %></p>
        <div class="d-grid gap-2 col-6 mx-auto"><%= link_to "Go to trip", trip_path(trip) , class:"btn-list btn-primary"%></div>
     </div>
     </div>
-     </div>
+    </div>
+
   <% end %>
+
+  <div id="new-trip" class="card-link px-1">
+          <%= link_to "New trip", new_trip_path(@trip), class: "btn btn-primary"%>
+          </div>

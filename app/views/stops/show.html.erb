@@ -1,0 +1,48 @@
+<div class="pages-background">
+  <div id="stop-container">
+
+    <!-- HEADER -->
+    <div id="stop-header">
+      <div id="stop-text">
+        <div id="stop-headline">
+          <h1><%= @stop.name %></h1>
+        </div>
+        <div id="stop-dates">
+          <p>Stop Dates</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- BODY -->
+    <div id="stop-body">
+
+      <!-- LEFT BOX -->
+      <div id="stop-body-left">
+        <ul id="activities-list" class="list-unstyled">
+          <% @activities.each do |activity|%>
+            <%= render "activity", activity: activity %>
+          <% end %>
+        </ul>
+      </div>
+
+      <!-- RIGHT BOX -->
+      <div id="stop-body-right">
+
+        <!-- MAP -->
+        <div id="stop-map">
+          Stop Map
+        </div>
+
+        <!-- CALENDAR -->
+        <div id="stop-calendar">
+          Stop Calendar
+        </div>
+
+        <!-- STOP SHOW -->
+        <div id="stop-show">
+          Stop Show
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
