@@ -1,0 +1,15 @@
+
+
+<li class="stop-card card d-flex flex-row justify-content-between rounded-5 px-2 py-2 mb-3 bg-light-subtle">
+
+    <!-- ACTIVITY NAME -->
+  <div class="stop-info flex-grow-1">
+    <h5 class="title" ><%= stop.name %></h5>
+    <p><%= stop.start_date.strftime("%d-%m-%Y") %> - <%= stop.end_date.strftime("%d-%m-%Y") %></p>
+  </div>
+
+  <!-- FAVORITE ICON -->
+  <div class="button">
+      <i class="fa-regular fa-pen-to-square"></i>
+  </div>
+</li>

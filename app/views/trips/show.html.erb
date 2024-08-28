@@ -1,29 +1,47 @@
+<div id="trip-container" class="m-3 p-3 rounded-5">
 
-<h2><%= @trip.name %></h2>
-
-<div class="stops-grid">
-  <div class="stop-list">
-
-    <% @trip.stops.each do |stop| %>
-
-      <div class="card">
-       <div class="card-img-top" >  <img src="#" /></div>
-        <div class="card-body">
-
-          <h5 class="card-title" ><%= stop.name  %></h5>
-            <p class = "d-flex justify-content-center" >
-            <%= stop.start_date.strftime("%d-%m-%Y") %> - <%= stop.end_date.strftime("%d-%m-%Y") %></p>
-
-              <div class="d-grid gap-2 col-6 mx-auto"><%= link_to "Go to stop", stop_path(stop) , class:"btn-list btn-primary"%></div>
-        </div>
+  <!-- HEADER -->
+  <div id="trip-header" class="card px-5 py-3 rounded-5">
+    <div id="trip-text">
+      <div id="trip-headline">
+        <h1><%= @trip.name %></h1>
       </div>
-    <% end %>
-      <div id="edit-trip" class="card-link px-1">
-          <%= link_to "Edit trip", edit_trip_path(@trip), class: "btn btn-primary"%>
-          </div>
+      <div id="trip-dates">
+        <p><%= @trip.start_date.strftime("%d-%m-%Y") %> - <%= @trip.end_date.strftime("%d-%m-%Y") %></p>
+      </div>
+    </div>
   </div>
-      <div style="width: 100%; height: 400px;"
-      data-controller="map"
-      data-map-markers-value="<%= @markers.to_json %>"
-      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
+
+  <!-- LEFT BOX -->
+  <div id="trip-body-left" class="card d-flex flex-fill align-items-center p-4 rounded-5">
+    <ul id="stops-list" class="list-unstyled w-100">
+      <% @trip.stops.each do |stop|%>
+        <%= render "stop", stop: stop %>
+      <% end %>
+    </ul>
+    <div id="add-stop">
+      <i class="fa-regular fa-circle-plus"></i>
+    </div>
+  </div>
+
+  <!-- RIGHT BOX -->
+  <div id="trip-body-right" class="card d-flex flex-fill align-items-center rounded-5">
+
+    <!-- MAP -->
+    <div id="trip-map" class="card d-flex w-100 h-50 rounded-5">
+      <div style="width: 100%; height: 450px;"
+          data-controller="map"
+          data-map-markers-value="<%= @markers.to_json %>"
+          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+    </div>
+
+    <!-- CALENDAR -->
+    <div id="stop-calendar" class="w-100 h-50 p-3 rounded-5">
+      <div id="calendar-container" class="card w-100 h-100 rounded-5">
+      </div>
+    </div>
+
+  </div>
 </div>

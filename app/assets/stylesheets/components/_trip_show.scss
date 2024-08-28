@@ -1,4 +1,4 @@
-#stop-container {
+#trip-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(5, 1fr);
@@ -6,21 +6,25 @@
   grid-row-gap: 16px;
   height: 100vh;
   background-color: white;
-
   }
 
-  #stop-header {
+  #trip-header {
     grid-column: span 2;
     background-color: $success;
   }
 
-  #stop-body-left {
+  #trip-body-left {
     grid-row: span 4;
     background-color: $danger;
-    
+    overflow-y: auto;
   }
 
-  #stop-body-right {
+
+  #trip-body-right {
     grid-row: span 4;
     background-color: $info;
+  }
+
+  .trip-item {
+    align-content: center;
   }
