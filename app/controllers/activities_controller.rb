@@ -18,16 +18,18 @@ class ActivitiesController < ApplicationController
   #   redirect_to activities_path(@activity)
   # end
 
-  # def edit
-  # end
+  def edit
+    @activity = Activity.find(params[:id])
+  end
 
-  # def update
-  #   if @activity.update(activity_params)
-  #     redirect_to @activity, notice: 'You updated this activity successfully.'
-  #   else
-  #     render :show
-  #   end
-  # end
+  def update
+    raise
+    # if @activity.update(activity_params)
+    #   redirect_to @activity, notice: 'You updated this activity successfully.'
+    # else
+    #   render :show
+    # end
+  end
 
   private
 

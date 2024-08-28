@@ -1,8 +1,23 @@
-<%= simple_form_for [stop, activity] do |f| %>
-<%= f.input :name %>
-<%= f.input :category %>
-<%= f.input :description %>
-<%= f.input :start_date %>
-<%= f.input :favorite %>
-<%= f.submit "submit", class: "btn btn-primary" %>
+<% if action_name == "new" %>
+
+  <%= simple_form_for [stop, activity] do |f| %>
+  <%= f.input :name %>
+  <%= f.input :category %>
+  <%= f.input :description %>
+  <%= f.input :start_date %>
+  <%= f.input :favorite %>
+  <%= f.submit "submit", class: "btn btn-primary" %>
+  <% end %>
+
+<% else %>
+
+  <%= simple_form_for @activity do |f| %>
+  <%= f.input :name %>
+  <%= f.input :category %>
+  <%= f.input :description %>
+  <%= f.input :start_date %>
+  <%= f.input :favorite %>
+  <%= f.submit "submit", class: "btn btn-primary" %>
+  <% end %>
+
 <% end %>
