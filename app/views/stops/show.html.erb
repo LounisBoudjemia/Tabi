@@ -1,48 +1,44 @@
-<div class="pages-background">
-  <div id="stop-container">
+<div id="stop-container" class="m-3 p-3 rounded-5">
 
-    <!-- HEADER -->
-    <div id="stop-header">
-      <div id="stop-text">
-        <div id="stop-headline">
-          <h1><%= @stop.name %></h1>
-        </div>
-        <div id="stop-dates">
-          <p>Stop Dates</p>
-        </div>
+  <!-- HEADER -->
+  <div id="stop-header" class="card px-5 py-3 rounded-5">
+    <div id="stop-text">
+      <div id="stop-headline">
+        <h1><%= @stop.name %></h1>
+      </div>
+      <div id="stop-dates">
+        <p>Stop Dates</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- LEFT BOX -->
+  <div id="stop-body-left" class="card d-flex flex-fill align-items-center p-3 rounded-5">
+    <ul id="activities-list" class="list-unstyled w-100">
+      <% @activities.each do |activity|%>
+        <%= render "activity", activity: activity %>
+      <% end %>
+    </ul>
+    <div id="add-activity">
+      <i class="fa-regular fa-circle-plus"></i>
+    </div>
+  </div>
+
+  <!-- RIGHT BOX -->
+  <div id="stop-body-right" class="card d-flex flex-fill align-items-center rounded-5">
+
+    <!-- MAP -->
+    <div id="stop-map" class="card d-flex w-100 h-50 rounded-5">
+      Stop Map
+    </div>
+
+    <!-- CALENDAR -->
+    <div id="stop-calendar" class="w-100 h-50 p-3 rounded-5">
+      <div id="calendar-container" class="card w-100 h-100 rounded-5">
+        Stop Calendar
       </div>
     </div>
 
-    <!-- BODY -->
-    <div id="stop-body">
-
-      <!-- LEFT BOX -->
-      <div id="stop-body-left">
-        <ul id="activities-list" class="list-unstyled">
-          <% @activities.each do |activity|%>
-            <%= render "activity", activity: activity %>
-          <% end %>
-        </ul>
-      </div>
-
-      <!-- RIGHT BOX -->
-      <div id="stop-body-right">
-
-        <!-- MAP -->
-        <div id="stop-map">
-          Stop Map
-        </div>
-
-        <!-- CALENDAR -->
-        <div id="stop-calendar">
-          Stop Calendar
-        </div>
-
-        <!-- STOP SHOW -->
-        <div id="stop-show">
-          Stop Show
-        </div>
-      </div>
-    </div>
   </div>
 </div>
