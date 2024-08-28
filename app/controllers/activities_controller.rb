@@ -12,7 +12,7 @@ class ActivitiesController < ApplicationController
     @stop = Activity.find(params[:stop_id])
     @activity = Activity.new(activity_params)
     @activity.save
-    redirect_to stop_path(@stop), notice: 'You updated this activity successfully.'
+    redirect_to stop_path(@stop), notice: 'You added this activity successfully.'
   end
 
   def destroy
@@ -26,6 +26,7 @@ class ActivitiesController < ApplicationController
   end
 
   def update
+    @stop = Activity.find(params[:stop_id])
     if @activity.update(activity_params)
       redirect_to stop_path(@stop), notice: 'You updated this activity successfully.'
     else
