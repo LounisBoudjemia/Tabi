@@ -1,53 +1,49 @@
-<div class="pages-background">
-  <div id="stop-container">
 
-    <!-- HEADER -->
-    <div id="stop-header">
-      <div id="stop-text">
-        <div id="stop-headline">
-          <h1><%= @trip.name %></h1>
-        </div>
-        <div id="stop-dates">
-          <p><%= @trip.start_date.strftime("%d-%m-%Y") %> - <%= @trip.end_date.strftime("%d-%m-%Y") %></p>
-        </div>
+<div id="trip-container" class="m-3 p-3 rounded-5">
+
+  <!-- HEADER -->
+  <div id="trip-header" class="card px-5 py-3 rounded-5">
+    <div id="trip-text">
+      <div id="trip-headline">
+        <h1><%= @trip.name %></h1>
+      </div>
+      <div id="trip-dates">
+        <p><%= @trip.start_date.strftime("%d-%m-%Y") %> - <%= @trip.end_date.strftime("%d-%m-%Y") %></p>
       </div>
     </div>
+  </div>
 
-    <!-- BODY -->
-    <div id="trip-body">
-      <div id="stops-grid">
 
-      <!-- LEFT BOX -->
-      <div id="stop-list">
-        <ul id="stops-list" class="list-unstyled">
-          <% @trip.stops.each do |stop|%>
-            <%= render "stop", stop: stop %>
-          <% end %>
-        </ul>
-      </div>
+  <!-- LEFT BOX -->
+  <div id="trip-body-left" class="card d-flex flex-fill align-items-center p-4 rounded-5">
+    <ul id="stops-list" class="list-unstyled w-100">
+      <% @trip.stops.each do |stop|%>
+        <%= render "stop", stop: stop %>
+      <% end %>
+    </ul>
+    <div id="add-stop">
+      <i class="fa-regular fa-circle-plus"></i>
+    </div>
+  </div>
 
-      <!-- RIGHT BOX -->
+  <!-- RIGHT BOX -->
+  <div id="trip-body-right" class="card d-flex flex-fill align-items-center rounded-5">
 
-        <!-- MAP -->
-
-        <div style="width: 100%; height: 450px;"
+    <!-- MAP -->
+    <div id="trip-map" class="card d-flex w-100 h-50 rounded-5">
+      <div style="width: 100%; height: 450px;"
           data-controller="map"
           data-map-markers-value="<%= @markers.to_json %>"
-          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
-        ></div>
-
-
-        <%# <!-- CALENDAR -->
-        <div id="stop-calendar">
-          Stop Calendar
-        </div>
-
-        <!-- STOP SHOW -->
-        <div id="stop-show">
-          Stop Show
-        </div> %>
+          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
     </div>
+
+    <!-- CALENDAR -->
+    <div id="stop-calendar" class="w-100 h-50 p-3 rounded-5">
+      <div id="calendar-container" class="card w-100 h-100 rounded-5">
+      </div>
+    </div>
+
   </div>
 </div>
 
