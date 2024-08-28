@@ -5,7 +5,7 @@ class TripsController < ApplicationController
   end
 
   def show
-
+    # @stop = Stop.new
   end
 
   def new

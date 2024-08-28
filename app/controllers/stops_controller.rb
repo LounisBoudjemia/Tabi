@@ -2,9 +2,11 @@ class StopsController < ApplicationController
   before_action :set_stop, only: [:show, :edit, :update, :destroy]
   def index
     @stops = Stop.all
+    @trip = Trip.find(params[:trip_id])
   end
 
   def show
+    # @activity = Activity.new
   end
 
   def new
