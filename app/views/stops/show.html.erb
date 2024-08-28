@@ -1,0 +1,33 @@
+<div class="pages-background">
+  <div id="stop-container">
+    <div id="stop-header">
+      <div id="stop-text">
+        <div id="stop-headline">
+          <h1><%= @stop.name %></h1>
+        </div>
+        <div id="stop-dates">
+          <p>Stop Dates</p>
+        </div>
+      </div>
+    </div>
+    <div id="stop-body">
+      <div id="stop-body-left">
+        Activities List
+        <% @activities.each do |activity|%>
+          <%= activity.name %>
+        <% end %>
+      </div>
+      <div id="stop-body-right">
+        <div id="stop-map">
+          Stop Map
+        </div>
+        <div id="stop-calendar">
+          Stop Calendar
+        </div>
+        <div id="stop-show">
+          Stop Show
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
