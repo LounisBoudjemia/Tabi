@@ -3,7 +3,6 @@ class StopsController < ApplicationController
   def index
     @stops = Stop.all
     @trip = Trip.find(params[:trip_id])
-
   end
 
   def show
