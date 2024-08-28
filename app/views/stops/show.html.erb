@@ -14,7 +14,7 @@
       <div id="stop-body-left">
         Activities List
         <% @activities.each do |activity|%>
-          <%= activity.name %>
+          <%= render "activity", activity: activity %>
         <% end %>
       </div>
       <div id="stop-body-right">

@@ -1,0 +1,12 @@
+<div class="activity-card card d-flex flex-row justify-content-between rounded-pill px-2 py-1 bg-light-subtle">
+  <div class="activity-name">
+    <%= activity.name %>
+  </div>
+  <div class="favorite">
+    <% if activity.favorite %>
+      <i class="fa-solid fa-heart"></i>
+    <% else %>
+      <i class="fa-regular fa-heart"></i>
+    <% end %>
+  </div>
+</div>
