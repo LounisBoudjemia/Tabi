@@ -18,6 +18,7 @@
     </div>
   </div>
 
+  <%= link_to 'Delete', trip_path(@trip), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
 
   <!-- LEFT BOX -->
   <div id="trip-body-left" class="card d-flex flex-fill align-items-center rounded-5">
