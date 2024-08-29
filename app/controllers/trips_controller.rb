@@ -46,7 +46,7 @@ class TripsController < ApplicationController
     @trip.destroy
     redirect_to trips_path
   end
-
+  
   private
 
   def trip_params

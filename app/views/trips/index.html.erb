@@ -1,21 +1,20 @@
 
-<div class="banner"></div>
+<div class="trips-grid">
+
   <% @trips.each do |trip| %>
-    <div class="d-flex justify-content-center">
-      <div class="cards">
-      <div class="card">
-    <%# <div class="card-img-top" >  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" /></div> %>
-      <div class="card-img-top" >  <img src="#" /></div>
-        <div class="card-body">
-          <h5 class="card-title" ><%= trip.name  %></h5>
-          <p class = "d-flex justify-content-center" > <%= trip.start_date.strftime("%d-%m-%Y") %> - <%= trip.end_date.strftime("%d-%m-%Y") %></p>
-      <div class="d-grid gap-2 col-6 mx-auto"><%= link_to "Go to trip", trip_path(trip) , class:"btn-list btn-primary"%></div>
-    </div>
-    </div>
-    </div>
+  <%= link_to trip_path(trip), class:"link" do %>
+      <div class="card-index">
+          <div class="card-index-img-top" >  <img src="https://149990825.v2.pressablecdn.com/wp-content/uploads/2023/09/Seoul1.jpg" /></div>
+            <div class="card-index-body">
+              <h5 class="card-index-title" ><%= trip.name  %></h5>
+              <p class="card-index-text"> <%= trip.start_date.strftime("%d-%m-%Y") %> - <%= trip.formatted_end %></p>
+          </div>
+       </div>
+
+<% end %>
 
   <% end %>
-
+  </div>
   <div id="new-trip" class="card-link px-1">
           <%= link_to "New trip", new_trip_path(@trip), class: "btn btn-primary"%>
           </div>
