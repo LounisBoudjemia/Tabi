@@ -26,3 +26,11 @@
   .trip-item {
     align-content: center;
   }
+
+  #stops-list {
+    overflow-y: scroll;
+  }
+
+  #stops-list::-webkit-scrollbar {
+    display: none;
+  }
