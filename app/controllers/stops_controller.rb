@@ -7,6 +7,7 @@ class StopsController < ApplicationController
 
   def show
     @stop = Stop.find(params[:id])
+    @trip = @stop.trip
     @activities = @stop.activities
     # @activity = Activity.new
   end
