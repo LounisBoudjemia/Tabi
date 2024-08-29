@@ -17,7 +17,8 @@ class ActivitiesController < ApplicationController
   end
 
   def destroy
-    @stop = Activity.find(params[:stop_id])
+    @activity = Activity.find_by(id: params[:id])
+    @stop = @activity.stop
     @activity.destroy
     redirect_to stop_path(@stop)
   end

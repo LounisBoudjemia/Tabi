@@ -27,7 +27,11 @@
       <% end %>
     </ul>
     <div id="add-stop">
-      <i class="fa-regular fa-circle-plus"></i>
+      <%= link_to new_trip_stop_path(@trip),
+          class: "link-underline link-underline-opacity-0 icon-link icon-link-hover",
+          style: "font-size: 2rem;" do %>
+        <i class="fa-regular fa-circle-plus"></i>
+      <% end %>
     </div>
   </div>
 
@@ -35,12 +39,10 @@
   <div id="trip-body-right" class="card d-flex flex-fill align-items-center rounded-5">
 
     <!-- MAP -->
-    <div id="trip-map" class="card d-flex w-100 h-50 rounded-5">
-      <div style="width: 100%; height: 450px;"
-          data-controller="map"
-          data-map-markers-value="<%= @markers.to_json %>"
-          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-      </div>
+    <div id="trip-map" style="width: 100%; height: 450px;" class="d-flex w-100 h-50 rounded-5"
+        data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
 
     <!-- CALENDAR -->
