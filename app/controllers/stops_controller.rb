@@ -17,9 +17,10 @@ class StopsController < ApplicationController
   end
 
   def create
-    @stop = Stop.new(stop_params)
+
     @trip = Trip.find(params[:trip_id])
-    @stop.trip = @stop
+    @stop = Stop.new(stop_params)
+    @stop.trip = @trip
     if @stop.save
       redirect_to trip_path(@trip), status: :see_other
     else
@@ -46,7 +47,7 @@ class StopsController < ApplicationController
   private
 
   def stop_params
-    params.require(:stop).permit(:name, :start_date, :end_date,:address, :trip_id)
+    params.require(:stop).permit(:name, :start_date, :end_date, :address, :trip_id)
   end
 
   def set_stop
