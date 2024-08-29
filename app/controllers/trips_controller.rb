@@ -7,7 +7,7 @@ class TripsController < ApplicationController
 
   def show
     # @stop = Stop.new
-    @stops = Stop.all
+    @stops = @trip.stops
     @markers = @stops.geocoded.map do |stop|
       {
         lat: stop.latitude,

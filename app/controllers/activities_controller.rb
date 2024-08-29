@@ -17,7 +17,8 @@ class ActivitiesController < ApplicationController
   end
 
   def destroy
-    @stop = Activity.find(params[:stop_id])
+    @activity = Activity.find_by(id: params[:id])
+    @stop = @activity.stop
     @activity.destroy
     redirect_to stop_path(@stop)
   end
@@ -33,6 +34,13 @@ class ActivitiesController < ApplicationController
     else
       render :show
     end
+  end
+
+  def favorite
+    @activity = Activity.find(params[:id])
+    @stop = @activity.stop
+    @activity.update(favorite: !@activity.favorite)
+    redirect_to stop_path(@stop)
   end
 
   private
