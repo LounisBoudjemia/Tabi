@@ -35,6 +35,13 @@ class ActivitiesController < ApplicationController
     end
   end
 
+  def favorite
+    @activity = Activity.find(params[:id])
+    @stop = @activity.stop
+    @activity.update(favorite: !@activity.favorite)
+    redirect_to stop_path(@stop)
+  end
+
   private
 
   def activity_params
