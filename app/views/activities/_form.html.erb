@@ -1,8 +1,10 @@
 <% if action_name == "new" %>
 
+<%# 1st form is for the NEW-Activities-Form %>
+
   <%= simple_form_for [stop, activity] do |f| %>
   <%= f.input :name %>
-  <%= f.input :category %>
+  <%= f.input :category, as: :select, collection: ['Food', 'Drinks', 'Art', 'Swimming', 'Memorial', 'Views'], prompt: "pick category" %>
   <%= f.input :description %>
   <%= f.input :start_date %>
   <%= f.input :favorite %>
@@ -10,6 +12,8 @@
   <% end %>
 
 <% else %>
+
+<%# 2nd form is form the EDIT-Activities-Form %>
 
   <%= simple_form_for @activity do |f| %>
   <%= f.input :name %>
