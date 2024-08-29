@@ -17,7 +17,6 @@ class StopsController < ApplicationController
   end
 
   def create
-
     @trip = Trip.find(params[:trip_id])
     @stop = Stop.new(stop_params)
     @stop.trip = @trip
@@ -41,7 +40,7 @@ class StopsController < ApplicationController
 
   def destroy
     @stop.destroy
-    redirect_to stops_path(@stop)
+    redirect_to trip_path
   end
 
   private
