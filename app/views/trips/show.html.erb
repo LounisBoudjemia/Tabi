@@ -8,7 +8,7 @@
         <h1><%= @trip.name %></h1>
       </div>
       <div id="trip-dates">
-        <p><%= @trip.start_date.strftime("%d-%m-%Y") %> - <%= @trip.end_date.strftime("%d-%m-%Y") %></p>
+        <p><%= @trip.start_date.strftime("%d-%m-%Y") %> - <%= @trip.formatted_end%></p>
       </div>
       <div id="trip-link-back">
         <%= link_to trips_path do %>
