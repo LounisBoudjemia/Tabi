@@ -6,7 +6,6 @@
   grid-row-gap: 16px;
   height: 100vh;
   background-color: white;
-
   }
 
   #stop-header {
@@ -28,6 +27,13 @@
     overflow-y: scroll;
   }
 
+  // Hide scrollbar for Chrome, Safari and Opera
   #activities-list::-webkit-scrollbar {
     display: none;
+  }
+
+  // Hide scrollbar for IE, Edge and Firefox
+  #stops-list {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
   }
