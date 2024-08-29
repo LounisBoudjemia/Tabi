@@ -23,3 +23,11 @@
     grid-row: span 4;
     background-color: $info;
   }
+
+  #activities-list {
+    overflow-y: scroll;
+  }
+
+  #activities-list::-webkit-scrollbar {
+    display: none;
+  }
