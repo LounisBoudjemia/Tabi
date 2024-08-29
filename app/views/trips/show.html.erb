@@ -27,7 +27,11 @@
       <% end %>
     </ul>
     <div id="add-stop">
-      <i class="fa-regular fa-circle-plus"></i>
+      <%= link_to new_trip_stop_path(@trip),
+          class: "link-underline link-underline-opacity-0 icon-link icon-link-hover",
+          style: "font-size: 2rem;" do %>
+        <i class="fa-regular fa-circle-plus"></i>
+      <% end %>
     </div>
   </div>
 

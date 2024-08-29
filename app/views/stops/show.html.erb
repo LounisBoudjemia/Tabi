@@ -26,7 +26,11 @@
       <% end %>
     </ul>
     <div id="add-activity">
-      <%= link_to "Add Activity", new_stop_activity_path(@stop) %><i class="fa-regular fa-circle-plus"></i>
+      <%= link_to new_stop_activity_path(@stop),
+          class: "link-underline link-underline-opacity-0 icon-link icon-link-hover",
+          style: "font-size: 2rem;" do %>
+        <i class="fa-regular fa-circle-plus"></i>
+      <% end %>
     </div>
   </div>
 

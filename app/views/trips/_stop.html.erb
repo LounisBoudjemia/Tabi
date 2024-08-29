@@ -8,8 +8,20 @@
     </div>
   <% end %>
 
-  <!-- FAVORITE ICON -->
-  <div class="button">
-      <i class="fa-regular fa-pen-to-square"></i>
+  <!-- ICONS -->
+  <div id="activity-icons" class="d-flex">
+    <!-- EDIT ICON -->
+    <%= link_to edit_stop_path(stop) do %>
+      <div class="button">
+          <i class="fa-regular fa-pen-to-square"></i>
+      </div>
+    <% end %>
+
+    <!-- TRASH ICON -->
+    <%= link_to stop_path(stop), method: :delete, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+      <div class="button ms-2">
+          <i class="fa-solid fa-trash"></i>
+      </div>
+    <% end %>
   </div>
 </li>
