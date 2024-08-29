@@ -43,8 +43,8 @@ class TripsController < ApplicationController
   end
 
   def destroy
-    @service.destroy
-    redirect_to services_path(@service)
+    @trip.destroy
+    redirect_to trips_path
   end
 
   private
