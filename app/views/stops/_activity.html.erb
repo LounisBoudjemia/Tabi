@@ -23,11 +23,12 @@
 
     <!-- FAVORITE ICON -->
     <div class="favorite ms-2">
-      <% if activity.favorite %>
-        <i class="fa-solid fa-heart"></i>
-      <% else %>
-        <i class="fa-regular fa-heart"></i>
-      <% end %>
+      <%= link_to favorite_activity_path(activity), data: {turbo_method: :patch} do %>
+        <% if activity.favorite %>
+          <i class="fa-solid fa-heart"></i>
+        <% else %>
+          <i class="fa-regular fa-heart"></i>
+        <% end %>
     </div>
   </div>
 </li>

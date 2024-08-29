@@ -12,7 +12,11 @@ Rails.application.routes.draw do
     resources :diary_entries, shallow: true
     resources :checklists, shallow: true
     resources :stops, shallow: true do
-      resources :activities, only: [:new, :create, :edit, :update, :destroy], shallow: true
+      resources :activities, only: [:new, :create, :edit, :update, :destroy], shallow: true do
+        member do
+          patch :favorite
+        end
+      end
     end
   end
 
