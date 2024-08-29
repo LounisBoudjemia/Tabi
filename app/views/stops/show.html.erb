@@ -8,7 +8,11 @@
       </div>
       <div id="stop-dates">
         <p>Stop Dates</p>
-        <%= link_to "go back to all Stops", trip_path(@stop.trip) %>
+      </div>
+      <div id="trip-link-back">
+        <%= link_to trip_path(@stop.trip) do %>
+          <i class="fa-regular fa-backward"></i>
+        <% end %>
       </div>
     </div>
   </div>

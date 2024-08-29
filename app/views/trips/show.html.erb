@@ -10,6 +10,11 @@
       <div id="trip-dates">
         <p><%= @trip.start_date.strftime("%d-%m-%Y") %> - <%= @trip.end_date.strftime("%d-%m-%Y") %></p>
       </div>
+      <div id="trip-link-back">
+        <%= link_to trips_path do %>
+          <i class="fa-regular fa-backward"></i>
+        <% end %>
+      </div>
     </div>
   </div>
 
