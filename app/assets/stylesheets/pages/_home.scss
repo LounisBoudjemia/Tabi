@@ -1,7 +1,45 @@
 // Specific CSS for your home-page
-
 // Background with gradient
-body {
+/* Style for p_name */
+#p_name {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-family: 'Pacifico', cursive; /* A nice, stylish font */
+  font-size: 3em;
+  color: #ffffff; /* Complementary color to your background */
+  text-shadow: 2px 4px 6px rgba(0, 0, 0, 0.3); /* Adds depth to the text */
+  z-index: 100; /* Ensure it stays on top of other elements */
+  animation: fadeInLeft 2s ease-in-out, pulse 3s infinite; /* Combined animations */
+}
+
+/* Fade-in from the left animation */
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Pulse animation */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+.background-container {
   margin: 0;
   padding: 0;
   background: linear-gradient(135deg, #FC7E57, #70417A,  #97D0D3, #301138);
