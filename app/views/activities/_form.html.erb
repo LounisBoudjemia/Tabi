@@ -1,29 +1,32 @@
-<% if action_name == "new" %>
+<div class="card d-flex flex-fill align-items-center p-3 rounded-5">
 
-<%# 1st form is for the NEW-Activities-Form %>
+  <% if action_name == "new" %>
 
-  <%= simple_form_for [stop, activity] do |f| %>
-  <%= f.input :name %>
-  <%= f.input :location %>
-  <%= f.input :category, as: :select, collection: ['Food', 'Drinks', 'Art', 'Swimming', 'Memorial', 'Views'], prompt: "pick category" %>
-  <%= f.input :description %>
-  <%= f.input :start_date %>
-  <%= f.input :favorite %>
-  <%= f.submit "submit", class: "btn btn-primary" %>
+    <%# 1st form is for the NEW-Activities-Form %>
+
+    <%= simple_form_for [stop, activity] do |f| %>
+    <%= f.input :name %>
+    <%= f.input :location %>
+    <%= f.input :category, as: :select, collection: ['Food', 'Drinks', 'Art', 'Swimming', 'Memorial', 'Views'], prompt: "pick category" %>
+    <%= f.input :description %>
+    <%= f.input :start_date %>
+    <%= f.input :favorite %>
+    <%= f.submit "submit", class: "btn btn-primary" %>
+    <% end %>
+
+  <% else %>
+
+    <%# 2nd form is form the EDIT-Activities-Form %>
+
+    <%= simple_form_for @activity do |f| %>
+    <%= f.input :name %>
+    <%= f.input :location %>
+    <%= f.input :category %>
+    <%= f.input :description %>
+    <%= f.input :start_date %>
+    <%= f.input :favorite %>
+    <%= f.submit "submit", class: "btn btn-primary" %>
+    <% end %>
+
   <% end %>
-
-<% else %>
-
-<%# 2nd form is form the EDIT-Activities-Form %>
-
-  <%= simple_form_for @activity do |f| %>
-  <%= f.input :name %>
-  <%= f.input :location %>
-  <%= f.input :category %>
-  <%= f.input :description %>
-  <%= f.input :start_date %>
-  <%= f.input :favorite %>
-  <%= f.submit "submit", class: "btn btn-primary" %>
-  <% end %>
-
-<% end %>
+</div>
