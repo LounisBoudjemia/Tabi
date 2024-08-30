@@ -59,11 +59,14 @@
 
 .landing-page {
   text-align: center;
-  border-radius: 100px;
   padding: 50px;
   background: linear-gradient(135deg, #ebcaa3, #70417A, #FD7979, #97D0D3);
   background-size: 400% 400%;
   animation: gradientAnimation 5s ease infinite, floatAnimation 3s ease-in-out infinite;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); /* Hexagonal shape */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 // Gradient animation
@@ -76,9 +79,10 @@
 .landing-page header {
   background-color: rgba(51, 51, 51, 0.8); // Semi-transparent background for readability
   color: rgb(255, 255, 255);
-  padding: 30px;
+  padding: 60px;
+  margin-top: 25px;
   margin-bottom: 30px;
-  border-radius: 60px; // Rounded corners for a softer look
+  clip-path: polygon(10% 0%, 90% 0%, 100% 50%, 90% 100%, 10% 100%, 0% 50%); /* Cool hexagonal shape for header */
   box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2); // Subtle shadow for depth
   transition: transform 0.3s ease-in-out; // Smooth hover effect
 }
