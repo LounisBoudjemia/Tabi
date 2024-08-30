@@ -7,11 +7,19 @@
     <%= simple_form_for [stop, activity] do |f| %>
     <%= f.input :name %>
     <%= f.input :location %>
-    <%= f.input :category, as: :select, collection: ['Food', 'Drinks', 'Art', 'Swimming', 'Memorial', 'Views'], prompt: "pick category" %>
+    <%= f.input :category, as: :select, collection: ['Food', 'Drinks', 'Art', 'Nature', 'Memorial', 'Views'], prompt: "pick category" %>
     <%= f.input :description %>
     <%= f.input :start_date %>
     <%= f.input :favorite %>
-    <%= f.submit "submit", class: "btn btn-primary" %>
+
+    <div class="mb-3">
+      <%= f.submit "submit", class: "btn btn-primary" %>
+    </div>
+
+    <div class="mb-3">
+      <%= link_to "go back", stop_path(stop), class: "btn btn-secondary", id: "button-form" %>
+    </div>
+
     <% end %>
 
   <% else %>
@@ -25,8 +33,15 @@
     <%= f.input :description %>
     <%= f.input :start_date %>
     <%= f.input :favorite %>
-    <%= f.submit "submit", class: "btn btn-primary" %>
-    <% end %>
 
+    <div class="mb-3">
+      <%= f.submit "submit", class: "btn btn-primary" %>
+    </div>
+
+    <div class="mb-3">
+      <%= link_to "go back", stop_path(@activity.stop), class: "btn btn-secondary", id: "button-form" %>
+    </div>
+
+    <% end %>
   <% end %>
 </div>

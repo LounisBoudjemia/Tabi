@@ -1,0 +1,12 @@
+#form-container {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: 16px;
+  grid-row-gap: 16px;
+  height: 95%;
+  background-color: white;
+  margin-top: 2vw;
+  margin-left: 20vw; /* 5% der Viewport-Breite */
+  margin-right: 20vw;
+  }
