@@ -36,6 +36,7 @@
 
   <!-- LEFT BOX -->
   <div id="trip-body-left" class="card d-flex flex-fill align-items-center rounded-5">
+
     <ul id="stops-list" class="list-unstyled p-3 w-100">
       <% @trip.stops.each do |stop|%>
         <%= render "stop", stop: stop %>

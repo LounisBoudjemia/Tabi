@@ -55,8 +55,10 @@
   <div id="stop-body-right" class="card d-flex flex-fill align-items-center rounded-5">
 
     <!-- MAP -->
-    <div id="stop-map" class="card d-flex w-100 h-50 rounded-5">
-      Stop Map
+    <div id="activity-map" style="width: 100%; height: 450px;" class="d-flex w-100 h-50 rounded-5"
+        data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
 
     <!-- CALENDAR -->
