@@ -2,16 +2,30 @@
 
   <!-- HEADER -->
   <div id="trip-header" class="card d-flex flex-row justify-content-between p-3 rounded-5">
-    <div id="trip-text">
-      <div id="trip-headline">
-        <h1><%= @trip.name %></h1>
+    <div id="trip-header-right" class="d-flex flex-row">
+      <div id="trip-text" class="me-3">
+        <div id="trip-headline">
+          <h1><%= @trip.name %></h1>
+        </div>
+        <div id="trip-dates">
+          <p><%= @trip.start_date.strftime("%d-%m-%Y") %> - <%= @trip.formatted_end%></p>
+        </div>
+        <div id="trip-link-back">
+          <%= link_to trips_path do %>
+            <i class="fa-regular fa-backward"></i>
+          <% end %>
+        </div>
       </div>
-      <div id="trip-dates">
-        <p><%= @trip.start_date.strftime("%d-%m-%Y") %> - <%= @trip.formatted_end%></p>
-      </div>
-      <div id="trip-link-back">
-        <%= link_to trips_path do %>
-          <i class="fa-regular fa-backward"></i>
+      <div id="trip-icons">
+        <%= link_to edit_trip_path(@trip), style: "font-size: 2rem;" do %>
+          <div>
+            <i class="fa-regular fa-pen-to-square"></i>
+          </div>
+        <% end %>
+        <%= link_to trip_path(@trip), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, style: "font-size: 2rem;" do %>
+          <div>
+            <i class="fa-regular fa-trash-alt"></i>
+          </div>
         <% end %>
       </div>
     </div>
@@ -54,5 +68,3 @@
 
   </div>
 </div>
-
- <%= link_to 'Delete', trip_path(@trip), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
