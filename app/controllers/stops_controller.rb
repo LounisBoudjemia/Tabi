@@ -8,7 +8,7 @@ class StopsController < ApplicationController
   def show
     @stop = Stop.find(params[:id])
     @trip = @stop.trip
-    @activities = @stop.activities
+    @activities = @stop.activities.order(created_at: :asc)
     # @activity = Activity.new
   end
 
