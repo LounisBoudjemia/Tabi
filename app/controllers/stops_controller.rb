@@ -9,6 +9,14 @@ class StopsController < ApplicationController
     @stop = Stop.find(params[:id])
     @trip = @stop.trip
     @activities = @stop.activities.order(created_at: :asc)
+    @markers = @activities.geocoded.map do |activity|
+      {
+        lat: activity.latitude,
+        lng: activity.longitude,
+        info_window_html: render_to_string(partial: "activity_info_window", locals: {activity: activity}),
+        marker_html: render_to_string(partial: "activity_marker")
+      }
+    end
     # @activity = Activity.new
   end
 
