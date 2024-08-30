@@ -67,9 +67,11 @@
 
       <div id="activity-show" class="card w-100 h-100 p-3 rounded-5 bg-white">
       <%= turbo_frame_tag :activity_show do%>
-        <h3><%= @stop.activities.first.name.capitalize %></h3>
-        <p><%= @stop.activities.first.category %></p>
-        <p><%= @stop.activities.first.description %></p>
+        <% if @stop.activities.first %>
+          <h3><%= @stop.activities.first.name %></h3>
+          <p><%= @stop.activities.first.category.capitalize %></p>
+          <p><%= @stop.activities.first.description %></p>
+        <% end%>
       <% end %>
       </div>
 
