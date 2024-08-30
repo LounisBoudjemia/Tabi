@@ -28,9 +28,9 @@ class ActivitiesController < ApplicationController
   end
 
   def update
-    @stop = Activity.find(params[:stop_id])
+    @activity = Activity.find(params[:id])
     if @activity.update(activity_params)
-      redirect_to stop_path(@stop), notice: 'You updated this activity successfully.'
+      redirect_to stop_path(@activity.stop), notice: 'You updated this activity successfully.'
     else
       render :show
     end
