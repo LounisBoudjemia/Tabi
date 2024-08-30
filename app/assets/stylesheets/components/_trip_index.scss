@@ -1,21 +1,31 @@
 .trips-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 2fr);
   grid-auto-rows: auto;
   grid-column-gap: 10px;
   grid-row-gap: 10px;
   }
 
+  .index-container {
+    background-color: beige;
+    height: 100vh;
+    margin:0 120px;
+    padding: 20px;
+  }
+
   .card-index {
+
+    transition: all .3s ease-in-out;
+    text-align: center;
     background-size: cover;
     background-position: center;
     background-color: white;
     height: 250px;
     width: 400px;
     margin: 20px;
+    border-radius: 20px;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
     color: black;
-    border-radius: 20px;
     border: none;
     font-family: "Arial", sans-serif;
     margin-top:10px;
@@ -24,14 +34,16 @@
       height: 180px;
       width: 400px;
       object-fit: cover;
-      border-radius: 10px;
+      border-top-right-radius: 20px;
+      border-top-left-radius: 20px;
       box-shadow: 0 0 15px rgba(0,0,0,0.2);
-    }
 
+    }
   }
 
-
-
+.card-index:hover {
+  transform: translateY(-10px);
+}
 // .card-index-title {
 //   text-decoration:none;
 //   color: black;
