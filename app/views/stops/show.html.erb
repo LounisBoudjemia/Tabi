@@ -1,17 +1,31 @@
 <div id="stop-container" class="m-3 p-3 rounded-5">
 
   <!-- HEADER -->
-  <div id="stop-header" class="card d-flex flex-row justify-content-between p-3 rounded-5">
-    <div id="stop-text">
-      <div id="stop-headline">
-        <h1><%= @stop.name %></h1>
+  <div id="stop-header" class="card d-flex flex-row justify-content-between p-3 m-0 rounded-5">
+    <div id="stop-header-right" class="d-flex flex-row">
+      <div id="stop-text" class="me-3">
+        <div id="stop-headline">
+          <h1><%= @stop.name %></h1>
+        </div>
+        <div id="stop-dates">
+          <p>Stop Dates</p>
+        </div>
+        <div id="trip-link-back">
+          <%= link_to trip_path(@stop.trip) do %>
+            <i class="fa-regular fa-backward"></i>
+          <% end %>
+        </div>
       </div>
-      <div id="stop-dates">
-        <p>Stop Dates</p>
-      </div>
-      <div id="trip-link-back">
-        <%= link_to trip_path(@stop.trip) do %>
-          <i class="fa-regular fa-backward"></i>
+      <div id="stop-icons">
+        <%= link_to edit_stop_path(@stop), style: "font-size: 2rem;" do %>
+          <div>
+            <i class="fa-regular fa-pen-to-square"></i>
+          </div>
+        <% end %>
+        <%= link_to stop_path(@stop), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, style: "font-size: 2rem;" do %>
+          <div>
+            <i class="fa-regular fa-trash-alt"></i>
+          </div>
         <% end %>
       </div>
     </div>
