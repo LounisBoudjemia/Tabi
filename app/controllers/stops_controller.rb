@@ -29,6 +29,7 @@ class StopsController < ApplicationController
   end
 
   def edit
+    @trip = @stop.trip
   end
 
   def update
