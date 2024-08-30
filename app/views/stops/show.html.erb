@@ -8,7 +8,9 @@
           <h1><%= @stop.name %></h1>
         </div>
         <div id="stop-dates">
-          <p>Stop Dates</p>
+          <% if @stop.start_date %>
+          <p><%= @stop.start_date %></p>
+          <% end %>
         </div>
         <div id="trip-link-back">
           <%= link_to trip_path(@stop.trip) do %>
@@ -62,10 +64,16 @@
     </div>
 
     <!-- CALENDAR -->
-    <div id="stop-calendar" class="w-100 h-50 p-3 rounded-5">
-      <div id="calendar-container" class="card w-100 h-100 rounded-5">
-        Stop Calendar
+    <div id="stop-right-bottom" class="w-100 h-50 p-3 rounded-5">
+
+      <div id="activity-show" class="card w-100 h-100 p-3 rounded-5 bg-white">
+      <%= turbo_frame_tag :activity_show do%>
+        <h3><%= @stop.activities.first.name.capitalize %></h3>
+        <p><%= @stop.activities.first.category %></p>
+        <p><%= @stop.activities.first.description %></p>
+      <% end %>
       </div>
+
     </div>
 
   </div>
