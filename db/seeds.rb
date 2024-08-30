@@ -19,42 +19,77 @@ User.create!(email: "frida@frida.com", password: "password")
 User.create!(email: "navid@navid.com", password: "password")
 
 japan = Trip.create!(name: "Japan", start_date: "2023-09-05", end_date: "2023-09-30")
-france = Trip.create!(name: "France", start_date: "2024-09-14", end_date: "2024-10-09")
+italy = Trip.create!(name: "Italy", start_date: "2019-05-11", end_date: "2019-05-25")
+vietnam = Trip.create!(name: "Vietnam", start_date: "2022-06-24", end_date: "2022-07-06")
 
 hiro = Stop.create!(trip: japan, name: "Hiroshima", start_date: "2023-09-06", end_date: "2023-09-09", address: "3 Chome-1-1 Otemachi, Naka Ward, Hiroshima, 730-0051, Japan")
 
-paris = Stop.create!(trip: france, name: "Paris", start_date: "2024-09-14", end_date: "2024-09-20", address: "55, avenue des champs élysées Paris")
+aso = Stop.create!(trip: japan, name: "Aso", start_date: "2023-09-09", end_date: "2023-09-12",
+             address: "Aso")
 
-salavre = Stop.create!(trip: france, name: "Salavre", start_date: "2024-09-20", end_date: "2024-09-23",
-            address: "Salavre")
-
-jura = Stop.create!(trip: france, name: "Jura", start_date: "2024-09-23", end_date: "2024-09-27",
-            address: "Lons le Saunier, France")
-
-Activity.create!(stop: paris, name: "Day at Disneyland Paris",
-                start_date:"2024-09-16", favorite: true, category: "amusement park",
-                description: "Day trip at Disneyland Paris. Opens at 9.")
-
-Stop.create!(trip: japan, name: "Aso", start_date: "2023-09-09", end_date: "2023-09-12",
-             address: "1506 Otohime, Aso, Kumamoto 869-2226, Japon")
-
-
-Stop.create!(trip: japan, name: "Fukuoka", start_date: "2023-09-12", end_date: "2023-09-15",
+fukuoka = Stop.create!(trip: japan, name: "Fukuoka", start_date: "2023-09-12", end_date: "2023-09-15",
              address: "Fukuoka")
 
-Stop.create!(trip: japan, name: "Okinawa", start_date: "2023-09-15", end_date: "2023-09-21",
-             address: "938 Ishikawa, 本部町 Motobu, Kunigami District, Okinawa 905-0206, Japon")
+okinawa = Stop.create!(trip: japan, name: "Okinawa", start_date: "2023-09-15", end_date: "2023-09-21",
+             address: "Motobu")
 
-Stop.create!(trip: japan, name: "Nagoya", start_date: "2023-09-21", end_date: "2023-09-24",
-             address: "3 Chome-1-22 Nishiki, Naka Ward, Nagoya, Aichi 460-0003, Japon")
+nagoya = Stop.create!(trip: japan, name: "Nagoya", start_date: "2023-09-21", end_date: "2023-09-24",
+             address: "Nagoya")
 
-Stop.create!(trip: japan, name: "Tokyo", start_date: "2023-09-24", end_date: "2023-09-30",
-             address: "Japon, 〒154-0001 Tokyo, Setagaya City, Ikejiri, 2 Chome−26−5 池尻網野レジデンス")
+tokyo = Stop.create!(trip: japan, name: "Tokyo", start_date: "2023-09-24", end_date: "2023-09-30",
+             address: "Tokyo")
 
 Activity.create!(stop: hiro, name: "peace memorial museum",
-                 start_date:"2023-09-07", favorite: true, category:"museum",
-                 description: "Visit of the peace memorial museum. 200 yens.")
+              start_date:"2023-09-07", favorite: true, category: "museum",
+              description: "Visit of the peace memorial park and museum.",
+              location: "Peace memorial park, Hiroshima")
+
+Activity.create!(stop: hiro, name: "Toyo Carps baseball game",
+  start_date:"2023-09-07", favorite: true, category: "Views",
+  description: "Home run and baseball fun. Game starts at 6PM. Be there a bit early to pick up the tickets.",
+  location: "MAZDA Zoom-Zoom Hiroshima Stadium")
 
 Activity.create!(stop: hiro, name: "Miyajima",
-                start_date:"2023-09-08", favorite: true, category: "outdoors",
-                description: "Day trip to Miyajima Island. Train to Miyajimaguchi then ferry to the island.")
+                start_date:"2023-09-08", favorite: true, category: "Nature",
+                description: "Day trip to Miyajima Island. Train to Miyajimaguchi then ferry to the island.",
+                location: "Itsukushima-jinja")
+
+Activity.create!(stop: nagoya, name: "Ghibli",
+  start_date:"2023-09-22", favorite: true, category: "Art",
+  description: "Day at Ghibli Park",
+  location: "Ghibli Park")
+
+hanoi = Stop.create!(trip: vietnam, name: "Hanoi", start_date: "2022-06-25", end_date: "2022-06-28",
+    address: "Hanoi, Vietnam")
+
+saigon = Stop.create!(trip: vietnam, name: "Ho Chi Minh", start_date: "2022-06-28", end_date: "2022-07-01",
+    address: "Ho Chi Minh City, Vietnam")
+
+hue = Stop.create!(trip: vietnam, name: "Hue", start_date:  "2022-07-01", end_date: "2022-07-02",
+    address: "Hué, Vietnam")
+
+hoian = Stop.create!(trip: vietnam, name: "Hoi An", start_date: "2022-07-02", end_date: "2022-07-06",
+    address: "Hoi-An, Vietnam")
+
+verona = Stop.create!(trip: italy, name: "Verona", start_date: "2019-05-11", end_date: "2019-05-13",
+    address: "Verona,Italy")
+
+bologna = Stop.create!(trip: italy, name: "Bologna", start_date: "2019-05-13", end_date: "2019-05-16",
+    address: "Bologna,Italy")
+
+florence = Stop.create!(trip: italy, name: "Florence", start_date:  "2019-05-16", end_date: "2019-05-20",
+    address: "Florence,Italy")
+
+siena = Stop.create!(trip: italy, name: "Siena", start_date: "2019-05-20", end_date: "2019-05-23",
+    address: "Siena,Italy")
+
+france = Trip.create!(name: "France", start_date: "2024-12-21", end_date: "2025-01-02")
+
+paris = Stop.create!(trip: france, name: "Paris", start_date: "2024-12-21", end_date: "2024-12-23",
+  address: "Paris, France")
+
+lyon = Stop.create!(trip: france, name: "Lyon", start_date: "2024-12-23", end_date: "2024-12-27",
+address: "Lyon, France")
+
+marseille = Stop.create!(trip: france, name: "Marseille", start_date: "2024-12-27", end_date: "2025-01-02",
+address: "Marseille, France")
