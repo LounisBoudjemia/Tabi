@@ -1,0 +1,5 @@
+<%= turbo_frame_tag :activity_show do %>
+  <h3><%= @activity.name %></h3>
+  <p><%= @activity.category.capitalize %></p>
+  <p><%= @activity.description %></p>
+<% end %>
