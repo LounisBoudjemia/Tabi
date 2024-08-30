@@ -38,11 +38,13 @@
 
   <!-- LEFT BOX -->
   <div id="stop-body-left" class="card d-flex flex-fill align-items-center p-3 rounded-5">
+
     <ul id="activities-list" class="list-unstyled w-100">
-      <% @activities.each do |activity|%>
-        <%= render "activity", activity: activity %>
-      <% end %>
+        <% @activities.each do |activity|%>
+          <%= render "activity", activity: activity %>
+        <% end %>
     </ul>
+
     <div id="add-activity">
       <%= link_to new_stop_activity_path(@stop),
           class: "link-underline link-underline-opacity-0 icon-link icon-link-hover",
@@ -50,6 +52,7 @@
         <i class="fa-regular fa-circle-plus"></i>
       <% end %>
     </div>
+
   </div>
 
   <!-- RIGHT BOX -->
