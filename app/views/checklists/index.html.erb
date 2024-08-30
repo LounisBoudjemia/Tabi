@@ -1,0 +1,32 @@
+<div id="checklists-index-container" class="m-3 p-3 rounded-5">
+  <div id="checklists-index-header" class="card d-flex flex-row justify-content-between p-3 m-0 rounded-5">
+    <div id="stop-header-right" class="d-flex flex-row">
+      <h1>Checklists</h1>
+    </div>
+    <div class="menu d-flex align-content-start">
+      <%= render "shared/menu"%>
+    </div>
+  </div>
+
+  <div id="checklists-index-body-left" class="card d-flex flex-fill align-items-center p-3 rounded-5">
+    <h2>My Checklists</h2>
+    <div id="checklists">
+      <% if @checklists %>
+        <% @checklists.each do |checkliste| %>
+          <p><%= checklist.name %></p>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <div id="checklists-index-body-right" class="card d-flex flex-fill align-items-center p-3 rounded-5">
+    <h2>Checklist Templates</h2>
+    <div id="checklist-templates">
+      <% if @checklist_teamplates %>
+        <% @checklist_teamplates.each do |checklist_template| %>
+          <p><%= checklist_template.name %></p>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
