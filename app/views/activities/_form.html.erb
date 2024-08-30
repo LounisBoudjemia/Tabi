@@ -4,6 +4,7 @@
 
   <%= simple_form_for [stop, activity] do |f| %>
   <%= f.input :name %>
+  <%= f.input :location %>
   <%= f.input :category, as: :select, collection: ['Food', 'Drinks', 'Art', 'Swimming', 'Memorial', 'Views'], prompt: "pick category" %>
   <%= f.input :description %>
   <%= f.input :start_date %>
@@ -17,6 +18,7 @@
 
   <%= simple_form_for @activity do |f| %>
   <%= f.input :name %>
+  <%= f.input :location %>
   <%= f.input :category %>
   <%= f.input :description %>
   <%= f.input :start_date %>
