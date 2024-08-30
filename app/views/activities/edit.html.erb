@@ -1,9 +1,12 @@
-<div class="title"> <h1>Edit your activity</h1></div>
+<div id="stop-container" class="m-3 p-3 rounded-5">
 
-<div class="container-new">
+  <div id="stop-header" class="card d-flex flex-row justify-content-between p-3 m-0 rounded-5"><h1>Edit your activity</h1></div>
 
-<%= render "form", stop: @stop, activity: @activity%>
+  <div class="container-new">
 
-<br>
+    <%= render "form", stop: @stop, activity: @activity%>
 
+    <br>
+
+  </div>
 </div>
