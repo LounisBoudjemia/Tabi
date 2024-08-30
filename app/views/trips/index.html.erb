@@ -4,7 +4,8 @@
   <% @trips.each do |trip| %>
   <%= link_to trip_path(trip), class:"link" do %>
       <div class="card-index">
-          <div class="card-index-img-top" >  <img src="https://149990825.v2.pressablecdn.com/wp-content/uploads/2023/09/Seoul1.jpg" /></div>
+          <%# <div class="card-index-img-top" >  <img src="https://149990825.v2.pressablecdn.com/wp-content/uploads/2023/09/Seoul1.jpg" /></div> %>
+        <div class="card-index-img-top"> <%= cl_image_tag trip.photo.key, crop: :fill %> </div>
             <div class="card-index-body">
               <h5 class="card-index-title" ><%= trip.name  %></h5>
               <p class="card-index-text"> <%= trip.start_date.strftime("%d-%m-%Y") %> - <%= trip.formatted_end %></p>
