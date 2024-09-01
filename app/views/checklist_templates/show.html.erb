@@ -1,0 +1,35 @@
+<%= turbo_frame_tag :checklist_template_show do%>
+  <h2><%= @checklist_template.name %></h2>
+
+  <% @checklist_template.items.each do |item| %>
+  <li class="item-card card d-flex flex-row justify-content-between rounded-pill px-3 py-1 mb-1 bg-light-subtle">
+
+      <!-- CHECKBOX -->
+      <%= turbo_frame_tag "item_checked_#{item.id}" do%>
+        <div class="checked me-2">
+          <%= link_to item_path(item, @trip), data: {turbo_method: :patch} do %>
+            <% if item.checked %>
+              <i class="fa-regular fa-circle-check"></i>
+            <% else %>
+              <i class="fa-regular fa-circle"></i>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+
+    <!-- ITEM NAME -->
+    <div class="item-name flex-grow-1">
+      <%= item.name %>
+    </div>
+
+    <!-- TRASH ICON -->
+    <%= link_to item_path(item), method: :delete, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+      <div class="button ms-2">
+          <i class="fa-solid fa-trash"></i>
+      </div>
+    <% end %>
+
+  </li>
+  <% end %>
+<% end %>

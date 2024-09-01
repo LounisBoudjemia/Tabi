@@ -22,7 +22,7 @@ Rails.application.routes.draw do
 
   resources :checklist_templates do
     resources :checklist_items,  only: [:new, :create, :edit, :update, :destroy], shallow: true do
-      resources :items, only: [:new, :create, :edit, :update, :destroy], shallow: true
+      resources :items, only: [:new, :create, :show, :edit, :update, :destroy], shallow: true
     end
   end
 

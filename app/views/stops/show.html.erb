@@ -3,6 +3,8 @@
   <!-- HEADER -->
   <div id="stop-header" class="card d-flex flex-row justify-content-between p-3 m-0 rounded-5">
     <div id="stop-header-right" class="d-flex flex-row">
+
+      <!-- TEXT -->
       <div id="stop-text" class="me-3">
         <div id="stop-headline">
           <h1><%= @stop.name %></h1>
@@ -18,6 +20,8 @@
           <% end %>
         </div>
       </div>
+
+      <!-- ICONS -->
       <div id="stop-icons">
         <%= link_to edit_stop_path(@stop), style: "font-size: 2rem;" do %>
           <div>
@@ -31,6 +35,8 @@
         <% end %>
       </div>
     </div>
+
+    <!-- MENU -->
     <div class="menu d-flex align-content-start">
       <%= render "shared/menu"%>
     </div>
@@ -65,7 +71,7 @@
         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
 
-    <!-- CALENDAR -->
+    <!-- ACTIVITY SHOW -->
     <div id="stop-right-bottom" class="w-100 h-50 p-3 rounded-5">
 
       <div id="activity-show" class="card w-100 h-100 p-3 rounded-5 bg-white">

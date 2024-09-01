@@ -187,34 +187,71 @@ sleeping_bag = Item.create!(name: "Sleeping bag", checked: false)
 puts "Items created!"
 
 # CHECKLIST ITEMS
-ChecklistItem.create!(checklist: japan_checklist, item: passport)
-ChecklistItem.create!(checklist: japan_checklist, item: flight_tickets)
-ChecklistItem.create!(checklist: japan_checklist, item: hotel_reservation)
-ChecklistItem.create!(checklist: japan_checklist, item: travel_insurance)
-ChecklistItem.create!(checklist: japan_checklist, item: credit_card)
+# JAPAN CHECKLIST ITEMS
+ChecklistItem.create!(checklistable: japan_checklist, item: passport)
+ChecklistItem.create!(checklistable: japan_checklist, item: flight_tickets)
+ChecklistItem.create!(checklistable: japan_checklist, item: hotel_reservation)
+ChecklistItem.create!(checklistable: japan_checklist, item: travel_insurance)
+ChecklistItem.create!(checklistable: japan_checklist, item: credit_card)
 
-ChecklistItem.create!(checklist: vietnam_checklist, item: passport)
-ChecklistItem.create!(checklist: vietnam_checklist, item: flight_tickets)
-ChecklistItem.create!(checklist: vietnam_checklist, item: hotel_reservation)
-ChecklistItem.create!(checklist: vietnam_checklist, item: travel_insurance)
-ChecklistItem.create!(checklist: vietnam_checklist, item: credit_card)
+# VIETNAM CHECKLIST ITEMS
+ChecklistItem.create!(checklistable: vietnam_checklist, item: passport)
+ChecklistItem.create!(checklistable: vietnam_checklist, item: flight_tickets)
+ChecklistItem.create!(checklistable: vietnam_checklist, item: hotel_reservation)
+ChecklistItem.create!(checklistable: vietnam_checklist, item: travel_insurance)
+ChecklistItem.create!(checklistable: vietnam_checklist, item: credit_card)
 
-ChecklistItem.create!(checklist: italy_checklist, item: passport)
-ChecklistItem.create!(checklist: italy_checklist, item: flight_tickets)
-ChecklistItem.create!(checklist: italy_checklist, item: hotel_reservation)
-ChecklistItem.create!(checklist: italy_checklist, item: travel_insurance)
-ChecklistItem.create!(checklist: italy_checklist, item: credit_card)
+# ITALY CHECKLIST ITEMS
+ChecklistItem.create!(checklistable: italy_checklist, item: passport)
+ChecklistItem.create!(checklistable: italy_checklist, item: flight_tickets)
+ChecklistItem.create!(checklistable: italy_checklist, item: hotel_reservation)
+ChecklistItem.create!(checklistable: italy_checklist, item: travel_insurance)
+ChecklistItem.create!(checklistable: italy_checklist, item: credit_card)
 
-ChecklistItem.create!(checklist: france_checklist, item: passport)
-ChecklistItem.create!(checklist: france_checklist, item: flight_tickets)
-ChecklistItem.create!(checklist: france_checklist, item: hotel_reservation)
-ChecklistItem.create!(checklist: france_checklist, item: travel_insurance)
-ChecklistItem.create!(checklist: france_checklist, item: credit_card)
+# FRANCE CHECKLIST ITEMS
+ChecklistItem.create!(checklistable: france_checklist, item: passport)
+ChecklistItem.create!(checklistable: france_checklist, item: flight_tickets)
+ChecklistItem.create!(checklistable: france_checklist, item: hotel_reservation)
+ChecklistItem.create!(checklistable: france_checklist, item: travel_insurance)
+ChecklistItem.create!(checklistable: france_checklist, item: credit_card)
 
-ChecklistItem.create!(checklist: city_list_lounis, item: passport)
-ChecklistItem.create!(checklist: city_list_lounis, item: flight_tickets)
-ChecklistItem.create!(checklist: city_list_lounis, item: hotel_reservation)
-ChecklistItem.create!(checklist: city_list_lounis, item: travel_insurance)
+# CITY LIST LOUNIS ITEMS
+ChecklistItem.create!(checklistable: city_list_lounis, item: passport)
+ChecklistItem.create!(checklistable: city_list_lounis, item: flight_tickets)
+ChecklistItem.create!(checklistable: city_list_lounis, item: hotel_reservation)
+ChecklistItem.create!(checklistable: city_list_lounis, item: travel_insurance)
+ChecklistItem.create!(checklistable: city_list_lounis, item: credit_card)
+ChecklistItem.create!(checklistable: city_list_lounis, item: cash)
+ChecklistItem.create!(checklistable: city_list_lounis, item: phone_charger)
+ChecklistItem.create!(checklistable: city_list_lounis, item: camera)
+ChecklistItem.create!(checklistable: city_list_lounis, item: medication)
+ChecklistItem.create!(checklistable: city_list_lounis, item: first_aid_kit)
+ChecklistItem.create!(checklistable: city_list_lounis, item: toothbrush)
+ChecklistItem.create!(checklistable: city_list_lounis, item: toothpaste)
+ChecklistItem.create!(checklistable: city_list_lounis, item: shampoo)
+ChecklistItem.create!(checklistable: city_list_lounis, item: conditioner)
+ChecklistItem.create!(checklistable: city_list_lounis, item: body_wash)
+ChecklistItem.create!(checklistable: city_list_lounis, item: headphones)
+ChecklistItem.create!(checklistable: city_list_lounis, item: umbrella)
+
+# BEACH LIST LOUNIS ITEMS
+ChecklistItem.create!(checklistable: beach_list_lounis, item: sunscreen)
+ChecklistItem.create!(checklistable: beach_list_lounis, item: sunglasses)
+ChecklistItem.create!(checklistable: beach_list_lounis, item: flip_flops)
+ChecklistItem.create!(checklistable: beach_list_lounis, item: swimsuit)
+ChecklistItem.create!(checklistable: beach_list_lounis, item: beach_towel)
+ChecklistItem.create!(checklistable: beach_list_lounis, item: book)
+ChecklistItem.create!(checklistable: beach_list_lounis, item: hat)
+
+# BACKPACKING LIST LOUNIS ITEMS
+ChecklistItem.create!(checklistable: backpacking_list_lounis, item: raincoat)
+ChecklistItem.create!(checklistable: backpacking_list_lounis, item: jacket)
+ChecklistItem.create!(checklistable: backpacking_list_lounis, item: sweater)
+ChecklistItem.create!(checklistable: backpacking_list_lounis, item: scarf)
+ChecklistItem.create!(checklistable: backpacking_list_lounis, item: gloves)
+ChecklistItem.create!(checklistable: backpacking_list_lounis, item: hiking_boots)
+ChecklistItem.create!(checklistable: backpacking_list_lounis, item: backpack)
+ChecklistItem.create!(checklistable: backpacking_list_lounis, item: sleeping_bag)
 
 puts "Checklist items created!"
 
@@ -229,4 +266,4 @@ DiaryEntry.create!(trip: japan, headline: "Day 7 in Japan", content: "We are now
 
 puts "Diary entries created!"
 
-puts "Finished!"
+puts 'Seeding completed successfully!'
