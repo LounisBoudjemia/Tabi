@@ -1,39 +1,74 @@
 #stop-container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(5, 1fr);
+  grid-template-columns: 1fr 1fr 1fr;
   grid-column-gap: 16px;
   grid-row-gap: 16px;
-  height: 98%;
-  background-color: white;
+  height: calc(100vh - 80px);
   }
+
 
   #stop-header {
-    grid-column: span 2;
-    background-color: $success;
+    height: 40px;
+    padding: 16px;
+    margin: 16px;
+  }
+  #stop-description {
+    font-size: 20px;
+    font-family: "Roboto";
+    text-wrap: wrap;
+
+  }
+  #stop-header-title {
+    font-size: 30px;
+    font-family: "Roboto";
+    font-weight: bold;
   }
 
-  #stop-body-left {
-    grid-row: span 4;
-    background-color: $danger;
+  #stop-header-dates {
+    font-size: 20px;
+    font-family: "Roboto";
   }
 
-  #stop-body-right {
-    grid-row: span 4;
-    background-color: $info;
+  #activity-body-left {
+    overflow-y: auto;
   }
 
-  #activities-list {
-    overflow-y: scroll;
-  }
-
-  // Hide scrollbar for Chrome, Safari and Opera
   #activities-list::-webkit-scrollbar {
     display: none;
   }
 
   // Hide scrollbar for IE, Edge and Firefox
-  #stops-list {
+  #activities-list {
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
+    width: 100%;
+
+  }
+
+  #link-home {
+    margin-right: 20px;
+  }
+
+
+  .activity-card {
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    transition: all .3s ease-in-out;
+    width: 400px;
+    min-height: 80px;
+    font-family: "Roboto";
+    font-size: 14px;
+    background-color: teal;
+
+    h5 {
+      font-family: "Roboto";
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+  }
+
+  .activity-card:hover {
+    transform: translateY(-10px);
   }

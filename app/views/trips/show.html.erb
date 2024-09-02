@@ -1,4 +1,4 @@
-<!--- NAVABAR --->
+<!--- NAVBAR --->
   <div id="trip-header-navbar" class="navbar d-flex justify-content-between">
       <div id="trip-text" class="me-3">
         <div id="name">
@@ -12,7 +12,7 @@
             <i class="fa-solid fa-house" style="font-size: 2rem;"></i>
           <% end %>
         </div>
-    <div class="menu d-flex align-content-start"">
+    <div class="menu d-flex align-content-start">
       <%= render "shared/menu"%>
     </div>
     </div>
@@ -39,6 +39,17 @@
         <%= render "stop", stop: stop %>
       <% end %>
     </ul>
+
+
+    <div class="d flex align-items-center">
+      <%= link_to new_trip_stop_path(@trip) do  %>
+       <%= turbo_frame_tag :new_stop do %>
+      <i class="fa-solid fa-plus" style="font-size: 2rem;"></i>
+       </div>
+    <% end %>
+
+     <% end %>
+
   </div>
 
   <!-- RIGHT BOX -->
