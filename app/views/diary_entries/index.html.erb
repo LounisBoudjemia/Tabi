@@ -1,20 +1,22 @@
-<h1>Welcome to the diaries</h1>
+<h1>Diarie Entries</h1>
 
 <div class="flexed-page">
-<!-- Diary Entry -->
 
-  <div class="diary_entry_container">
+  <!-- Diary Entry -->
+
+  <div class="diary-index-container">
     <%= turbo_frame_tag :diary_entry_show do %>
       <h3><%= @diary_entry.headline %></h3>
-      <p><%= @diary_entry.content %></p>
       <p><%= @diary_entry.date %></p>
+      <p><%= @diary_entry.content %></p>
     <% end %>
   </div>
 
   <!-- Calendar -->
+  <div class="calendar-container">
+    <%= month_calendar do |date|%>
+      <%= date%>
+    <%end%>
+  </div>
 
-  <%= month_calendar do |date|%>
-    <%= date%>
-  <%end%>
-  
 </div>
