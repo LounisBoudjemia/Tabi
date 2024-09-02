@@ -93,3 +93,50 @@ address: "Lyon, France")
 
 marseille = Stop.create!(trip: france, name: "Marseille", start_date: "2024-12-27", end_date: "2025-01-02",
 address: "Marseille, France")
+
+first_entry = DiaryEntry.create!(
+  headline: "This was a Beautyful first day",
+  content: "Florence, the city of art, took my breath away. The Uffizi Gallery was a highlight of the trip, with its vast collection of Renaissance masterpieces. Standing in front of Botticelli's 'The Birth of Venus' was an awe-inspiring moment. The Duomo, with its stunning dome designed by Brunelleschi, dominates the skyline. Florence is a city where beauty and history meet at every corner, leaving a lasting impression.",
+  date: "2024-12-27",
+  trip: italy)
+
+first_entry = DiaryEntry.create!(
+  headline: "This was a Beautyful first day",
+  content: "lorem Ipsum",
+  date: "2024-12-27",
+  trip: italy)
+
+first_entry = DiaryEntry.create!(
+  headline: "Exploring the Streets of Rome",
+  content: "Today, I wandered through the ancient streets of Rome. The Colosseum was even more magnificent in person than I had imagined. The warm Italian sun bathed the city in golden light, and I could feel the history beneath my feet. As I sipped my cappuccino at a small café, I realized that this city has a charm that is truly timeless. I can’t wait to see what tomorrow holds.",
+  date: "2024-12-27",
+  trip: italy
+)
+
+second_entry = DiaryEntry.create!(
+  headline: "A Day in Venice",
+  content: "Venice greeted us with its winding canals and graceful bridges. We took a gondola ride through the waterways, which felt like stepping back in time. The palazzos lining the canals are exquisite, and every corner of this city has a story to tell. I spent the afternoon getting lost in the labyrinth of streets, discovering hidden squares and beautiful churches. Venice is a place where time seems to stand still.",
+  date: "2024-12-28",
+  trip: italy
+)
+
+third_entry = DiaryEntry.create!(
+  headline: "Florence: Cradle of the Renaissance",
+  content: "Florence, the city of art, took my breath away. The Uffizi Gallery was a highlight of the trip, with its vast collection of Renaissance masterpieces. Standing in front of Botticelli's 'The Birth of Venus' was an awe-inspiring moment. The Duomo, with its stunning dome designed by Brunelleschi, dominates the skyline. Florence is a city where beauty and history meet at every corner, leaving a lasting impression.",
+  date: "2024-12-29",
+  trip: italy
+)
+
+fourth_entry = DiaryEntry.create!(
+  headline: "Tuscany’s Rolling Hills",
+  content: "The Tuscan countryside is as picturesque as the postcards depict. Rolling hills dotted with vineyards and olive groves stretch as far as the eye can see. We visited a small vineyard today and tasted some of the finest wines I’ve ever had. The air is crisp, and the sky is a perfect shade of blue. Tuscany’s beauty lies in its simplicity, and it’s a place where one can truly relax and appreciate life.",
+  date: "2024-12-30",
+  trip: italy
+)
+
+fifth_entry = DiaryEntry.create!(
+  headline: "Amalfi Coast Adventure",
+  content: "The Amalfi Coast is a dream come true. The cliffs plunge dramatically into the turquoise sea, and the towns cling precariously to the rocks. We drove along the coast, stopping in Positano for lunch with a view. The food is incredible—fresh seafood, lemon-scented everything, and the best gelato I’ve ever tasted. This place feels like paradise, and I wish I could stay here forever. Italy’s beauty is unparalleled.",
+  date: "2024-12-31",
+  trip: italy
+)

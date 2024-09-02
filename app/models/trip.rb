@@ -2,6 +2,7 @@ class Trip < ApplicationRecord
   has_one_attached :photo
   has_many :stops
   has_many :checklists
+  has_many :diary_entries, dependent: :destroy
 
   validates :name, presence: true
   validates :start_date, presence: true
