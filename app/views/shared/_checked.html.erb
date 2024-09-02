@@ -1,0 +1,11 @@
+<%= turbo_frame_tag "checklist_item_checked_#{checklist_item.id}" do%>
+<div class="checked me-2">
+  <%= link_to checked_checklist_item_path(checklist_item, trip_id: @trip), data: {turbo_method: :patch} do %>
+    <% if checklist_item.checked %>
+      <i class="fa-regular fa-circle-check"></i>
+    <% else %>
+      <i class="fa-regular fa-circle"></i>
+    <% end %>
+  <% end %>
+</div>
+<% end %>

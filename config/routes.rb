@@ -10,7 +10,9 @@ Rails.application.routes.draw do
 
   resources :trips do
     resources :diary_entries, shallow: true
-    resources :checklists, shallow: true
+    resources :checklists, shallow: true do
+      resources :items, only: [:new, :create]
+    end
     resources :stops, shallow: true do
       resources :activities, only: [:new, :create, :show, :edit, :update, :destroy], shallow: true do
         member do
@@ -21,10 +23,16 @@ Rails.application.routes.draw do
   end
 
   resources :checklist_templates do
+    resources :items, only: [:new, :create]
     resources :checklist_items,  only: [:new, :create, :edit, :update, :destroy], shallow: true do
-      resources :items, only: [:new, :create, :show, :edit, :update, :destroy], shallow: true
+      member do
+        patch :checked, :use_template
+      end
+      resources :items, only: [:show, :edit, :update, :destroy], shallow: true
     end
   end
+
+
 
   # resources :stops, only: [] do
   #   resources :activities, only: [:new, :create]

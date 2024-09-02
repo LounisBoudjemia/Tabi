@@ -13,7 +13,6 @@ puts "Cleaning database..."
 Activity.destroy_all
 Stop.destroy_all
 Item.destroy_all
-DiaryEntry.destroy_all
 ChecklistItem.destroy_all
 Checklist.destroy_all
 ChecklistTemplate.destroy_all
@@ -150,39 +149,39 @@ backpacking_list_navid = ChecklistTemplate.create!(user: navid, name: "Backpacki
 puts "Checklist templates created!"
 
 # ITEMS
-passport = Item.create!(name: "Passport", checked: false)
-flight_tickets = Item.create!(name: "Flight tickets", checked: false)
-hotel_reservation = Item.create!(name: "Hotel reservation", checked: false)
-travel_insurance = Item.create!(name: "Travel insurance", checked: false)
-credit_card = Item.create!(name: "Credit card", checked: false)
-cash = Item.create!(name: "Cash", checked: false)
-phone_charger = Item.create!(name: "Phone charger", checked: false)
-camera = Item.create!(name: "Camera", checked: false)
-toothbrush = Item.create!(name: "Toothbrush", checked: false)
-toothpaste = Item.create!(name: "Toothpaste", checked: false)
-shampoo = Item.create!(name: "Shampoo", checked: false)
-conditioner = Item.create!(name: "Conditioner", checked: false)
-body_wash = Item.create!(name: "Body wash", checked: false)
-sunscreen = Item.create!(name: "Sunscreen", checked: false)
-sunglasses = Item.create!(name: "Sunglasses", checked: false)
-hat = Item.create!(name: "Hat", checked: false)
-flip_flops = Item.create!(name: "Flip flops", checked: false)
-swimsuit = Item.create!(name: "Swimsuit", checked: false)
-beach_towel = Item.create!(name: "Beach towel", checked: false)
-book = Item.create!(name: "Book", checked: false)
-headphones = Item.create!(name: "Headphones", checked: false)
-medication = Item.create!(name: "Medication", checked: false)
-first_aid_kit = Item.create!(name: "First aid kit", checked: false)
-umbrella = Item.create!(name: "Umbrella", checked: false)
-raincoat = Item.create!(name: "Raincoat", checked: false)
-jacket = Item.create!(name: "Jacket", checked: false)
-sweater = Item.create!(name: "Sweater", checked: false)
-scarf = Item.create!(name: "Scarf", checked: false)
-gloves = Item.create!(name: "Gloves", checked: false)
-hat = Item.create!(name: "Hat", checked: false)
-hiking_boots = Item.create!(name: "Hiking boots", checked: false)
-backpack = Item.create!(name: "Backpack", checked: false)
-sleeping_bag = Item.create!(name: "Sleeping bag", checked: false)
+passport = Item.create!(name: "Passport")
+flight_tickets = Item.create!(name: "Flight tickets")
+hotel_reservation = Item.create!(name: "Hotel reservation")
+travel_insurance = Item.create!(name: "Travel insurance")
+credit_card = Item.create!(name: "Credit card")
+cash = Item.create!(name: "Cash")
+phone_charger = Item.create!(name: "Phone charger")
+camera = Item.create!(name: "Camera")
+toothbrush = Item.create!(name: "Toothbrush")
+toothpaste = Item.create!(name: "Toothpaste")
+shampoo = Item.create!(name: "Shampoo")
+conditioner = Item.create!(name: "Conditioner")
+body_wash = Item.create!(name: "Body wash")
+sunscreen = Item.create!(name: "Sunscreen")
+sunglasses = Item.create!(name: "Sunglasses")
+hat = Item.create!(name: "Hat")
+flip_flops = Item.create!(name: "Flip flops")
+swimsuit = Item.create!(name: "Swimsuit")
+beach_towel = Item.create!(name: "Beach towel")
+book = Item.create!(name: "Book")
+headphones = Item.create!(name: "Headphones")
+medication = Item.create!(name: "Medication")
+first_aid_kit = Item.create!(name: "First aid kit")
+umbrella = Item.create!(name: "Umbrella")
+raincoat = Item.create!(name: "Raincoat")
+jacket = Item.create!(name: "Jacket")
+sweater = Item.create!(name: "Sweater")
+scarf = Item.create!(name: "Scarf")
+gloves = Item.create!(name: "Gloves")
+hat = Item.create!(name: "Hat")
+hiking_boots = Item.create!(name: "Hiking boots")
+backpack = Item.create!(name: "Backpack")
+sleeping_bag = Item.create!(name: "Sleeping bag")
 
 puts "Items created!"
 
@@ -254,16 +253,5 @@ ChecklistItem.create!(checklistable: backpacking_list_lounis, item: backpack)
 ChecklistItem.create!(checklistable: backpacking_list_lounis, item: sleeping_bag)
 
 puts "Checklist items created!"
-
-# DIARY ENTRIES JAPAN TRIP
-DiaryEntry.create!(trip: japan, headline: "First day in Japan", content: "We arrived in Japan and we are so excited to start our trip!")
-DiaryEntry.create!(trip: japan, headline: "Day 2 in Japan", content: "We visited the peace memorial museum and it was very emotional.")
-DiaryEntry.create!(trip: japan, headline: "Day 3 in Japan", content: "We went to the Toyo Carps baseball game and it was so much fun!")
-DiaryEntry.create!(trip: japan, headline: "Day 4 in Japan", content: "We went to Miyajima and it was so beautiful!")
-DiaryEntry.create!(trip: japan, headline: "Day 5 in Japan", content: "We are now in Fukuoka and we are loving it!")
-DiaryEntry.create!(trip: japan, headline: "Day 6 in Japan", content: "We are now in Okinawa and we are loving it!")
-DiaryEntry.create!(trip: japan, headline: "Day 7 in Japan", content: "We are now in Nagoya and we are loving it!")
-
-puts "Diary entries created!"
 
 puts 'Seeding completed successfully!'

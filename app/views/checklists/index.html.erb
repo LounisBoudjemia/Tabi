@@ -30,13 +30,10 @@
         </ul>
       </div>
     </div>
-    <div id="checklist-content" class="">
+    <div id="checklist-content" class="h-100 d-inline-block">
       <%= turbo_frame_tag :checklist_show do%>
         <% if Checklist.first.present? %>
-          <h2><%= Checklist.first.name %></h2>
-          <% Checklist.first.items.each do |item| %>
-            <p><%= item.name %></p>
-          <% end %>
+        <%= render partial: "shared/list", locals: { list: Checklist.first, trip: @trip } %>
         <% end %>
       <% end %>
     </div>
@@ -52,19 +49,16 @@
         <ul class="dropdown-menu">
           <% if @checklist_templates.present? %>
             <% @checklist_templates.each do |checklist_template| %>
-              <li><%= link_to checklist_template.name, checklist_template_path(checklist_template), class: "text-decoration-none", data: { turbo_frame: :checklist_template_show } %></li>
+              <li><%= link_to checklist_template.name, checklist_template_path(checklist_template, trip_id: @trip), class: "text-decoration-none", data: { turbo_frame: :checklist_template_show } %></li>
             <%end%>
           <% end %>
         </ul>
       </div>
     </div>
-    <div id="template-content" class="">
+    <div id="template-content" class="h-100 d-inline-block">
       <%= turbo_frame_tag :checklist_template_show do%>
         <% if ChecklistTemplate.first.present? %>
-          <h2><%= ChecklistTemplate.first.name %></h2>
-          <% ChecklistTemplate.first.items.each do |item| %>
-            <p><%= item.name %></p>
-          <% end %>
+          <%= render partial: "shared/list", locals: { list: ChecklistTemplate.first, trip: @trip } %>
         <% end %>
       <% end %>
     </div>

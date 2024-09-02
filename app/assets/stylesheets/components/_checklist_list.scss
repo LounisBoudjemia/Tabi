@@ -1,0 +1,14 @@
+#checklist-items {
+  overflow-y: scroll;
+}
+
+// Hide scrollbar for Chrome, Safari and Opera
+#checklist-items::-webkit-scrollbar {
+  display: none;
+}
+
+// Hide scrollbar for IE, Edge and Firefox
+#checklist-items {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
