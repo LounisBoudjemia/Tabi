@@ -2,6 +2,8 @@ class DiaryEntriesController < ApplicationController
   def index
     @diary_entries = DiaryEntry.all
     @diary_entry = DiaryEntry.find(params[:trip_id])
+    @trip = Trip.find(params[:trip_id])
+    @stops = @trip.stops
   end
 
   def show
