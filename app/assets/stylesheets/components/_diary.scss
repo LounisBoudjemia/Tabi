@@ -5,10 +5,17 @@
   justify-content: space-evenly;
 }
 
-.calendar-container {
+// .diary-container {
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-evenly;
+//   flex-direction: column;
+// }
+
+.diary-entry-container{
   width: 35%;
 }
 
-.diary-index-container{
+.calendar-container {
   width: 35%;
 }
