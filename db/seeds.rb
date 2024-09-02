@@ -39,6 +39,31 @@ nagoya = Stop.create!(trip: japan, name: "Nagoya", start_date: "2023-09-21", end
 tokyo = Stop.create!(trip: japan, name: "Tokyo", start_date: "2023-09-24", end_date: "2023-09-30",
              address: "Tokyo")
 
+Stop.create!(trip: japan, name: "Tokyo", start_date: "2023-09-24", end_date: "2023-09-30",
+address: "Tokyo")
+Stop.create!(trip: japan, name: "Tokyo", start_date: "2023-09-24", end_date: "2023-09-30",
+address: "Tokyo")
+Stop.create!(trip: japan, name: "Tokyo", start_date: "2023-09-24", end_date: "2023-09-30",
+address: "Tokyo")
+Stop.create!(trip: japan, name: "Tokyo", start_date: "2023-09-24", end_date: "2023-09-30",
+address: "Tokyo")
+Stop.create!(trip: japan, name: "Tokyo", start_date: "2023-09-24", end_date: "2023-09-30",
+address: "Tokyo")
+Stop.create!(trip: japan, name: "Tokyo", start_date: "2023-09-24", end_date: "2023-09-30",
+address: "Tokyo")
+Stop.create!(trip: japan, name: "Tokyo", start_date: "2023-09-24", end_date: "2023-09-30",
+  address: "Tokyo")
+  Stop.create!(trip: japan, name: "Tokyo", start_date: "2023-09-24", end_date: "2023-09-30",
+  address: "Tokyo")
+  Stop.create!(trip: japan, name: "Tokyo", start_date: "2023-09-24", end_date: "2023-09-30",
+  address: "Tokyo")
+  Stop.create!(trip: japan, name: "Tokyo", start_date: "2023-09-24", end_date: "2023-09-30",
+  address: "Tokyo")
+  Stop.create!(trip: japan, name: "Tokyo", start_date: "2023-09-24", end_date: "2023-09-30",
+  address: "Tokyo")
+  Stop.create!(trip: japan, name: "Tokyo", start_date: "2023-09-24", end_date: "2023-09-30",
+  address: "Tokyo")
+
 Activity.create!(stop: hiro, name: "peace memorial museum",
               start_date:"2023-09-07", favorite: true, category: "museum",
               description: "Visit of the peace memorial park and museum.",
