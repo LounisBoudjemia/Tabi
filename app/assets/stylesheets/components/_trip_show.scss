@@ -23,21 +23,6 @@
     font-family: "Roboto";
   }
 
-
-  #trip-body-left {
-    grid-row: span 4;
-    background-color:  white;
-  }
-
-  #trip-map {
-    grid-row: span 4;
-    background-color:  white;
-  }
-
-  .trip-item {
-    align-content: center;
-  }
-
   #trip-body-left {
     overflow-y: auto;
 
@@ -53,6 +38,7 @@
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
     width: 100%;
+
   }
 
   #link-home {
@@ -67,6 +53,8 @@
     transition: all .3s ease-in-out;
     width: 100%;
     min-height: 80px;
+    background-color: #C6E6E2;
+
   }
 
   .stop-card:hover {
