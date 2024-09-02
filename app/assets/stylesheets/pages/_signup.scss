@@ -4,17 +4,21 @@
   margin: 60px auto;
   padding: 20px;
   background-color: #fafafa;
-  box-shadow: 4px 12px 30px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
   border-radius: 40px;
   font-family: 'Georgia', serif;
+  transition: box-shadow 0.3s ease;
+}
+
+.signup-container:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
 }
 
 /* Header styling */
 .signup-container h2 {
-  padding: 5px;
+  margin-bottom: 30px;
   text-align: center;
   color: #333;
-  margin-bottom: 30px;
   font-size: 28px;
   font-weight: 700;
   letter-spacing: 1px;
@@ -25,49 +29,50 @@
   margin-bottom: 25px;
 }
 
-.signup-container .form-inputs .form-group label {
-  font-size: 16px;
-  color: #007bff;
+.signup-container .form-group label {
   display: block;
   margin-bottom: 10px;
+  color: #007bff;
+  font-size: 16px;
   font-weight: 600;
 }
 
-.signup-container .form-inputs .form-group input[type="text"],
-.signup-container .form-inputs .form-group input[type="email"],
-.signup-container .form-inputs .form-group input[type="password"] {
+.signup-container .form-group input[type="text"],
+.signup-container .form-group input[type="email"],
+.signup-container .form-group input[type="password"] {
   width: 100%;
   padding: 14px;
   font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 40px;
-  box-sizing: border-box;
-  transition: border-color 1.0s ease, box-shadow 1.0s ease;
   background-color: #f5f5f5;
   color: #333;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
 }
 
-.signup-container .form-inputs .form-group input[type="text"]:hover,
-.signup-container .form-inputs .form-group input[type="email"]:hover,
-.signup-container .form-inputs .form-group input[type="password"]:hover {
+.signup-container .form-group input[type="text"]:hover,
+.signup-container .form-group input[type="email"]:hover,
+.signup-container .form-group input[type="password"]:hover {
   border-color: #a07e7e;
 }
 
-.signup-container .form-inputs .form-group input[type="text"]:focus,
-.signup-container .form-inputs .form-group input[type="email"]:focus,
-.signup-container .form-inputs .form-group input[type="password"]:focus {
+.signup-container .form-group input[type="text"]:focus,
+.signup-container .form-group input[type="email"]:focus,
+.signup-container .form-group input[type="password"]:focus {
   border-color: #007bff;
   box-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
   background-color: #fff;
+  outline: none;
 }
 
 /* Checkbox styling */
-.signup-container .form-inputs .form-group input[type="checkbox"] {
+.signup-container .form-group input[type="checkbox"] {
   margin-right: 8px;
   vertical-align: middle;
 }
 
-.signup-container .form-inputs .form-group input[type="checkbox"] + label {
+.signup-container .form-group input[type="checkbox"] + label {
   display: inline-block;
   color: #555;
   font-size: 15px;
@@ -83,13 +88,13 @@
   width: 100%;
   padding: 14px;
   background-color: #007bff;
-  color: #ffffff;
+  color: #fff;
   border: none;
   border-radius: 8px;
   font-size: 18px;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 1.0s ease, transform 1.0s ease, box-shadow 1.0s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .signup-container .form-actions button[type="submit"]:hover {
@@ -107,23 +112,32 @@
 /* Links styling */
 .signup-container a {
   display: block;
-  text-align: center;
   margin-top: 25px;
+  text-align: center;
   color: #007bff;
   font-size: 15px;
   font-weight: 500;
   text-decoration: none;
-  transition: color 1.0s ease, transform 1.0s ease;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .signup-container a:hover {
   color: #0150a3;
-  box-shadow: inset;
-  text-decoration: none;
-  transform: scale(1.0);
+  transform: scale(1.05);
 }
 
-/* Form container hover effect */
-.signup-container:hover {
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+/* Responsive Design */
+@media (max-width: 480px) {
+  .signup-container {
+    padding: 15px;
+  }
+
+  .signup-container h2 {
+    font-size: 24px;
+  }
+
+  .signup-container .form-actions button[type="submit"] {
+    font-size: 16px;
+    padding: 12px;
+  }
 }
