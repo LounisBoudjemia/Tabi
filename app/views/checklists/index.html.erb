@@ -20,57 +20,22 @@
 </div>
 
   <!-- CONTENT -->
-<div id="checklists-index-container">
+<div id="checklists-index-container" class="">
   <!-- LEFT BOX -->
   <div id="checklists-header" class="">
     <div id="checklists-header-title">
       <p> Checklists </p>
     </div>
+    <div id="new-checklist-buttons">
+      <%= link_to "New Checklist", new_trip_checklist_path(trip_id: @trip), class: "btn btn-secondary text-decoration-none" %>
+      <%= link_to "New Template", new_checklist_template_path(trip_id: @trip), class: "btn btn-secondary text-decoration-none" %>
+    </div>
   </div>
 
   <!-- MIDDLE BOX -->
-  <div id="checklists-container" class="">
-    <div class="dropdown">
-      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Checklists
-      </button>
-      <ul class="dropdown-menu">
-        <% if @checklists.present? %>
-          <% @checklists.each do |checklist| %>
-            <li><%= link_to checklist.name, checklist_path(checklist, trip_id: @trip), class: "text-decoration-none", data: { turbo_frame: :checklist_show } %></li>
-          <%end%>
-        <% end %>
-      </ul>
-    </div>
-    <div id="checklist-content" class="">
-      <%= turbo_frame_tag :checklist_show do%>
-        <% if Checklist.first.present? %>
-        <%= render partial: "shared/list", locals: { list: Checklist.first, trip: @trip } %>
-        <% end %>
-      <% end %>
-    </div>
-  </div>
+  <%= render partial: "checklist_container", checklists: @checklists, trip: @trip %>
 
   <!-- RIGHT BOX -->
-  <div id="templates-container" class="">
-    <div class="dropdown">
-      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Templates
-      </button>
-      <ul class="dropdown-menu">
-        <% if @checklist_templates.present? %>
-          <% @checklist_templates.each do |checklist_template| %>
-            <li><%= link_to checklist_template.name, checklist_template_path(checklist_template, trip_id: @trip), class: "text-decoration-none", data: { turbo_frame: :checklist_template_show } %></li>
-          <%end%>
-        <% end %>
-      </ul>
-    </div>
-    <div id="template-content" class="h-100 d-inline-block">
-      <%= turbo_frame_tag :checklist_template_show do%>
-        <% if ChecklistTemplate.first.present? %>
-          <%= render partial: "shared/list", locals: { list: ChecklistTemplate.first, trip: @trip } %>
-        <% end %>
-      <% end %>
-    </div>
-  </div>
+  <%= render partial: "checklist_templates/template_container", checklist_templates: @checklist_templates, trip: @trip %>
+
 </div>

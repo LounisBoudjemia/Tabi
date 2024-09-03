@@ -1,21 +1,8 @@
-<div id="item-form" class="card d-flex flex-fill align-items-center p-3 rounded-5">
+<%= turbo_frame_tag "new_#{@list.name}_item" do %>
 
   <%= simple_form_for [@list, @item] do |f|%>
-  <%= f.input :name%>
+  <%= f.input :name, label: false %>
   <%= hidden_field_tag :trip_id, @trip.id %>
-
-  <div id="item-form-new-links" class="d-flex flex-row justify-content-between">
-    <div class="mb-3">
-      <%= f.submit "submit", class: "btn btn-primary"%>
-    </div>
-
-    <div class="mb-3">
-      <%= link_to trip_checklists_path(trip_id: @trip.id), class: "dropdown-item d-flex justify-content-between align-items-center" do%>
-        Suitcase List
-        <i class="fa-solid fa-list-ul"></i>
-      <%end%>
-    </div>
-  </div>
-
   <%end%>
-</div>
+
+<%end%>
