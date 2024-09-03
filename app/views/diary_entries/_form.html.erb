@@ -1,3 +1,7 @@
-<%= simple_form_for [stop, diary_entry] do |f| %>
+<%= simple_form_for [trip, diary_entry] do |f| %>
     <%= f.input :headline %>
     <%= f.input :content %>
+    <%= f.submit "submit", class: "btn" %>
+    <%= hidden_field_tag "date", "2024-09-03"%>
+    <button><%= link_to "go back", trip_diary_entries_path(trip) %></button>
+<% end %>
