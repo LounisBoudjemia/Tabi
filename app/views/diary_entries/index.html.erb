@@ -2,33 +2,43 @@
 
 <div class="flexed-page">
 
-    <button><%= link_to "Add Diary Entry", new_trip_diary_entry_path(@trip) %></button>
 
-    <!-- Diary Entry -->
-    <div class="diary-entry-container">
-      <%= turbo_frame_tag :diary_entry_show do %>
-        <h3><%= @show_diary_entry.headline %></h3>
-        <p><%= @show_diary_entry.date %></p>
-        <p><%= @show_diary_entry.content %></p>
-      <%end%>
-    </div>
+    <!-- SHOW Diary Entry -->
+    <%= turbo_frame_tag :calendar_show do %>
+      <% if @show_diary_entry.present? %>
+        <div class="diary-entry-container">
+            <h3><%= @show_diary_entry.headline %></h3>
+            <p><%= @show_diary_entry.date %></p>
+            <p><%= @show_diary_entry.content %></p>
+        </div>
+      <% else %>
+        <!-- NEW Diary Entry -->
+        <%# = turbo_frame_tag :form_show do %>
+          <%= render partial: "form", locals: { trip: @trip, diary_entry: @diary_entry, date: @date } %>
+        <%# end %>
+        <button><%= link_to "Add Diary Entry", new_trip_diary_entry_path(@trip) %></button>
+      <% end %>
+    <% end %>
+
+
 
   <!-- Calendar -->
   <div class="calendar-container">
     <%= month_calendar(attribute: :start_date, end_attribute: :end_date, events: @events) do |date, events|%>
-      <%= date %>
+      <%= link_to date, new_trip_diary_entry_path(@trip, date: date) %>
 
       <% events.each do |event| %>
         <% if event.is_a?(Stop)  %>
           <div class="bg-danger">
-            <%= event.name %>
+            <%= link_to event.name, diary_entry_path(event) %>
           </div>
           <% else %>
           <div class="bg-info p-1 rounded-circle">
-            <%= event.name %>
+            <%= link_to event.name, diary_entry_path(event), data: { turbo_frame: :calendar_show} %>
           </div>
         <% end %>
       <% end %>
+
     <%end%>
   </div>
 

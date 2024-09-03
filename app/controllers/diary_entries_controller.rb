@@ -1,11 +1,17 @@
 class DiaryEntriesController < ApplicationController
   def index
-    @diary_entry = DiaryEntry.find(params[:trip_id])
     @trip = Trip.find(params[:trip_id])
     @stops = @trip.stops
     @diary_entries = @trip.diary_entries
     @events = @stops + @diary_entries
-    @show_diary_entry = DiaryEntry.find(params[:trip_id])
+    @show_diary_entry = DiaryEntry.find_by(date: Date.today)
+    # if DiaryEntry.find_by(date: Date.today).present?
+    #   @show_diary_entry = DiaryEntry.find_by(date: Date.today)
+    # else
+    #   @show_diary_entry = DiaryEntry.create(date: Date.today, headline: "Entry from #{Date.today}")
+    # end
+    @diary_entry = DiaryEntry.new
+    @date = params[:date] || Date.today
   end
 
   def show
@@ -15,6 +21,7 @@ class DiaryEntriesController < ApplicationController
   def new
     @diary_entry = DiaryEntry.new
     @trip = Trip.find(params[:trip_id])
+    @date = params[:date] || Date.today
   end
 
   def create
