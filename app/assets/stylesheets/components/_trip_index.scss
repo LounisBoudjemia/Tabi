@@ -12,10 +12,10 @@
     border-bottom: solid gray;
     padding: 16px;
     margin: 16px;
+    padding-bottom: 40px;
   }
 
   #past-container {
-    border-bottom: solid gray;
     padding: 16px;
     margin: 16px;
   }
@@ -98,23 +98,27 @@
     background-size: cover;
     background-position: center;
     background-color: rgb(173,216,230);
-    height: 180px;
-    width: 400px;
+    height: 100%;
+    width: 100%;
     margin: 20px;
-    border-radius: 20px;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
     color: black;
     border: none;
     font-family: "Roboto";
     margin-top:10px;
+  border-radius: 20px 20px;
 
     img{
       height: 180px;
-      width: 400px;
+      width: 420px;
       object-fit: cover;
-      border-top-right-radius: 20px;
-      border-top-left-radius: 20px;
+      border-radius: 10px 10px;
       box-shadow: 0 0 15px rgba(0,0,0,0.2);
 
     }
+  }
+
+  .trip-index-body {
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
   }
