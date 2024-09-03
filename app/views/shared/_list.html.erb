@@ -1,18 +1,55 @@
 <%= turbo_frame_tag :checklist_show, class: "" do%>
 
   <div id="list-header" class="d-flex justify-content-center">
-    <!-- IF LIST IS A TEMPLATE -->
-    <% if list.respond_to?(:user_id) %>
-      <%= link_to use_template_checklist_item_path(list, trip_id: @trip), data: {turbo_method: :patch, turbo_frame: :checklist_show, turbo_confirm: "Dow you want to copy all items from #{list.name} to your checklist?"}, style: "font-size: 1.5rem;", class: "me-2" do %>
-            <i class="fa-regular fa-copy"></i>
-          <% end %>
-    <% end %>
-
-    <h2 class="text-center"><%= list.name %></h2>
-
+    <div id="list-name" class="d-flex">
+      <!-- IF LIST IS A TEMPLATE -->
+      <% if list.respond_to?(:trip_id) %>
+        <%= turbo_frame_tag :edit_checklist do %>
+          <h2 class="text-center">
+            <%= list.name %>
+          </h2>
+        <div id="checklist-buttons" class="px-5 text-center">
+          <%= link_to edit_checklist_path(list, trip: @trip),
+              class: "link-underline link-underline-opacity-0 icon-link icon-link-hover my-2",
+              style: "font-size: 1rem;", data: {turbo_frame: :edit_checklist} do %>
+            <i class="fa-regular fa-pen-to-square"></i>
+          <%end%>
+          <%= link_to checklist_path(list, trip: @trip), method: :delete, data: {turbo_method: :delete, turbo_confirm: "Are you sure?" },
+              class: "link-underline link-underline-opacity-0 icon-link icon-link-hover my-2",
+              style: "font-size: 1rem;" do %>
+            <i class="fa-solid fa-trash"></i>
+          <%end%>
+        </div>
+        <%end%>
+      <% elsif list.respond_to?(:user_id) %>
+        <%= turbo_frame_tag :edit_template do %>
+          <h2 class="text-center">
+            <%= list.name %>
+          </h2>
+          <div id="template-buttons" class="px-3 text-center">
+            <%= link_to use_template_checklist_item_path(list, trip_id: @trip),
+                data: {turbo_method: :patch, turbo_frame: :checklist_show, turbo_confirm: "Dow you want to copy all items from #{list.name} to your checklist?"},
+                style: "font-size: 1rem;",
+                class: "link-underline link-underline-opacity-0" do %>
+              <i class="fa-regular fa-copy"></i>
+            <% end %>
+            <%= link_to edit_checklist_template_path(list, trip: @trip),
+                class: "link-underline link-underline-opacity-0 icon-link icon-link-hover my-2",
+                style: "font-size: 1rem;", data: {turbo_frame: :edit_template} do %>
+              <i class="fa-regular fa-pen-to-square"></i>
+            <%end%>
+            <%= link_to checklist_template_path(list, trip: @trip), method: :delete, data: {turbo_method: :delete, turbo_confirm: "Are you sure?" },
+                class: "link-underline link-underline-opacity-0 icon-link icon-link-hover my-2",
+                style: "font-size: 1rem;" do %>
+              <i class="fa-solid fa-trash"></i>
+            <%end%>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 
-  <!-- BUTTONS -->
+  <!-- ADD BUTTON -->
   <% if list.respond_to?(:trip_id) %>
     <div id="add-checklist-item" class="px-5 text-center">
       <%= turbo_frame_tag "new_#{list.name}_item" do %>
@@ -21,11 +58,6 @@
             style: "font-size: 2rem;",
             data: {turbo_frame: :new_item} do %>
           <i class="fa-regular fa-circle-plus"></i>
-        <%end%>
-        <%= link_to checklist_path(list, trip: @trip), method: :delete, data: {turbo_method: :delete, turbo_confirm: "Are you sure?" },
-            class: "link-underline link-underline-opacity-0 icon-link icon-link-hover my-2",
-            style: "font-size: 2rem;" do %>
-          <i class="fa-solid fa-trash"></i>
         <%end%>
       <% end %>
     </div>
@@ -37,11 +69,6 @@
             style: "font-size: 2rem;",
             data: {turbo_frame: :new_item} do %>
           <i class="fa-regular fa-circle-plus"></i>
-        <%end%>
-        <%= link_to checklist_template_path(list, trip: @trip), method: :delete, data: {turbo_method: :delete, turbo_confirm: "Are you sure?" },
-            class: "link-underline link-underline-opacity-0 icon-link icon-link-hover my-2",
-            style: "font-size: 2rem;" do %>
-          <i class="fa-solid fa-trash"></i>
         <%end%>
       <%end%>
     </div>

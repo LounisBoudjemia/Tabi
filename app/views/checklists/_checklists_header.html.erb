@@ -1,0 +1,17 @@
+<%= turbo_frame_tag :checklists_header do %>
+<div id="checklists-header" class="">
+  <div id="checklists-header-title">
+    <p> Checklists </p>
+  </div>
+  <div id="new-checklist-buttons">
+    <%= turbo_frame_tag :new_list do %>
+      <%= link_to "New Checklist", new_trip_checklist_path(trip_id: @trip),
+            data: {turbo_frame: :new_list},
+            class: "btn btn-secondary text-decoration-none" %>
+      <%= link_to "New Template", new_checklist_template_path(trip_id: @trip),
+            data: {turbo_frame: :new_list},
+            class: "btn btn-secondary text-decoration-none" %>
+    <% end %>
+  </div>
+</div>
+<% end %>

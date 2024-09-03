@@ -1,6 +1,15 @@
-<h1>New Template</h1>
+<%= turbo_frame_tag :new_list do%>
+
+<div id="new-checklist-header" class="d-flex justify-content-between">
+  <h3>New Template</h3>
+  <%= link_to "Close", trip_checklists_path(trip_id: @trip.id),
+            data: {turbo_frame: :checklists_header},
+            class: "btn btn-secondary mb-2 text-decoration-none" %>
+</div>
 
 <%= simple_form_for [@checklist_template] do |f|%>
   <%= f.input :name, label: false %>
   <%= hidden_field_tag :trip_id, @trip.id %>
+<%end%>
+
 <%end%>

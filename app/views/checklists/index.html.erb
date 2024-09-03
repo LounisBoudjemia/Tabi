@@ -22,15 +22,7 @@
   <!-- CONTENT -->
 <div id="checklists-index-container" class="">
   <!-- LEFT BOX -->
-  <div id="checklists-header" class="">
-    <div id="checklists-header-title">
-      <p> Checklists </p>
-    </div>
-    <div id="new-checklist-buttons">
-      <%= link_to "New Checklist", new_trip_checklist_path(trip_id: @trip), class: "btn btn-secondary text-decoration-none" %>
-      <%= link_to "New Template", new_checklist_template_path(trip_id: @trip), class: "btn btn-secondary text-decoration-none" %>
-    </div>
-  </div>
+  <%= render partial: "checklists_header", checklists: @checklists, checklist_templates: @checklist_templates, trip: @trip %>
 
   <!-- MIDDLE BOX -->
   <%= render partial: "checklist_container", checklists: @checklists, trip: @trip %>
