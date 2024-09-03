@@ -1,9 +1,11 @@
-<H1>Diary</H1>
-</br>
-<h2><%= @diary_entry.headline %></h2>
-<h4><%= @diary_entry.date %></h4>
-</br>
-<p><%= @diary_entry.content %></p>
+<%= turbo_frame_tag :calendar_show do %>
+  <H1>Diary</H1>
+  </br>
+  <h2><%= @diary_entry.headline %></h2>
+  <h4><%= @diary_entry.date %></h4>
+  </br>
+  <p><%= @diary_entry.content %></p>
+<% end %>
 
 
 <%# put the calendar gem here %>
