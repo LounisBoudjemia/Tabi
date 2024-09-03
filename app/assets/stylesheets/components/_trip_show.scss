@@ -10,6 +10,7 @@
     height: 40px;
     padding: 16px;
     margin: 16px;
+
   }
 
   #trip-header-title {
@@ -38,7 +39,7 @@
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
     width: 100%;
-
+  
   }
 
   #link-home {
@@ -53,8 +54,7 @@
     transition: all .3s ease-in-out;
     width: 100%;
     min-height: 80px;
-    background-color: #C6E6E2;
-
+    background-color: #AFDDE5;
   }
 
   .stop-card:hover {
@@ -79,4 +79,18 @@
     font-size: 30px;
     font-weight: bold;
     border-bottom: solid gray;
+    color: black;
+    position: sticky;
+    background-color: #2B7A78;
+  }
+
+  #trip-text {
+    padding:16px;
+    margin-left:16px;
+  }
+
+  .icons {
+    padding:16px;
+    margin-right:16px;
+    margin-bottom: 10px ;
   }

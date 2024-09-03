@@ -39,7 +39,11 @@
   <div id="activity-body-left">
 
     <ul id="activities-list" class="list-unstyled p-3 d-flex flex-column w-100 ">
+
         <% @activities.each do |activity|%>
+         
+    <%= activity.start_date.strftime("%d-%m-%Y") %>
+
           <%= render "activity", activity: activity %>
         <% end %>
     </ul>
