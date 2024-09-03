@@ -12,15 +12,16 @@ class DiaryEntriesController < ApplicationController
 
   def new
     @diary_entry = DiaryEntry.new
+    @trip = Trip.find(params[:trip_id])
   end
 
   def create
+    @trip = Trip.find(params[:trip_id])
     @diary_entry = DiaryEntry.new(diary_params)
-    if @diary_entry.save
-      redirect_to @diary_entry, notice: 'Diary Entry was successfully created.'
-    else
-      render :new
-    end
+    @diary_entry.trip = @trip
+    @diary_entry.date = params[:date]
+    @diary_entry.save
+    redirect_to trip_diary_entries_path(@trip), notice: 'Diary Entry was successfully created.'
   end
 
   def edit
@@ -35,6 +36,6 @@ class DiaryEntriesController < ApplicationController
   private
 
   def diary_params
-    params.require(:diary_entries).permit(:headline, :content, :date, :trip_id)
+    params.require(:diary_entry).permit(:headline, :content, :date, :trip_id)
   end
 end
