@@ -1,9 +1,9 @@
-<h1>Diarie Entries</h1>
+<h1>Diary Entries</h1>
 
 <div class="flexed-page">
 
-  <div class="diary-container">
-    <button><%= link_to "Add Diary Entry", new_trip_diary_entry_path(@stops) %></button>
+    <button><%= link_to "Add Diary Entry", new_trip_diary_entry_path(@trip) %></button>
+
     <!-- Diary Entry -->
     <div class="diary-entry-container">
       <%= turbo_frame_tag :diary_entry_show do %>
@@ -13,18 +13,24 @@
       <% end %>
     </div>
 
-  </div>
 
   <!-- Calendar -->
   <div class="calendar-container">
     <%= month_calendar(attribute: :start_date, end_attribute: :end_date, events: @stops) do |date, stops|%>
-      <%= date%>
+      <%= date %>
 
       <% stops.each do |stop| %>
         <div>
           <%= stop.name %>
         </div>
       <% end %>
+
+      <% diary_entries.each do |diary_entry| %>
+        <div>
+          <%= diary_entry.name %>
+        </div>
+      <% end %>
+
     <%end%>
   </div>
 
