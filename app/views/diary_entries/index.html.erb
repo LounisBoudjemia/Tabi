@@ -3,7 +3,11 @@
 <div class="flexed-page">
 
     <button><%= link_to "Add Diary Entry", new_trip_diary_entry_path(@trip) %></button>
-
+    <% if @diary_entries.any?  %>
+      <%= link_to "Delete",
+      diary_entry_path(@diary_entry), method: :delete,
+      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+      %>
     <!-- Diary Entry -->
     <div class="diary-entry-container">
       <%= turbo_frame_tag :diary_entry_show do %>
@@ -12,6 +16,7 @@
         <p><%= @diary_entry.content %></p>
       <% end %>
     </div>
+    <% end %>
 
 
   <!-- Calendar -->
