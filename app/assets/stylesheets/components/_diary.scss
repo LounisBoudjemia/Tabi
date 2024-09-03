@@ -1,0 +1,21 @@
+.flexed-page {
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+// .diary-container {
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-evenly;
+//   flex-direction: column;
+// }
+
+.diary-entry-container{
+  width: 35%;
+}
+
+.calendar-container {
+  width: 35%;
+}

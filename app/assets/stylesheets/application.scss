@@ -15,6 +15,7 @@
 @import "components/map";
 
 
+@import "simple_calendar";
 
 body {
   height: 98vh;
@@ -56,3 +57,4 @@ body {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
+
