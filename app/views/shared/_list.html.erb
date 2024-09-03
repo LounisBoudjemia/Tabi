@@ -1,0 +1,72 @@
+<%= turbo_frame_tag :checklist_show do%>
+
+    <% if list.respond_to?(:user_id) %>
+
+      <%= link_to use_template_checklist_item_path(list, trip_id: @trip), data: {turbo_method: :patch, turbo_frame: :checklist_show} do %>
+            use template
+            <i class="fa-solid fa-suitcase"></i>
+          <% end %>
+
+    <% end %>
+
+  <h2><%= list.name %></h2>
+
+  <% if list.respond_to?(:trip_id) %>
+    <div id="add-checklist_item">
+      <%= link_to new_checklist_item_path(list, trip: @trip),
+          class: "link-underline link-underline-opacity-0 icon-link icon-link-hover",
+          style: "font-size: 2rem;",
+          data: {turbo_frame: "_top"} do %>
+        <i class="fa-regular fa-circle-plus"></i>
+      <%end%>
+    </div>
+  <% elsif list.respond_to?(:user_id) %>
+    <div id="add-checklist_item">
+      <%= link_to new_checklist_template_item_path(list, trip: @trip),
+          class: "link-underline link-underline-opacity-0 icon-link icon-link-hover",
+          style: "font-size: 2rem;",
+          data: {turbo_frame: "_top"} do %>
+        <i class="fa-regular fa-circle-plus"></i>
+      <%end%>
+    </div>
+  <% end %>
+
+
+  <div id="checklist-items" class="h-75 d-inline-block">
+    <% list.items.each do |item| %>
+
+      <% type = item.checklistable_type(list) %>
+
+    <li id="item_<%= type %>_<%= item.id %>" class="item-card card d-flex flex-row justify-content-between rounded-pill px-3 py-1 mb-1 bg-light-subtle">
+
+
+        <!-- CHECKBOX -->
+        <% checklist_item = ChecklistItem.find_by(item: item, checklistable_id: list.id, checklistable_type: type) %>
+        <%= turbo_frame_tag "checklist_item_checked_#{checklist_item.id}" do%>
+          <div class="checked me-2">
+            <%= link_to checked_checklist_item_path(checklist_item, trip_id: @trip), data: {turbo_method: :patch} do %>
+              <% if checklist_item.checked %>
+                <i class="fa-regular fa-circle-check"></i>
+              <% else %>
+                <i class="fa-regular fa-circle"></i>
+              <% end %>
+            <% end %>
+          </div>
+        <% end %>
+
+      <!-- ITEM NAME -->
+      <div class="item-name flex-grow-1">
+        <%= item.name %>
+      </div>
+
+      <!-- TRASH ICON -->
+      <%= link_to item_path(item, checklistable_id: list, checklistable_type: type, trip_id: @trip), method: :delete, data: {turbo_method: :delete, turbo_confirm: "Are you sure?", turbo_frame: "items" } do %>
+        <div class="button ms-2">
+            <i class="fa-solid fa-trash"></i>
+        </div>
+      <% end %>
+
+    </li>
+    <% end %>
+  </div>
+<% end %>
