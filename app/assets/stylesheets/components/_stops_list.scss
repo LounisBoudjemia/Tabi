@@ -1,18 +1,18 @@
-#stops-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  height: 100vh;
+// #stops-grid {
+//   display: grid;
+//   grid-template-columns: 1fr 1fr;
+//   height: 100vh;
 
-  > * {
-    overflow-y: auto;
-  }
+//   > * {
+//     overflow-y: auto;
+//   }
 
-  > :first-child {
-    border-right: 1px solid #ccc;
-  }
+//   > :first-child {
+//     border-right: 1px solid #ccc;
+//   }
 
-  > :last-child {
-    background-color: #f9f9f9;
-    padding: 1em;
-  }
-}
+//   > :last-child {
+//     background-color: #f9f9f9;
+//     padding: 1em;
+//   }
+// }

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_30_093922) do
+ActiveRecord::Schema[7.1].define(version: 2024_09_02_094324) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -63,6 +63,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_30_093922) do
     t.bigint "checklistable_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "checked", default: false
     t.index ["checklistable_type", "checklistable_id"], name: "index_checklist_items_on_checklistable"
     t.index ["item_id"], name: "index_checklist_items_on_item_id"
   end
@@ -95,7 +96,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_30_093922) do
 
   create_table "items", force: :cascade do |t|
     t.string "name"
-    t.boolean "checked"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
