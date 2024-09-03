@@ -1,36 +1,48 @@
-<div id="checklists-index-container" class="m-3 p-3 rounded-5">
-
-  <!-- HEADER -->
-  <div id="checklists-index-header" class="card d-flex flex-row justify-content-between p-3 m-0 rounded-5">
-
-    <!-- HEADER -->
-    <div id="stop-header-right" class="d-flex flex-row">
-      <h1>Checklists</h1>
+<!--- NAVBAR --->
+<div id="checklists-header-navbar" class="navbar d-flex justify-content-between">
+  <div id="checklists-text" class="me-3">
+    <div id="name">
+      <p>TABI</p>
     </div>
+  </div>
+  <div class="icons" >
+    <div class="d-flex justify-content-center">
+      <div id="link-home">
+        <%= link_to trips_path do %>
+          <i class="fa-solid fa-house" style="font-size: 2rem;"></i>
+        <% end %>
+      </div>
+      <div class="menu d-flex align-content-start">
+        <%= render "shared/menu"%>
+      </div>
+    </div>
+  </div>
+</div>
 
-    <!-- MENU -->
-    <div class="menu d-flex align-content-start">
-      <%= render "shared/menu"%>
+  <!-- CONTENT -->
+<div id="checklists-index-container">
+  <!-- LEFT BOX -->
+  <div id="checklists-header" class="">
+    <div id="checklists-header-title">
+      <p> Checklists </p>
     </div>
   </div>
 
-  <!-- LEFT BOX -->
-  <div id="checklists-index-body-left" class="card d-flex flex-fill align-items-center p-3 rounded-5">
-    <div id="checklist-top-bar" class="d-flex bg-info-subtle rounded-5">
-      <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Checklists
-        </button>
-        <ul class="dropdown-menu">
-          <% if @checklists.present? %>
-            <% @checklists.each do |checklist| %>
-              <li><%= link_to checklist.name, checklist_path(checklist, trip_id: @trip), class: "text-decoration-none", data: { turbo_frame: :checklist_show } %></li>
-            <%end%>
-          <% end %>
-        </ul>
-      </div>
+  <!-- MIDDLE BOX -->
+  <div id="checklists-container" class="">
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Checklists
+      </button>
+      <ul class="dropdown-menu">
+        <% if @checklists.present? %>
+          <% @checklists.each do |checklist| %>
+            <li><%= link_to checklist.name, checklist_path(checklist, trip_id: @trip), class: "text-decoration-none", data: { turbo_frame: :checklist_show } %></li>
+          <%end%>
+        <% end %>
+      </ul>
     </div>
-    <div id="checklist-content" class="h-100 d-inline-block">
+    <div id="checklist-content" class="">
       <%= turbo_frame_tag :checklist_show do%>
         <% if Checklist.first.present? %>
         <%= render partial: "shared/list", locals: { list: Checklist.first, trip: @trip } %>
@@ -40,20 +52,18 @@
   </div>
 
   <!-- RIGHT BOX -->
-  <div id="checklists-index-body-right" class="d-flex justify-content-start align-items-start p-3 rounded-5">
-    <div id="templates-top-bar" class="d-flex bg-info-subtle rounded-5">
-      <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Templates
-        </button>
-        <ul class="dropdown-menu">
-          <% if @checklist_templates.present? %>
-            <% @checklist_templates.each do |checklist_template| %>
-              <li><%= link_to checklist_template.name, checklist_template_path(checklist_template, trip_id: @trip), class: "text-decoration-none", data: { turbo_frame: :checklist_template_show } %></li>
-            <%end%>
-          <% end %>
-        </ul>
-      </div>
+  <div id="templates-container" class="">
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Templates
+      </button>
+      <ul class="dropdown-menu">
+        <% if @checklist_templates.present? %>
+          <% @checklist_templates.each do |checklist_template| %>
+            <li><%= link_to checklist_template.name, checklist_template_path(checklist_template, trip_id: @trip), class: "text-decoration-none", data: { turbo_frame: :checklist_template_show } %></li>
+          <%end%>
+        <% end %>
+      </ul>
     </div>
     <div id="template-content" class="h-100 d-inline-block">
       <%= turbo_frame_tag :checklist_template_show do%>

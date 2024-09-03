@@ -11,6 +11,7 @@
 
   <h2><%= list.name %></h2>
 
+  <!-- ADD ITEM BUTTON -->
   <% if list.respond_to?(:trip_id) %>
     <div id="add-checklist_item">
       <%= link_to new_checklist_item_path(list, trip: @trip),
@@ -31,12 +32,13 @@
     </div>
   <% end %>
 
-
+  <!-- LIST OF ITEMS -->
   <div id="checklist-items" class="h-75 d-inline-block">
     <% list.items.each do |item| %>
 
       <% type = item.checklistable_type(list) %>
 
+    <!-- LIST ELEMENT -->
     <li id="item_<%= type %>_<%= item.id %>" class="item-card card d-flex flex-row justify-content-between rounded-pill px-3 py-1 mb-1 bg-light-subtle">
 
 
@@ -44,7 +46,7 @@
         <% checklist_item = ChecklistItem.find_by(item: item, checklistable_id: list.id, checklistable_type: type) %>
         <%= turbo_frame_tag "checklist_item_checked_#{checklist_item.id}" do%>
           <div class="checked me-2">
-            <%= link_to checked_checklist_item_path(checklist_item, trip_id: @trip), data: {turbo_method: :patch} do %>
+            <%= link_to checked_checklist_item_path(checklist_item, trip_id: @trip.id), data: {turbo_method: :patch} do %>
               <% if checklist_item.checked %>
                 <i class="fa-regular fa-circle-check"></i>
               <% else %>
