@@ -23,7 +23,6 @@ class StopsController < ApplicationController
   def new
     @stop = Stop.new
     @trip = Trip.find(params[:trip_id])
-
   end
 
   def create
