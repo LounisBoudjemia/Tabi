@@ -5,6 +5,7 @@ class DiaryEntriesController < ApplicationController
     @stops = @trip.stops
     @diary_entries = @trip.diary_entries
     @events = @stops + @diary_entries
+    @show_diary_entry = DiaryEntry.find(params[:trip_id])
   end
 
   def show
