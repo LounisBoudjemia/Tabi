@@ -8,7 +8,7 @@ class StopsController < ApplicationController
   def show
     @stop = Stop.find(params[:id])
     @trip = @stop.trip
-    @activities = @stop.activities.order(created_at: :asc)
+    @activities = @stop.activities.order(start_date: :asc)
     @markers = @activities.geocoded.map do |activity|
       {
         lat: activity.latitude,
@@ -23,7 +23,6 @@ class StopsController < ApplicationController
   def new
     @stop = Stop.new
     @trip = Trip.find(params[:trip_id])
-
   end
 
   def create

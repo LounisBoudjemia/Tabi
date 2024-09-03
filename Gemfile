@@ -29,6 +29,7 @@ gem "jbuilder"
 gem "geocoder"
 
 gem "cloudinary"
+gem "simple_calendar"
 
 gem 'simple_calendar'
 
