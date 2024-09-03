@@ -22,6 +22,7 @@ class DiaryEntriesController < ApplicationController
   end
 
   def edit
+    @diary_entry = DiaryEntry.find(params[:id])
   end
 
   def update
