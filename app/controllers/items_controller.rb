@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   def new
     @item = Item.new
+    @trip = Trip.find(params["trip"])
     if params["checklist_template_id"].present?
       @list = ChecklistTemplate.find(params[:checklist_template_id])
     elsif params["checklist_id"].present?
@@ -9,7 +10,7 @@ class ItemsController < ApplicationController
   end
 
   def create
-    raise
+    @trip = Trip.find(params["trip_id"])
     @item = Item.new(name: params[:item][:name])
     if params["checklist_template_id"].present?
       @list = ChecklistTemplate.find(params[:checklist_template_id])
@@ -19,7 +20,7 @@ class ItemsController < ApplicationController
 
     if @item.save
       ChecklistItem.create(item: @item, checklistable: @list)
-      # redirect_to trip_checklists_path(trip_id: @trip.id)
+      redirect_to trip_checklists_path(trip_id: @trip.id)
     else
       render :new
     end

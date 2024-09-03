@@ -1,0 +1,22 @@
+.item-card {
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  transition: all .3s ease-in-out;
+  width: 400px;
+  min-height: 80px;
+  font-family: "Roboto";
+  font-size: 14px;
+  background-color: teal;
+
+  h5 {
+    font-family: "Roboto";
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+}
+
+.item-card:hover {
+  transform: translateY(-10px);
+}
