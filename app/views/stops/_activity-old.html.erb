@@ -1,12 +1,10 @@
 <%= link_to activity_path(activity), class: "text-decoration-none", data: { turbo_frame: :activity_show } do %>
-<li class="activity-card d-flex flex-row justify-content-between align-items-center rounded-3 px-3 py-2 mb-3" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" >
-
+<li class="activity-card card d-flex flex-row justify-content-between rounded-pill px-3 py-1 mb-1 bg-light-subtle">
 
     <!-- ACTIVITY NAME -->
   <div class="activity-name flex-grow-1">
     <%= activity.name %>
   </div>
-
 
   <!-- ICONS -->
   <div id="activity-icons" class="d-flex">

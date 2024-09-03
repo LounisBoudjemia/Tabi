@@ -1,16 +1,18 @@
+<%= turbo_frame_tag :new_activity do %>
 <div id="activity-form" class="card d-flex flex-fill align-items-center p-3 rounded-5">
 
   <% if action_name == "new" %>
 
     <%# 1st form is for the NEW-Activities-Form %>
 
-    <%= simple_form_for [stop, activity] do |f| %>
-    <%= f.input :name %>
-    <%= f.input :location %>
-    <%= f.input :category, as: :select, collection: ['Food', 'Drinks', 'Art', 'Nature', 'Memorial', 'Views'], prompt: "pick category" %>
-    <%= f.input :description %>
-    <%= f.input :start_date %>
-    <%= f.input :favorite %>
+    <%= simple_form_for [stop, activity],
+      data: {turbo_frame: '_top' } do |f| %>
+      <%= f.input :name %>
+      <%= f.input :location %>
+      <%= f.input :category, as: :select, collection: ['Food', 'Drinks', 'Art', 'Nature', 'Memorial', 'Views'], prompt: "pick category" %>
+      <%= f.input :description %>
+      <%= f.input :start_date %>
+      <%= f.input :favorite %>
 
     <div id="activity-form-new-links" class="d-flex flex-row justify-content-between">
       <div class="mb-3">
@@ -23,7 +25,6 @@
     </div>
 
     <% end %>
-
   <% else %>
 
     <%# 2nd form is form the EDIT-Activities-Form %>
@@ -49,3 +50,4 @@
     <% end %>
   <% end %>
 </div>
+<% end %>

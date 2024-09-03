@@ -14,10 +14,13 @@
 @import url("https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.css");
 @import "components/map";
 
+@import "simple_calendar";
+
+
 body {
   height: 98vh;
   margin: 0;
-  background-color: $light-brown;
+  background-color:  white;
 }
 
 // Smallest device
@@ -54,3 +57,4 @@ body {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
+

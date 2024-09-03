@@ -1,88 +1,64 @@
-<div id="stop-container" class="m-3 p-3 rounded-5">
-
-  <!-- HEADER -->
-  <div id="stop-header" class="card d-flex flex-row justify-content-between p-3 m-0 rounded-5">
-    <div id="stop-header-right" class="d-flex flex-row">
-
-      <!-- TEXT -->
-      <div id="stop-text" class="me-3">
-        <div id="stop-headline">
-          <h1><%= @stop.name %></h1>
+<!--- NAVABAR --->
+  <div id="trip-header-navbar" class="navbar d-flex justify-content-between">
+      <div id="trip-text" class="me-3">
+        <div id="name">
+          <p>TABI</p>
         </div>
-        <div id="stop-dates">
-          <% if @stop.start_date %>
-          <p><%= @stop.start_date %></p>
+        </div>
+    <div class="icons" >
+    <div class="d-flex justify-content-center">
+      <div id="link-home">
+          <%= link_to trips_path do %>
+            <i class="fa-solid fa-house" style="font-size: 2rem;"></i>
           <% end %>
         </div>
-        <div id="trip-link-back">
-          <%= link_to trip_path(@stop.trip) do %>
-            <i class="fa-regular fa-backward"></i>
-          <% end %>
-        </div>
-      </div>
-
-      <!-- ICONS -->
-      <div id="stop-icons">
-        <%= link_to edit_stop_path(@stop), style: "font-size: 2rem;" do %>
-          <div>
-            <i class="fa-regular fa-pen-to-square"></i>
-          </div>
-        <% end %>
-        <%= link_to stop_path(@stop), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, style: "font-size: 2rem;" do %>
-          <div>
-            <i class="fa-regular fa-trash-alt"></i>
-          </div>
-        <% end %>
-      </div>
-    </div>
-
-    <!-- MENU -->
     <div class="menu d-flex align-content-start">
       <%= render "shared/menu"%>
     </div>
+    </div>
+    </div>
+    </div>
+
+<div id="stop-container">
+  <!-- HEADER -->
+<div id="stop-header">
+  <div id="stop-header-title">
+    <p><%= @stop.name %> </p>
   </div>
+  <div id="stop-description">
+    <p>It's a good city that it's good to visit.
+    It has big streets, small streets, shopping streets and restaurants.
+    It was hot when I went there.
+    It was my birthday.
+    Nom Nom Nom.</p>
+  </div>
+</div>
+  <!-- CONTENT -->
 
-  <!-- LEFT BOX -->
-  <div id="stop-body-left" class="card d-flex flex-fill align-items-center p-3 rounded-5">
+<div id="activity-container" class="p-3">
+  <div id="activity-body-left">
 
-    <ul id="activities-list" class="list-unstyled w-100">
+    <ul id="activities-list" class="list-unstyled p-3 d-flex flex-column w-100 ">
         <% @activities.each do |activity|%>
           <%= render "activity", activity: activity %>
         <% end %>
     </ul>
-
-    <div id="add-activity">
-      <%= link_to new_stop_activity_path(@stop),
-          class: "link-underline link-underline-opacity-0 icon-link icon-link-hover",
-          style: "font-size: 2rem;" do %>
-        <i class="fa-regular fa-circle-plus"></i>
-      <% end %>
-    </div>
-
+    <%= turbo_frame_tag :new_activity do %>
+      <%= link_to "Add an Activity", new_stop_activity_path(@stop) %>
+    <% end %>
   </div>
 
   <!-- RIGHT BOX -->
-  <div id="stop-body-right" class="card d-flex flex-fill align-items-center rounded-5">
-
     <!-- MAP -->
-    <div id="activity-map" style="width: 100%; height: 450px;" class="d-flex w-100 h-50 rounded-5"
+
+    <!-- CALENDAR -->
+
+  </div>
+
+    <div id="stops-map" style="width: 100%; height:100%;"
         data-controller="map"
         data-map-markers-value="<%= @markers.to_json %>"
         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
 
-    <!-- ACTIVITY SHOW -->
-    <div id="stop-right-bottom" class="w-100 h-50 p-3 rounded-5">
-
-      <div id="activity-show" class="card w-100 h-100 p-3 rounded-5 bg-white">
-      <%= turbo_frame_tag :activity_show do%>
-        <% if @stop.activities.first %>
-          <h3><%= @stop.activities.first.name %></h3>
-          <p><%= @stop.activities.first.category.capitalize %></p>
-          <p><%= @stop.activities.first.description %></p>
-        <% end%>
-      <% end %>
-      </div>
-    </div>
-  </div>
 </div>

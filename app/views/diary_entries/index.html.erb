@@ -1,0 +1,31 @@
+<h1>Diarie Entries</h1>
+
+<div class="flexed-page">
+
+  <div class="diary-container">
+    <button><%= link_to "Add Diary Entry", new_trip_diary_entry_path(@stops) %></button>
+    <!-- Diary Entry -->
+    <div class="diary-entry-container">
+      <%= turbo_frame_tag :diary_entry_show do %>
+        <h3><%= @diary_entry.headline %></h3>
+        <p><%= @diary_entry.date %></p>
+        <p><%= @diary_entry.content %></p>
+      <% end %>
+    </div>
+
+  </div>
+
+  <!-- Calendar -->
+  <div class="calendar-container">
+    <%= month_calendar(attribute: :start_date, end_attribute: :end_date, events: @stops) do |date, stops|%>
+      <%= date%>
+
+      <% stops.each do |stop| %>
+        <div>
+          <%= stop.name %>
+        </div>
+      <% end %>
+    <%end%>
+  </div>
+
+</div>

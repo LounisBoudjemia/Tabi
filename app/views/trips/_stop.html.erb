@@ -1,11 +1,13 @@
-<%= link_to stop_path(stop), class: "text-decoration-none" do %>
-  <li class="stop-card card d-flex flex-row justify-content-between align-items-center rounded-pill px-3 py-2 mb-2 bg-light-subtle">
+<%= link_to stop_path(stop), class: "text-decoration-none w-100" do %>
+  <li class="stop-card card d-flex flex-row justify-content-center align-items-center rounded-3 px-3 py-2 mb-3 bg-white">
       <!-- STOP INFO -->
+    <div class="stop-body">
       <div class="stop-title">
         <h5 class="title mb-0" ><%= stop.name %></h5>
       </div>
       <div class="stop-dates">
         <p class="mb-0"><%= stop.formatted_start %> - <%= stop.formatted_end %></p>
       </div>
+
   </li>
 <% end %>

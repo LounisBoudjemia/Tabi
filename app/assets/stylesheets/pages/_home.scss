@@ -1,23 +1,22 @@
-// Specific CSS for your home-page
-// Background with gradient
 /* Style for p_name */
 #p_name {
   position: absolute;
   top: 20px;
   left: 20px;
-  font-family: 'Pacifico', cursive; /* A nice, stylish font */
-  font-size: 3em;
-  color: #ffffff; /* Complementary color to your background */
-  text-shadow: 2px 4px 6px rgba(0, 0, 0, 0.3); /* Adds depth to the text */
-  z-index: 100; /* Ensure it stays on top of other elements */
-  animation: fadeInLeft 2s ease-in-out, pulse 3s infinite; /* Combined animations */
+  font-family: 'Pacifico', cursive;
+  font-size: 4em;
+  color: #3498db; /* Soft and vibrant blue color */
+  text-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2); /* Slightly lighter shadow */
+  z-index: 100;
+  animation: fadeInLeft 2s ease-in-out, pulse 3s infinite;
 }
+
 
 /* Fade-in from the left animation */
 @keyframes fadeInLeft {
   0% {
     opacity: 0;
-    transform: translateX(-50px);
+    transform: translateX(-30px); /* Less dramatic entrance */
   }
   100% {
     opacity: 1;
@@ -27,29 +26,22 @@
 
 /* Pulse animation */
 @keyframes pulse {
-  0% {
+  0%, 100% {
     transform: scale(1);
   }
   50% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
+    transform: scale(1.05); /* More subtle pulse */
   }
 }
 
-
+/* Background Container */
 .background-container {
   margin: 0;
   padding: 0;
-  background: linear-gradient(135deg, #FC7E57, #70417A,  #97D0D3, #301138);
-  background-size: 400% 400%;
-  animation: gradientAnimation 5s ease infinite;
-}
-
-// Container for the background animation
-.background-container {
-  height: 100vh; // Ensure it covers the full viewport height
+  background: linear-gradient(135deg, #fafafa, #e0e0e0); /* Simpler, softer gradient */
+  background-size: 200% 200%; /* Slower movement */
+  animation: gradientAnimation 8s ease infinite;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -57,100 +49,95 @@
   text-align: center;
 }
 
+/* Landing Page */
 .landing-page {
   text-align: center;
   padding: 50px;
-  background: linear-gradient(135deg, #ebcaa3, #70417A, #FD7979, #97D0D3);
-  background-size: 400% 400%;
-  animation: gradientAnimation 5s ease infinite, floatAnimation 3s ease-in-out infinite;
-  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); /* Hexagonal shape */
+  background: #ffffff;
+  border-radius: 15px; /* Added border-radius for smooth corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  transition: transform 0.3s ease-in-out;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  transform: translateY(100%); /* Start off-screen at the bottom */
+  animation: slideUp 1s ease-out forwards; /* Animation to slide in */
 }
 
-// Gradient animation
+/* Animation to slide up */
+@keyframes slideUp {
+  from {
+    transform: translateY(100%); /* Start off-screen */
+  }
+  to {
+    transform: translateY(0); /* End at its normal position */
+  }
+}
+
+/* Gradient animation */
 @keyframes gradientAnimation {
-  0% { background-position: 0% 0%; }
-  50% { background-position: 100% 100%; }
-  100% { background-position: 0% 0%; }
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
+/* Landing Page Header */
 .landing-page header {
-  background-color: rgba(51, 51, 51, 0.8); // Semi-transparent background for readability
-  color: rgb(255, 255, 255);
-  padding: 60px;
-  margin-top: 25px;
-  margin-bottom: 30px;
-  clip-path: polygon(10% 0%, 90% 0%, 100% 50%, 90% 100%, 10% 100%, 0% 50%); /* Cool hexagonal shape for header */
-  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2); // Subtle shadow for depth
-  transition: transform 0.3s ease-in-out; // Smooth hover effect
+  background-color: rgba(51, 51, 51, 0.85);
+  color: #ffffff;
+  padding: 40px; /* Slightly reduced padding */
+  margin-top: 20px;
+  margin-bottom: 20px;
+  clip-path: polygon(10% 0%, 90% 0%, 100% 50%, 90% 100%, 10% 100%, 0% 50%);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Lighter shadow */
+  transition: transform 0.3s ease-in-out;
 }
 
 .landing-page header:hover {
-  transform: scale(1.05); // Slight zoom effect on hover
+  transform: scale(1.03); /* Slightly less intense zoom */
 }
 
+/* Landing Page Heading */
 .landing-page h1 {
-    font-size: 2.5em; // Larger font size for prominence
-  animation: fadeIn 2s ease-in-out; // Fade-in animation for heading
+  font-size: 2.5em;
+  animation: fadeIn 2s ease-in-out;
 }
 
+/* Landing Page Paragraph */
 .landing-page p {
   font-size: 1.2em;
-  animation: fadeIn 2s 1s ease-in-out; // Delayed fade-in for paragraph
+  animation: fadeIn 2s 1s ease-in-out;
 }
 
-.btn-second {
-  background-color: #ff5733;
-  color: white;
+/* Button Styles */
+.btn-first, .btn-second {
+  background-color: #FF6F61;
+  color: #ffffff;
   padding: 10px 20px;
-  text-decoration: none;
   border-radius: 20px;
-  display: inline-block;
-  transition: background-color 0.3s ease, transform 0.3s ease; // Smooth transition for hover effects
-}
-
-.btn-first {
-  background-color: #ff5733;
-  color: white;
-  padding: 10px 20px;
   text-decoration: none;
-  border-radius: 20px;
   display: inline-block;
-  transition: background-color 0.3s ease, transform 0.3s ease; // Smooth transition for hover effects
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin: 10px 5px; /* Added margin for spacing */
 }
 
-.btn-first:hover {
-  background-color: #e04e2a; // Darker shade on hover
-  transform: scale(1.05); // Slight zoom effect on hover
+.btn-first:hover, .btn-second:hover {
+  background-color: #E65A50; /* Slightly darker on hover */
+  transform: scale(1.05);
 }
 
-.btn-second:hover {
-  background-color: #e04e2a; // Darker shade on hover
-  transform: scale(1.05); // Slight zoom effect on hover
-}
-
-@keyframes gradientAnimation {
-  0% { background-position: 0% 0%; }
-  50% { background-position: 100% 100%; }
-  100% { background-position: 0% 0%; }
-}
-
+/* Float Animation */
 @keyframes floatAnimation {
-  0% {
+  0%, 100% {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-10px);
-  }
-  100% {
-    transform: translateY(0);
+    transform: translateY(-5px); /* Less dramatic float */
   }
 }
 
-// Fade-in animation for text
-// Responsive Design
+/* Responsive Design */
 @media (max-width: 768px) {
   .landing-page {
     padding: 20px;
@@ -160,7 +147,7 @@
     padding: 15px;
   }
 
-  .btn-first .btn-second {
+  .btn-first, .btn-second {
     padding: 8px 16px;
   }
 }

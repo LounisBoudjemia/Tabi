@@ -1,71 +1,66 @@
-<div id="trip-container" class="m-3 p-3 rounded-5">
-
-  <!-- HEADER -->
-  <div id="trip-header" class="card d-flex flex-row justify-content-between p-3 rounded-5">
-    <div id="trip-header-right" class="d-flex flex-row">
+<!--- NAVBAR --->
+  <div id="trip-header-navbar" class="navbar d-flex justify-content-between">
       <div id="trip-text" class="me-3">
-        <div id="trip-headline">
-          <h1><%= @trip.name %></h1>
+        <div id="name">
+          <p>TABI</p>
         </div>
-        <div id="trip-dates">
-          <p><%= @trip.start_date.strftime("%d-%m-%Y") %> - <%= @trip.formatted_end%></p>
         </div>
-        <div id="trip-link-back">
+    <div class="icons" >
+    <div class="d-flex justify-content-center">
+      <div id="link-home">
           <%= link_to trips_path do %>
-            <i class="fa-regular fa-backward"></i>
+            <i class="fa-solid fa-house" style="font-size: 2rem;"></i>
           <% end %>
         </div>
-      </div>
-      <div id="trip-icons">
-        <%= link_to edit_trip_path(@trip), style: "font-size: 2rem;" do %>
-          <div>
-            <i class="fa-regular fa-pen-to-square"></i>
-          </div>
-        <% end %>
-        <%= link_to trip_path(@trip), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, style: "font-size: 2rem;" do %>
-          <div>
-            <i class="fa-regular fa-trash-alt"></i>
-          </div>
-        <% end %>
-      </div>
-    </div>
     <div class="menu d-flex align-content-start">
       <%= render "shared/menu"%>
     </div>
+    </div>
+    </div>
+    </div>
+
+<div class="trip-show-container">
+  <!-- HEADER -->
+<div id="trip-header" class="d-flex align-items-center justify-content-between">
+  <div id="trip-header-title">
+    <p><%= @trip.name %> </p>
   </div>
+  <div id="trip-header-dates">
+    <p><%= @trip.start_date.strftime("%d-%m-%Y") %> - <%= @trip.formatted_end %></p>
+  </div>
+</div>
+  <!-- CONTENT -->
 
-  <!-- LEFT BOX -->
-  <div id="trip-body-left" class="card d-flex flex-fill align-items-center rounded-5">
+<div id="trip-container" class="p-3">
+  <div id="trip-body-left">
 
-    <ul id="stops-list" class="list-unstyled p-3 w-100">
+    <ul id="stops-list" class="list-unstyled p-3 d-flex flex-column w-100 ">
       <% @trip.stops.each do |stop|%>
         <%= render "stop", stop: stop %>
       <% end %>
     </ul>
-    <div id="add-stop">
-      <%= link_to new_trip_stop_path(@trip),
-          class: "link-underline link-underline-opacity-0 icon-link icon-link-hover",
-          style: "font-size: 2rem;" do %>
-        <i class="fa-regular fa-circle-plus"></i>
-      <% end %>
-    </div>
+
+
+    <div class="d flex align-items-center">
+      <%= link_to new_trip_stop_path(@trip) do  %>
+       <%= turbo_frame_tag :new_stop do %>
+      <i class="fa-solid fa-plus" style="font-size: 2rem;"></i>
+       </div>
+    <% end %>
+
+     <% end %>
+
   </div>
 
   <!-- RIGHT BOX -->
-  <div id="trip-body-right" class="card d-flex flex-fill align-items-center rounded-5">
-
     <!-- MAP -->
-    <div id="trip-map" style="width: 100%; height: 450px;" class="d-flex w-100 h-50 rounded-5"
+    <div id="trip-map" style="width: 100%; height:100%;"
         data-controller="map"
         data-map-markers-value="<%= @markers.to_json %>"
         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
 
     <!-- CALENDAR -->
-    <div id="trip-calendar" class="w-100 h-50 p-3 rounded-5">
-      <div id="trip-calendar-container" class="card w-100 h-100 rounded-5">
-      </div>
-    </div>
 
   </div>
 </div>
