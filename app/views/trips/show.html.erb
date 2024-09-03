@@ -21,10 +21,26 @@
 
 <div class="trip-show-container">
   <!-- HEADER -->
-<div id="trip-header" class="d-flex align-items-center justify-content-between">
+<div id="trip-header" class="d-flex justify-content-between">
   <div id="trip-header-title">
     <p><%= @trip.name %> </p>
-  </div>
+
+        <div id="trip-icon-edit">
+        <%= link_to edit_trip_path(@trip), style: "font-size: 2rem;" do %>
+          <div>
+            <i class="fa-regular fa-pen-to-square"></i>
+          </div>
+        <% end %>
+        </div>
+
+        <div id="trip-icon-delete" >
+        <%= link_to trip_path(@trip), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, style: "font-size: 2rem;" do %>
+          <div>
+            <i class="fa-regular fa-trash-alt"></i>
+          </div>
+        <% end %>
+      </div>
+      </div>
   <div id="trip-header-dates">
     <p><%= @trip.start_date.strftime("%d-%m-%Y") %> - <%= @trip.formatted_end %></p>
   </div>

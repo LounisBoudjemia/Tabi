@@ -1,0 +1,33 @@
+<div class="index-container">
+  <div class="trips-grid">
+
+    <% @trips.each do |trip| %>
+      <div class="d-flex justify-content-center">
+    <%= link_to trip_path(trip), class:"link" do %>
+
+        <div class="card-index">
+
+          <% if trip.photo.attached?%>
+              <div class="card-index-img-top"> <%= cl_image_tag trip.photo.key, crop: :fill %> </div>
+
+          <% end %>
+              <div class="card-index-body">
+                <h5 class="card-index-title" ><%= trip.name  %></h5>
+                <p class="card-index-text"> <%= trip.start_date.strftime("%d-%m-%Y") %> - <%= trip.formatted_end %></p>
+            </div>
+
+        </div>
+
+  <% end %>
+
+</div>
+
+    <% end %>
+
+    </div>
+
+  <div class="d-flex justify-content-center">
+    <div id="new-trip" class="card-link px-1">
+      <%= link_to "New trip", new_trip_path(@trip), class: "btn btn-primary"%>
+    </div>
+  </div>
