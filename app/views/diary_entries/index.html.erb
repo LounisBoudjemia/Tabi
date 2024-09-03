@@ -16,21 +16,14 @@
 
   <!-- Calendar -->
   <div class="calendar-container">
-    <%= month_calendar(attribute: :start_date, end_attribute: :end_date, events: @stops) do |date, stops|%>
+    <%= month_calendar(attribute: :start_date, end_attribute: :end_date, events: @events) do |date, events|%>
       <%= date %>
 
-      <% stops.each do |stop| %>
+      <% events.each do |event| %>
         <div>
-          <%= stop.name %>
+          <%= event.name %>
         </div>
       <% end %>
-
-      <% diary_entries.each do |diary_entry| %>
-        <div>
-          <%= diary_entry.name %>
-        </div>
-      <% end %>
-
     <%end%>
   </div>
 
