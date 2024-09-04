@@ -6,7 +6,12 @@ class DiaryEntriesController < ApplicationController
     @diary_entries = @trip.diary_entries
     # @diary_entry = @diary_entries.first
     @events = @stops + @diary_entries
-    @show_diary_entry = DiaryEntry.find_by(date: Date.today)
+    @show_diary_entry = @diary_entries.find_by(date: params[:date] || Date.today)
+    # if DiaryEntry.find_by(date: Date.today).present?
+    #   @show_diary_entry = DiaryEntry.find_by(date: Date.today)
+    # else
+    #   @show_diary_entry = DiaryEntry.create(date: Date.today, headline: "Entry from #{Date.today}")
+    # end
     @diary_entry = DiaryEntry.new
     @date = params[:date] || Date.today
   end
@@ -30,7 +35,7 @@ class DiaryEntriesController < ApplicationController
     @diary_entry = DiaryEntry.new(diary_params)
     @diary_entry.trip = @trip
     @diary_entry.save
-    redirect_to new_trip_diary_entry_path(@trip, diary_params: :date), notice: 'Diary Entry was successfully created.'
+    redirect_to trip_diary_entries_path(@trip, date: @diary_entry.date), notice: 'Diary Entry was successfully created.'
   end
 
   def edit
