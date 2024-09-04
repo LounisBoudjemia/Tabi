@@ -7,10 +7,10 @@
     <%= turbo_frame_tag :new_list do %>
       <%= link_to "New Checklist", new_trip_checklist_path(trip_id: @trip),
             data: {turbo_frame: :new_list},
-            class: "btn btn-secondary text-decoration-none" %>
+            class: "btn btn-secondary text-decoration-none mb-2 w-50" %>
       <%= link_to "New Template", new_checklist_template_path(trip_id: @trip),
             data: {turbo_frame: :new_list},
-            class: "btn btn-secondary text-decoration-none" %>
+            class: "btn btn-secondary text-decoration-none mb-2 w-50" %>
     <% end %>
   </div>
 </div>
