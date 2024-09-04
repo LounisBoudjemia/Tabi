@@ -74,13 +74,18 @@
 
   #trash {
     position: absolute;
-    bottom:35px;
-    right:-55px;
+    bottom:25px;
+    right:-120px;
     z-index: 6;
+
+
   }
 
-  #trash:hover {
-    display: none;
+  #trash-icon {
+    font-size: 20px;
+  }
+  #trash-icon:hover {
+    transform: translateY(-10px);
   }
 
   .navbar{
