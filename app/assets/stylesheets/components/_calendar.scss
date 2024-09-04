@@ -1,14 +1,16 @@
-.table-striped {
+.table {
   background-color: aqua;
 }
 
 
 .simple-calendar {
-  .day {}
-
-  .table-striped {
-    background-color: aqua;
+  .day {
+    width: 200px !important;
+    height: 100px !important;
+    background: white;
   }
+
+  .table-striped {height: 150px;}
   .wday-0 {}
   .wday-1 {}
   .wday-2 {}
@@ -17,7 +19,8 @@
   .wday-5 {}
   .wday-6 {}
 
-  .today {}
+  .today {
+  }
   .past {}
   .future {}
 
@@ -28,4 +31,15 @@
   .current-month {}
 
   .has-events {}
+
+}
+
+
+.simple-calendar td {
+  height: 150px;
+  width: 250px;
+}
+
+.simple-calendar .day {
+
 }
