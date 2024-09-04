@@ -7,7 +7,7 @@
     <%= turbo_frame_tag :calendar_show do %>
       <% if @stop.present? %>
         <h3>
-          <% @stop.name %>
+          <%= @stop.name %>
         </h3>
       <% end %>
       <% if @show_diary_entry.present? %>

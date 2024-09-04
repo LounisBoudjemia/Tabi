@@ -24,17 +24,17 @@ class DiaryEntriesController < ApplicationController
     @show_diary_entry = DiaryEntry.find_by(date: params["date"], trip_id: @trip.id)
     @diary_entry = DiaryEntry.new
     @date = params[:date] || Date.today
-    trip_start = @trip.start_date
-    start_date = Date.parse(params[:date])
-      loop do
-        @stop = Stop.find_by(trip_id: @trip, start_date: start_date)
+    # trip_start = @trip.start_date
+    # start_date = Date.parse(params[:date])
+    #   loop do
+    #     @stop = Stop.find_by(trip_id: @trip, start_date: start_date)
 
-        break unless @stop.nil?
+    #     break unless @stop.nil?
 
-        start_date -= 1.day
+    #     start_date -= 1.day
 
-        break if  trip_start = start_date - 1.day
-      end
+    #     break if  trip_start = start_date - 1.day
+    #   end
   end
 
   def create
@@ -62,7 +62,7 @@ class DiaryEntriesController < ApplicationController
     @diary_entry = DiaryEntry.find(params[:id])
     @trip = @diary_entry.trip
     @diary_entry.destroy
-    redirect_to trip_diary_entries_path(@trip), notice: 'Diary Entry was successfully deleted.'
+    redirect_to trip_diary_entries_path(@trip, date: @diary_entry.date), notice: 'Diary Entry was successfully deleted.'
   end
 
   private
