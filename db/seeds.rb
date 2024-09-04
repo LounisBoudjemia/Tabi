@@ -10,14 +10,14 @@
 puts "Cleaning database..."
 
 # DESTROY ALL
-# Activity.destroy_all
-# Stop.destroy_all
-# ChecklistItem.destroy_all
-# Item.destroy_all
-# Checklist.destroy_all
-# ChecklistTemplate.destroy_all
-# Trip.destroy_all
-# User.destroy_all
+Activity.destroy_all
+Stop.destroy_all
+ChecklistItem.destroy_all
+Item.destroy_all
+Checklist.destroy_all
+ChecklistTemplate.destroy_all
+Trip.destroy_all
+User.destroy_all
 
 # CREATE USERS
 puts "Users created!"

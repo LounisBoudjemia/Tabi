@@ -20,7 +20,6 @@ class DiaryEntriesController < ApplicationController
   end
 
   def new
-    @show_diary_entry = DiaryEntry.find_by(date: params[:date], trip_id: params[:trip_id])
     @diary_entry = DiaryEntry.new
     @trip = Trip.find(params[:trip_id])
     @date = params[:date] || Date.today
