@@ -5,7 +5,7 @@
     <p><%= @trip.name %> </p>
 
         <div id="trip-icon-edit">
-        <%= link_to edit_trip_path(@trip), style: "font-size: 2rem;" do %>
+        <%= link_to edit_trip_path(@trip) do %>
           <div>
             <i class="fa-regular fa-pen-to-square"></i>
           </div>
@@ -13,13 +13,14 @@
         </div>
 
         <div id="trip-icon-delete" >
-        <%= link_to trip_path(@trip), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, style: "font-size: 2rem;" do %>
+        <%= link_to trip_path(@trip), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } do %>
           <div>
             <i class="fa-regular fa-trash-alt"></i>
           </div>
         <% end %>
       </div>
-      </div>
+    </div>
+
   <div id="trip-header-dates">
     <p><%= @trip.start_date.strftime("%d-%m-%Y") %> - <%= @trip.formatted_end %></p>
   </div>
