@@ -3,6 +3,7 @@ class DiaryEntriesController < ApplicationController
     @trip = Trip.find(params[:trip_id])
     @stops = @trip.stops
     @diary_entries = @trip.diary_entries
+    @diary_entry = @diary_entries.first
     @events = @stops + @diary_entries
     @show_diary_entry = DiaryEntry.find_by(date: Date.today)
     # if DiaryEntry.find_by(date: Date.today).present?
@@ -34,12 +35,23 @@ class DiaryEntriesController < ApplicationController
   end
 
   def edit
+    @diary_entry = DiaryEntry.find(params[:id])
   end
 
   def update
+    @diary_entry = DiaryEntry.find(params[:id])
+    if @diary_entry.update(diary_params)
+      redirect_to trip_diary_entries_path(@diary_entry.trip), notice: 'Diary Entry was successfully updated.'
+    else
+      render :edit
+    end
   end
 
   def destroy
+    @diary_entry = DiaryEntry.find(params[:id])
+    @trip = @diary_entry.trip
+    @diary_entry.destroy
+    redirect_to trip_diary_entries_path(@trip), notice: 'Diary Entry was successfully deleted.'
   end
 
   private

@@ -1,3 +1,63 @@
+/* Grid Container for the Landing Page and Logos */
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  justify-items: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Adjusting the Landing Page to Fit in the Grid */
+.landing-page {
+  grid-column: 2; /* Center column */
+  text-align: center;
+  padding: 50px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transform: translateY(100%);
+  animation: slideUp 1s ease-out forwards;
+}
+
+/* Logo Styles */
+.logo-left,
+.logo-right {
+  max-width: 250px;
+  border-radius: 60%;
+  height: auto;
+  animation: fadeIn 2s ease-in-out, floatAnimation 3s infinite ease-in-out;
+}
+
+.logo-left {
+  grid-column: 1; /* Left column */
+}
+
+.logo-right {
+  grid-column: 3; /* Right column */
+}
+
+/* Background Container */
+.background-container {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #fafafa, #e0e0e0);
+  background-size: 200% 200%;
+  animation: gradientAnimation 8s ease infinite;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
 /* Style for p_name */
 #p_name {
   position: absolute;
@@ -6,11 +66,10 @@
   font-family: 'Pacifico', cursive;
   font-size: 4em;
   color: #3498db; /* Soft and vibrant blue color */
-  text-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2); /* Slightly lighter shadow */
+  text-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
   z-index: 100;
   animation: fadeInLeft 2s ease-in-out, pulse 3s infinite;
 }
-
 
 /* Fade-in from the left animation */
 @keyframes fadeInLeft {
@@ -34,37 +93,6 @@
   }
 }
 
-/* Background Container */
-.background-container {
-  margin: 0;
-  padding: 0;
-  background: linear-gradient(135deg, #fafafa, #e0e0e0); /* Simpler, softer gradient */
-  background-size: 200% 200%; /* Slower movement */
-  animation: gradientAnimation 8s ease infinite;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-/* Landing Page */
-.landing-page {
-  text-align: center;
-  padding: 50px;
-  background: #ffffff;
-  border-radius: 15px; /* Added border-radius for smooth corners */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  transition: transform 0.3s ease-in-out;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  transform: translateY(100%); /* Start off-screen at the bottom */
-  animation: slideUp 1s ease-out forwards; /* Animation to slide in */
-}
-
 /* Animation to slide up */
 @keyframes slideUp {
   from {
@@ -82,49 +110,16 @@
   100% { background-position: 0% 50%; }
 }
 
-/* Landing Page Header */
-.landing-page header {
-  background-color: rgba(51, 51, 51, 0.85);
-  color: #ffffff;
-  padding: 40px; /* Slightly reduced padding */
-  margin-top: 20px;
-  margin-bottom: 20px;
-  clip-path: polygon(10% 0%, 90% 0%, 100% 50%, 90% 100%, 10% 100%, 0% 50%);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Lighter shadow */
-  transition: transform 0.3s ease-in-out;
-}
-
-.landing-page header:hover {
-  transform: scale(1.03); /* Slightly less intense zoom */
-}
-
-/* Landing Page Heading */
-.landing-page h1 {
-  font-size: 2.5em;
-  animation: fadeIn 2s ease-in-out;
-}
-
-/* Landing Page Paragraph */
-.landing-page p {
-  font-size: 1.2em;
-  animation: fadeIn 2s 1s ease-in-out;
-}
-
-/* Button Styles */
-.btn-first, .btn-second {
-  background-color: #FF6F61;
-  color: #ffffff;
-  padding: 10px 20px;
-  border-radius: 20px;
-  text-decoration: none;
-  display: inline-block;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  margin: 10px 5px; /* Added margin for spacing */
-}
-
-.btn-first:hover, .btn-second:hover {
-  background-color: #E65A50; /* Slightly darker on hover */
-  transform: scale(1.05);
+/* Animation for fade-in */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); /* Slightly lower start position */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* End at its normal position */
+  }
 }
 
 /* Float Animation */
@@ -137,9 +132,59 @@
   }
 }
 
+/* Landing Page Header */
+.landing-page header {
+  background-color: rgba(51, 51, 51, 0.85);
+  color: #ffffff;
+  padding: 40px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  clip-path: polygon(10% 0%, 90% 0%, 100% 50%, 90% 100%, 10% 100%, 0% 50%);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease-in-out;
+}
+
+.landing-page header:hover {
+  transform: scale(1.03);
+}
+
+
+/* Landing Page Paragraph */
+.landing-page p {
+  font-size: 1.2em;
+}
+
+/* Button Styles */
+.btn-first, .btn-second {
+  background-color: #FF6F61;
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 20px;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin: 10px 5px;
+}
+
+.btn-first:hover, .btn-second:hover {
+  background-color: #E65A50;
+  transform: scale(1.05);
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .logo-left,
+  .logo-right {
+    display: none; /* Hide logos on smaller screens */
+  }
+
   .landing-page {
+    grid-column: 1;
     padding: 20px;
   }
 
