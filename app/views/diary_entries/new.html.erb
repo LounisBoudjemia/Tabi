@@ -19,6 +19,7 @@
         <h3><%= @show_diary_entry.headline %></h3>
         <p><%= @show_diary_entry.date %></p>
         <p><%= @show_diary_entry.content %></p>
+        <%= link_to "DELETE", diary_entry_path(@show_diary_entry), data: { turbo_method: :delete, turbo_confirm: "Are you sure?", turbo_frame: '_top' } %>
     </div>
   <% else %>
     <!-- NEW Diary Entry -->
