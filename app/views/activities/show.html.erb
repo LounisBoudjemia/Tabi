@@ -1,5 +1,12 @@
-<%= turbo_frame_tag :activity_show do %>
-  <h3><%= @activity.name %></h3>
-  <p><%= @activity.category.capitalize %></p>
-  <p><%= @activity.description %></p>
+<%= turbo_frame_tag "activity_show_#{@activity.id}" do %>
+  <li class="activity-card d-flex flex-column rounded-3 px-3 py-2 mb-3 position-relative" >
+    <p class="mb-0 text-body-secondary activity-category"><%= @activity.category.capitalize %></p>
+    <h3><%= @activity.name %></h3>
+    <p><%= @activity.description %></p>
+    <%= link_to stop_path(@activity.stop),
+                data: {turbo_frame: "activity_show_#{@activity.id}" },
+                class: "position-absolute top-0 end-0 pt-2 pe-3" do %>
+      <i class="fa-regular fa-circle-xmark"></i>
+    <% end %>
+  </li>
 <% end %>
