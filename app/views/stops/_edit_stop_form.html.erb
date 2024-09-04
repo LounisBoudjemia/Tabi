@@ -49,6 +49,17 @@
 
       </div>
 
+    <div class="mb-3" id="name">
+
+        <%= f.input :description,
+        label: "Description",
+        class: "form-control",
+        placeholder: ""%>
+
+     </div>
+
+    </div>
+
     </div>
 
     <div class="form-actions">
@@ -59,7 +70,7 @@
       class: "btn btn-primary",
       id: "button-form"%>
 
-        </div>
+      </div>
 
       <div class="mb-3">
         <%= link_to "Back to Trip", trip_path(@trip), class: "btn btn-secondary", id: "button-form" %>
