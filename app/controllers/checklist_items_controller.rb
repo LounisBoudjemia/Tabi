@@ -24,12 +24,47 @@ class ChecklistItemsController < ApplicationController
   end
 
   def use_template
-    # @checklist_template = ChecklistTemplate.find(params[:id])
-    @checklist = Checklist.find_by(trip_id: params[:trip_id])
+    @trip = Trip.find(params["trip_id"])
+    # get the template
+    @checklist_template = ChecklistTemplate.find(params[:id])
+    # get the items from the template
     @checklist_items = ChecklistItem.where(checklistable_type: "ChecklistTemplate", checklistable_id: params[:id])
+    # create a new checklist with the same name as the template
+    @checklist = Checklist.create!(trip_id: @trip.id, name: @checklist_template.name)
+    # create the items in the new checklist
     @checklist_items.each do |checklist_item|
       ChecklistItem.create!(item_id: checklist_item.item_id, checklistable_type: "Checklist",
-                            checklistable_id: @checklist.id)
+      checklistable_id: @checklist.id)
+    end
+    respond_to do |format|
+      format.html { redirect_to trip_checklists_path(trip_id: @trip.id) }
+      format.turbo_stream do
+        render turbo_stream: [
+        turbo_stream.replace(:checklist_show, partial: 'shared/list',
+                            locals: { list: @checklist, trip: @trip }),
+      ]
+      end
+    end
+  end
+
+  def make_template
+    @user = current_user
+    @trip = Trip.find(params["trip_id"])
+    @checklist = Checklist.find(params[:id])
+    @checklist_items = ChecklistItem.where(checklistable_type: "Checklist", checklistable_id: params[:id])
+    @checklist_template = ChecklistTemplate.create!(user_id: @user.id, name: @checklist.name)
+    @checklist_items.each do |checklist_item|
+      ChecklistItem.create!(item_id: checklist_item.item_id, checklistable_type: "ChecklistTemplate",
+                            checklistable_id: @checklist_template.id)
+    end
+    respond_to do |format|
+      format.html { redirect_to trip_checklists_path(trip_id: @trip.id) }
+      format.turbo_stream do
+        render turbo_stream: [
+        turbo_stream.replace(:checklist_template_show, partial: 'shared/list',
+                            locals: { list: @checklist_template, trip: @trip }),
+      ]
+      end
     end
   end
 end
