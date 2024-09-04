@@ -1,23 +1,25 @@
-<h1>Diary Entries</h1>
-
 <div class="flexed-page">
-
 
     <!-- SHOW Diary Entry -->
     <%= turbo_frame_tag :calendar_show do %>
+      <% if @current_stops.present? %>
+        <h3>
+          <%= @current_stops.first.name %>
+          <% if @current_stops.second.present? %>
+            >
+            <%= @current_stops.second.name %>
+          <% end %>
+        </h3>
+      <% end %>
       <% if @show_diary_entry.present? %>
         <div class="diary-entry-container">
             <h3><%= @show_diary_entry.headline %></h3>
             <p><%= @show_diary_entry.date %></p>
             <p><%= @show_diary_entry.content %></p>
-            <p>Test11111</p>
         </div>
       <% else %>
         <!-- NEW Diary Entry -->
-        <%# = turbo_frame_tag :form_show do %>
-          <%= render partial: "form", locals: { trip: @trip, diary_entry: @diary_entry, date: @date } %>
-        <%# end %>
-        <button><%= link_to "Add Diary Entry", new_trip_diary_entry_path(@trip) %></button>
+        <%= render partial: "form", locals: { trip: @trip, diary_entry: @diary_entry, date: @date } %>
       <% end %>
     <% end %>
 
@@ -26,16 +28,16 @@
   <!-- Calendar -->
   <div class="calendar-container">
     <%= month_calendar(attribute: :start_date, end_attribute: :end_date, events: @events) do |date, events|%>
-      <%= link_to date, new_trip_diary_entry_path(@trip, date: date), data: {turbo_frame: :calendar_show} %>
+      <%= link_to date.day, new_trip_diary_entry_path(@trip, date: date), data: {turbo_frame: :calendar_show}, style: "text-decoration: none" %>
 
       <% events.each do |event| %>
         <% if event.is_a?(Stop)  %>
           <div class="bg-danger">
-            <%= link_to event.name, stop_path(event) %>
+            <%= link_to event.name, stop_path(event), style: "text-decoration: none" %>
           </div>
           <% else %>
           <div class="bg-info p-1 rounded-circle">
-            <%= link_to event.name, diary_entry_path(event), data: { turbo_frame: :calendar_show} %>
+            <%= event.name %>
           </div>
         <% end %>
       <% end %>

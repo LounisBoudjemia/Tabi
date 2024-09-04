@@ -14,10 +14,18 @@
 
 
 <%= turbo_frame_tag :calendar_show do %>
+  <% if @current_stops.present? %>
+    <h3>
+      <%= @current_stops.first.name %>
+      <% if @current_stops.second.present? %>
+        <%= @current_stops.second.name %>
+      <% end %>
+    </h3>
+  <% end %>
   <% if @show_diary_entry.present? %>
     <div class="diary-entry-container">
         <h3><%= @show_diary_entry.headline %></h3>
-        <p><%= @show_diary_entry.date %></p>
+        <p style="color: grey;"><%= @show_diary_entry.date %></p>
         <p><%= @show_diary_entry.content %></p>
         <%= link_to @show_diary_entry, data: { turbo_method: :delete, turbo_confirm: "Are you sure" } %>
     </div>

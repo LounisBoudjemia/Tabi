@@ -2,10 +2,11 @@ class DiaryEntriesController < ApplicationController
   def index
     @trip = Trip.find(params[:trip_id])
     @stops = @trip.stops
+    @current_stops = @stops.select { |stop| stop.includes_date?(Date.today) }
     @diary_entries = @trip.diary_entries
-    @diary_entry = @diary_entries.first
+    # @diary_entry = @diary_entries.first
     @events = @stops + @diary_entries
-    @show_diary_entry = DiaryEntry.find_by(date: Date.today)
+    @show_diary_entry = @diary_entries.find_by(date: params[:date] || Date.today)
     # if DiaryEntry.find_by(date: Date.today).present?
     #   @show_diary_entry = DiaryEntry.find_by(date: Date.today)
     # else
@@ -20,9 +21,13 @@ class DiaryEntriesController < ApplicationController
   end
 
   def new
+    @trip = Trip.find(params["trip_id"])
+    @show_diary_entry = DiaryEntry.find_by(date: params["date"], trip_id: @trip.id)
     @diary_entry = DiaryEntry.new
-    @trip = Trip.find(params[:trip_id])
     @date = params[:date] || Date.today
+    @calendar_date = calendar_date = Date.parse(params[:date])
+    @stops = @trip.stops
+    @current_stops = @stops.select { |stop| stop.includes_date?(@calendar_date) }
   end
 
   def create
@@ -30,7 +35,7 @@ class DiaryEntriesController < ApplicationController
     @diary_entry = DiaryEntry.new(diary_params)
     @diary_entry.trip = @trip
     @diary_entry.save
-    redirect_to trip_diary_entries_path(@trip), notice: 'Diary Entry was successfully created.'
+    redirect_to trip_diary_entries_path(@trip, date: @diary_entry.date), notice: 'Diary Entry was successfully created.'
   end
 
   def edit
@@ -50,7 +55,7 @@ class DiaryEntriesController < ApplicationController
     @diary_entry = DiaryEntry.find(params[:id])
     @trip = @diary_entry.trip
     @diary_entry.destroy
-    redirect_to trip_diary_entries_path(@trip), notice: 'Diary Entry was successfully deleted.'
+    redirect_to trip_diary_entries_path(@trip, date: @diary_entry.date), notice: 'Diary Entry was successfully deleted.'
   end
 
   private

@@ -1,14 +1,37 @@
-.table-striped {
-  background-color: aqua;
+.table {
+  background-color: aqua ;
+  border-radius: 20% !important;
 }
 
-
 .simple-calendar {
-  .day {}
 
-  .table-striped {
-    background-color: aqua;
+  .day {
+    width: 200px !important;
+    height: 100px !important;
+    background: white;
+    border-color: blue;
   }
+
+  .tbody {
+    border-radius: 20%;
+    background-color: blue !important;
+    background: blue !important;
+  }
+
+  .calendar-heading {
+    background-color: rgb(180, 180, 230) !important;
+    padding: 8px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .calendar-nav {
+    display: flex !important;
+  }
+
+  .table-striped {height: 150px;}
   .wday-0 {}
   .wday-1 {}
   .wday-2 {}
@@ -24,8 +47,9 @@
   .start-date {}
 
   .prev-month {}
-  .next-month { }
+  .next-month {}
   .current-month {}
 
   .has-events {}
+
 }
