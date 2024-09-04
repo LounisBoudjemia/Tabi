@@ -17,5 +17,11 @@ class Stop < ApplicationRecord
     end_date.strftime("%d-%m-%Y")
   end
 
+  def includes_date?(date)
+    return false if start_date.nil? || end_date.nil?
+
+    start_date <= date && end_date >= date
+  end
+
   validates :name, presence: true
 end

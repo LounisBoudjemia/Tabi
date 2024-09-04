@@ -5,9 +5,13 @@
 
     <!-- SHOW Diary Entry -->
     <%= turbo_frame_tag :calendar_show do %>
-      <% if @stop.present? %>
+      <% if @current_stops.present? %>
         <h3>
-          <%= @stop.name %>
+          <%= @current_stops.first.name %>
+          <% if @current_stops.second.present? %>
+            >
+            <%= @current_stops.second.name %>
+          <% end %>
         </h3>
       <% end %>
       <% if @show_diary_entry.present? %>
