@@ -33,12 +33,16 @@
       <% @trip.stops.each do |stop|%>
         <%= render "stop", stop: stop %>
       <% end %>
-    </ul>
-    <%= turbo_frame_tag :new_stop do %>
-       <%= link_to "New Stop", new_trip_stop_path(@trip) %>
-    <% end %>
-  </div>
 
+      <div id="button d-flex align-items-center">
+        <%= turbo_frame_tag :new_stop do %>
+          <%= link_to "New Stop", new_trip_stop_path(@trip) , class: "btn btn-primary" %>
+        <% end %>
+      </div>
+      
+    </ul>
+
+  </div>
   <!-- RIGHT BOX -->
     <!-- MAP -->
     <div id="trip-map" style="width: 100%; height:100%;"
