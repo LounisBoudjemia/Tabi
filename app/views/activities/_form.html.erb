@@ -30,7 +30,7 @@
 
     <%# 2nd form is form the EDIT-Activities-Form %>
 
-    <%= simple_form_for @activity do |f| %>
+    <%= simple_form_for [stop, activity] do |f| %>
     <%= f.input :name %>
     <%= f.input :location %>
     <%= f.input :category %>

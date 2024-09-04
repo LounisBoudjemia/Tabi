@@ -1,7 +1,8 @@
-<%= simple_form_for [trip, diary_entry] do |f| %>
+<%= simple_form_for [trip, diary_entry],
+    data: {turbo_frame: '_top'} do |f| %>
     <%= f.input :headline %>
     <%= f.input :content %>
+    <%= f.input :date, html5: true, input_html: { value: date } %>
     <%= f.submit "submit", class: "btn" %>
-    <%= hidden_field_tag "date", "2024-09-03"%>
-    <button><%= link_to "go back", trip_diary_entries_path(trip) %></button>
+    <%#= hidden_field_tag "date", "2024-09-03"%>
 <% end %>

@@ -1,0 +1,24 @@
+<%= turbo_frame_tag :checklist_container do%>
+<div id="checklists-container" class="d-flex flex-column px-3 mt-3">
+  <div class="dropdown mb-3">
+    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      Checklists
+    </button>
+    <ul class="dropdown-menu">
+      <% if @checklists.present? %>
+        <% @checklists.each do |checklist| %>
+          <li><%= link_to checklist.name, checklist_path(checklist, trip_id: @trip),
+                  class: "text-decoration-none", data: { turbo_frame: :checklist_show } %></li>
+        <%end%>
+      <% end %>
+    </ul>
+  </div>
+  <div id="checklist-content" class="">
+    <%= turbo_frame_tag :checklist_show do%>
+      <% if Checklist.where(trip: @trip).first.present? %>
+        <%= render partial: "shared/list", locals: { list: Checklist.where(trip: @trip).first, trip: @trip } %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+<% end %>

@@ -1,26 +1,26 @@
 #checklists-index-container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(5, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
   grid-column-gap: 16px;
   grid-row-gap: 16px;
-  height: 98%;
-  background-color: white;
+  height: calc(100vh - 80px);
   }
 
-  #checklists-index-header {
-    grid-column: span 2;
-    background-color: $success;
+  #checklists-header {
+    height: 40px;
+    padding: 16px;
+    margin: 16px;
   }
 
-  #checklists-index-body-left {
-    grid-row: span 4;
-    background-color: $danger;
+  #checklists-header-title {
+    font-size: 30px;
+    font-family: "Roboto";
+    font-weight: bold;
   }
 
-  #checklists-index-body-right {
-    grid-row: span 4;
-    background-color: $info;
+  #link-home {
+    margin-right: 20px;
   }
 
   #checklist-templates {

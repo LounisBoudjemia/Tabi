@@ -1,0 +1,6 @@
+<%= turbo_frame_tag :edit_checklist do %>
+  <%= simple_form_for [@checklist] do |f|%>
+    <%= f.input :name, label: false, placeholder: @checklist.name %>
+    <%= hidden_field_tag :trip_id, @trip.id %>
+  <%end%>
+<%end%>
