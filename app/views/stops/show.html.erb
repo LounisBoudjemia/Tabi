@@ -19,12 +19,15 @@
 
     <ul id="activities-list" class="list-unstyled p-3 d-flex flex-column w-100 ">
 
-        <% @activities.each do |activity|%>
-
-    <%= activity.start_date.strftime("%d-%m-%Y") %>
-
-          <%= render "activity", activity: activity %>
+      <% @activities.each do |activity|%>
+        <%= turbo_frame_tag "activity_card_#{activity.id}" do %>
+          <%= turbo_frame_tag "activity_show_#{activity.id}" do %>
+            <%= render "activity", activity: activity %>
+          <% end %>
         <% end %>
+      <% end %>
+
+
     </ul>
     <%= turbo_frame_tag :new_activity do %>
       <%= link_to "Add an Activity", new_stop_activity_path(@stop) %>
