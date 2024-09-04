@@ -1,0 +1,26 @@
+<%= turbo_frame_tag :new_activity do %>
+<div id="activity-form" class="d-flex justifiy-content-center p-3">
+
+  <div class="d-flex align-items-center w-100">
+    <%= simple_form_for [stop, activity],
+      data: {turbo_frame: '_top' } do |f| %>
+      <%= f.input :name %>
+      <%= f.input :location %>
+      <%= f.input :category, as: :select, collection: ['Food', 'Drinks', 'Art', 'Nature', 'Memorial', 'Views'], prompt: "Select a category" %>
+      <%= f.input :description %>
+      <%= f.input :start_date %>
+
+      <div id="activity-form-new-links" class="d-flex flex-row justify-content-between">
+        <div class="mb-3">
+          <%= f.submit "submit", class: "btn btn-primary" %>
+        </div>
+
+        <div class="mb-3">
+          <%= link_to "go back", stop_path(stop), class: "btn btn-secondary", id: "button-form" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+</div>
+<% end %>

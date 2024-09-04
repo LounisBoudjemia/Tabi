@@ -1,28 +1,7 @@
-<!--- NAVBAR --->
-  <div id="trip-header-navbar" class="navbar d-flex justify-content-between">
-      <div id="trip-text" class="me-3">
-        <div id="name">
-          <p>TABI</p>
-        </div>
-        </div>
-    <div class="icons" >
-    <div class="d-flex justify-content-center">
-      <div id="link-home">
-          <%= link_to trips_path do %>
-            <i class="fa-solid fa-house" style="font-size: 2rem;"></i>
-          <% end %>
-        </div>
-    <div class="menu d-flex align-content-start">
-      <%= render "shared/menu"%>
-    </div>
-    </div>
-    </div>
-    </div>
-
 <div class="trip-show-container">
   <!-- HEADER -->
 <div id="trip-header" class="d-flex justify-content-between">
-  <div id="trip-header-title" class="d-flex justify-content-between">
+  <div id="trip-header-title" class="d-flex justify-content-between m-3">
     <p><%= @trip.name %> </p>
 
         <div id="trip-icon-edit">
@@ -54,12 +33,16 @@
       <% @trip.stops.each do |stop|%>
         <%= render "stop", stop: stop %>
       <% end %>
-    </ul>
-    <%= turbo_frame_tag :new_stop do %>
-       <%= link_to "New Stop", new_trip_stop_path(@trip) %>
-    <% end %>
-  </div>
 
+      <div id="button d-flex align-items-center">
+        <%= turbo_frame_tag :new_stop do %>
+          <%= link_to "New Stop", new_trip_stop_path(@trip) , class: "btn btn-primary" %>
+        <% end %>
+      </div>
+      
+    </ul>
+
+  </div>
   <!-- RIGHT BOX -->
     <!-- MAP -->
     <div id="trip-map" style="width: 100%; height:100%;"

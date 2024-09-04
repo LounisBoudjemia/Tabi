@@ -1,73 +1,57 @@
-
-<!--- NAVBAR --->
-  <div id="trip-header-navbar" class="navbar d-flex justify-content-between">
-      <div id="trip-text" class="me-3">
-        <div id="name">
-          <p>TABI</p>
-        </div>
-        </div>
-    <div class="icons" >
-    <div class="d-flex justify-content-center">
-      <div id="link-home">
-          <%= link_to trips_path do %>
-            <i class="fa-solid fa-house" style="font-size: 2rem;"></i>
-          <% end %>
-        </div>
-    </div>
-    </div>
-    </div>
-    </div>
-
 <div class="trips-container">
   <!-- HEADER -->
-  <div id="upcoming-container" >
-      <div id="trips-header-title">
-          <p>Upcoming Trips</p>
-      </div>
-    <div id="upcoming-trips-body" class="d-flex justify-content-between">
-        <% @upcoming_trips[0].each do |trip|%>
-          <%= link_to trip_path(trip), class: "text-decoration-none w-100" do %>
+  <div id="upcoming-container">
+    <div id="trips-header-title">
+        <p>Upcoming Trips</p>
+    </div>
 
-          <li class="d-flex flex-row justify-content-between align-items-center rounded-3 px-3 py-2 mb-3">
+    <div id="upcoming-trips-body" class="d-flex justify-content-between flex-wrap w-100">
+    <%# <ul id="trips-list" class="list-unstyled p-3 w-100 flex-row"> %>
+      <% @upcoming_trips[0].each do |trip|%>
+
+          <div class="d-flex flex-row justify-content-between align-items-center flex-wrap rounded-3 px-3 py-2 mb-3">
+          <%= link_to trip_path(trip), class: "text-decoration-none" do %>
             <div class="trip-index">
-            <% if trip.photo.attached?%>
+              <% if trip.photo.attached?%>
                 <div class="trip-index-img-top"> <%= cl_image_tag trip.photo.key, crop: :fill %> </div>
               <% end %>
-            <div class="trip-index-body">
-                <h5 class="card-index-title" ><%= trip.name  %></h5>
-                <p class="card-index-text"> <%= trip.start_date.strftime("%d-%m-%Y") %> - <%= trip.formatted_end %></p>
+              <div class="trip-index-body">
+                  <h5 class="card-index-title" ><%= trip.name  %></h5>
+                  <p class="card-index-text"> <%= trip.start_date.strftime("%d-%m-%Y") %> - <%= trip.formatted_end %></p>
               </div>
-              </div>
-          <% end %>
-        </li>
-          <% end %>
-      </ul>
+            </div>
+        <% end %>
+        </div>
+      <% end %>
+      <%# </ul> %>
       </div>
   </div>
 
-<div id="past-container">
+
+  <div id="past-container">
     <div id="trips-header-title">
-        <p>Trips of the past</p>
+        <p>You wish you were still there</p>
     </div>
-      <div id="old-trips-body" class="d-flex justify-content-between">
 
+    <div id="past-trips-body" class="d-flex justify-content-between flex-wrap w-100">
+    <%# <ul id="trips-list" class="list-unstyled p-3 w-100 flex-row"> %>
       <% @old_trips[0].each do |trip|%>
-        <%= link_to trip_path(trip), class: "text-decoration-none w-100" do %>
 
-        <li class="d-flex flex-row justify-content-between align-items-center rounded-3 px-3 py-2 mb-3">
-          <div class="trip-index">
-           <% if trip.photo.attached?%>
-              <div class="trip-index-img-top"> <%= cl_image_tag trip.photo.key, crop: :fill %> </div>
-            <% end %>
-           <div class="trip-index-body">
-              <h5 class="card-index-title" ><%= trip.name  %></h5>
-              <p class="card-index-text"> <%= trip.start_date.strftime("%d-%m-%Y") %> - <%= trip.formatted_end %></p>
-            </div>
+          <div class="d-flex flex-row justify-content-between align-items-center flex-wrap rounded-3 px-3 py-2 mb-3">
+          <%= link_to trip_path(trip), class: "text-decoration-none" do %>
+            <div class="trip-index">
+              <% if trip.photo.attached?%>
+                <div class="trip-index-img-top"> <%= cl_image_tag trip.photo.key, crop: :fill %> </div>
+              <% end %>
+              <div class="trip-index-body">
+                  <h5 class="card-index-title" ><%= trip.name  %></h5>
+                  <p class="card-index-text"> <%= trip.start_date.strftime("%d-%m-%Y") %> - <%= trip.formatted_end %></p>
+              </div>
             </div>
         <% end %>
-      </li>
-        <% end %>
-    </ul>
-</div>
-</div>
+        </div>
+      <% end %>
+      <%# </ul> %>
+      </div>
+  </div>
 </div>
