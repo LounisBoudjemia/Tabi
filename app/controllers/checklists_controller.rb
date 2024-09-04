@@ -21,8 +21,8 @@ class ChecklistsController < ApplicationController
           format.html { redirect_to trip_checklists_path(trip_id: @trip.id) }
           format.turbo_stream do
             render turbo_stream: [
-          turbo_stream.replace(:checklist_container, partial: 'checklists/checklist_container',
-                              locals: { checklists: @checklists, trip: @trip }),
+          turbo_stream.replace(:checklist_show, partial: 'shared/list',
+                              locals: { list: @checklist, trip: @trip }),
           turbo_stream.replace(:checklists_header, partial: 'checklists/checklists_header')
           ]
           end
@@ -51,7 +51,7 @@ class ChecklistsController < ApplicationController
     @trip = Trip.find(params[:trip_id])
     @checklist = Checklist.find(params[:id])
     if @checklist.update(checklist_params)
-      redirect_to trip_checklists_path(trip_id: @trip.id), notice: 'Checklist was successfully updated.'
+      redirect_to trip_checklists_path(trip_id: @trip.id)
     else
       render :edit
     end

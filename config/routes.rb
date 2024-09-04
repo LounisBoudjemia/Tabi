@@ -26,7 +26,7 @@ Rails.application.routes.draw do
     resources :items, only: [:new, :create]
     resources :checklist_items,  only: [:new, :create, :edit, :update, :destroy], shallow: true do
       member do
-        patch :checked, :use_template
+        patch :checked, :use_template, :make_template
       end
       resources :items, only: [:show, :edit, :update, :destroy], shallow: true
     end

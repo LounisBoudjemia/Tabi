@@ -14,13 +14,21 @@ class ItemsController < ApplicationController
     @item = Item.new(name: params[:item][:name])
     if params["checklist_template_id"].present?
       @list = ChecklistTemplate.find(params[:checklist_template_id])
+      type = "checklist_template"
     elsif params["checklist_id"].present?
       @list = Checklist.find(params[:checklist_id])
+      type = "checklist"
     end
-
     if @item.save
       ChecklistItem.create(item: @item, checklistable: @list)
-      redirect_to trip_checklists_path(trip_id: @trip.id)
+      respond_to do |format|
+        format.html { redirect_to trip_checklists_path(trip_id: @trip.id) }
+        format.turbo_stream {
+          render turbo_stream:
+          turbo_stream.replace("#{type}_show", partial: 'shared/list',
+                              locals: { list: @list, trip: @trip })
+          }
+      end
     else
       render :new
     end

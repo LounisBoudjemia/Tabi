@@ -1,4 +1,4 @@
-<%= turbo_frame_tag :checklist_show, class: "" do%>
+<%= turbo_frame_tag :checklist_show, class: "" do %>
 
   <div id="list-header" class="d-flex justify-content-center">
     <div id="list-name" class="d-flex">
@@ -9,6 +9,12 @@
             <%= list.name %>
           </h2>
         <div id="checklist-buttons" class="px-5 text-center">
+          <%= link_to make_template_checklist_item_path(list, trip_id: @trip),
+              data: {turbo_method: :patch, turbo_confirm: "Dow you want to create a template from #{list.name} checklist?"},
+              style: "font-size: 1rem;",
+              class: "link-underline link-underline-opacity-0" do %>
+            <i class="fa-regular fa-copy"></i>
+          <% end %>
           <%= link_to edit_checklist_path(list, trip: @trip),
               class: "link-underline link-underline-opacity-0 icon-link icon-link-hover my-2",
               style: "font-size: 1rem;", data: {turbo_frame: :edit_checklist} do %>
@@ -28,7 +34,7 @@
           </h2>
           <div id="template-buttons" class="px-3 text-center">
             <%= link_to use_template_checklist_item_path(list, trip_id: @trip),
-                data: {turbo_method: :patch, turbo_frame: :checklist_show, turbo_confirm: "Dow you want to copy all items from #{list.name} to your checklist?"},
+                data: {turbo_method: :patch, turbo_confirm: "Dow you want to create a checklist from #{list.name} template?"},
                 style: "font-size: 1rem;",
                 class: "link-underline link-underline-opacity-0" do %>
               <i class="fa-regular fa-copy"></i>
@@ -76,11 +82,12 @@
 
   <!-- LIST OF ITEMS -->
   <div id="checklist-items" class="h-75 px-3">
+    <%= turbo_frame_tag :add_item, class: "" do %>
+
     <% list.items.each do |item| %>
 
       <% type = item.checklistable_type(list) %>
 
-    <!-- LIST ELEMENT -->
     <li id="item_<%= type %>_<%= item.id %>" class="item-card card d-flex flex-row justify-content-between rounded-pill px-3 py-1 mb-1 bg-light-subtle">
 
 
@@ -111,6 +118,8 @@
       <% end %>
 
     </li>
+    <% end %>
+
     <% end %>
   </div>
 <% end %>
