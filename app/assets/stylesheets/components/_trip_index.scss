@@ -1,32 +1,36 @@
 .trips-container {
   display:flex;
-  flex-direction: column;
   // grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   // grid-column-gap: 16px;
   // grid-row-gap: 16px;
   height: calc(100vh - 80px);
+  flex-direction: column;
   justify-content: space-between;
+  width: 100%;
+  }
+
+  #trips-list {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
   }
 
   #upcoming-container {
-    border-bottom: solid gray;
     padding: 16px;
     margin: 16px;
     padding-bottom: 40px;
   }
 
+  // #trips-list {
+  //   display: inline-flex;
+  //   justify-content: space-between;
+  //   width: 100vw;
+  //   flex-wrap: wrap;
+  // }
+
   #past-container {
     padding: 16px;
     margin: 16px;
   }
-
-
-  // #trips-header {
-  //   height: 40px;
-  //   padding: 16px;
-  //   margin: 16px;
-  // }
-
 
   #trips-header-title {
     font-size: 30px;
@@ -39,14 +43,6 @@
       display: none;
     }
 
-    // Hide scrollbar for IE, Edge and Firefox
-    #trips-list {
-      -ms-overflow-style: none;  /* IE and Edge */
-      scrollbar-width: none;  /* Firefox */
-     // height: 100%;
-
-    }
-
     #link-home {
       margin-right: 20px;
     }
@@ -57,13 +53,9 @@
     .trip-index-body {
       font-family: "Roboto";
       font-size: 14px;
-      background-color:  rgb(173,216,230);
-
-      h5 {
-        font-family: "Roboto";
-        font-size: 18px;
-        font-weight: bold;
-      }
+      border-radius: 20px;
+      padding: 10px;
+      margin-bottom: 0;
     }
 
     .navbar{
@@ -97,28 +89,20 @@
     text-align: center;
     background-size: cover;
     background-position: center;
-    background-color: rgb(173,216,230);
-    height: 100%;
-    width: 100%;
     margin: 20px;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     color: black;
     border: none;
     font-family: "Roboto";
     margin-top:10px;
-  border-radius: 20px 20px;
+    border-radius: 20px;
 
     img{
       height: 180px;
-      width: 420px;
+      width: 360px;
       object-fit: cover;
-      border-radius: 10px 10px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.2);
-
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
     }
-  }
-
-  .trip-index-body {
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
   }
