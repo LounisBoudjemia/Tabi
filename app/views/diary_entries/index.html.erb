@@ -25,12 +25,12 @@
   <!-- Calendar -->
   <div class="calendar-container">
     <%= month_calendar(attribute: :start_date, end_attribute: :end_date, events: @events) do |date, events|%>
-      <%= link_to date, new_trip_diary_entry_path(@trip, date: date) %>
+      <%= link_to date, new_trip_diary_entry_path(@trip, date: date), data: {turbo_frame: :calendar_show} %>
 
       <% events.each do |event| %>
         <% if event.is_a?(Stop)  %>
           <div class="bg-danger">
-            <%= link_to event.name, diary_entry_path(event) %>
+            <%= link_to event.name, stop_path(event) %>
           </div>
           <% else %>
           <div class="bg-info p-1 rounded-circle">

@@ -1,13 +1,27 @@
-<div id="form-container" class="p-3 rounded-5">
+<!-- <div id="form-container" class="p-3 rounded-5"> -->
+<!--  -->
+  <!-- <div id="stop-header" class="card d-flex flex-row justify-content-center p-3 m-0 rounded-5"> -->
+    <!-- <h1>Create Diary Entry</h1> -->
+  <!-- </div> -->
+<!--  -->
+  <!-- <div class="container-new"> -->
+<!--  -->
+    <%# = render "form", trip: @trip, diary_entry: @diary_entry, date: @date %>
+<!--  -->
+    <!-- <br> -->
+  <!-- </div> -->
+<!-- </div> -->
 
-  <div id="stop-header" class="card d-flex flex-row justify-content-center p-3 m-0 rounded-5">
-    <h1>Create Diary Entry</h1>
-  </div>
 
-  <div class="container-new">
-
-    <%= render "form", trip: @trip, diary_entry: @diary_entry, date: @date %>
-
-    <br>
-  </div>
-</div>
+<%= turbo_frame_tag :calendar_show do %>
+  <% if @show_diary_entry.present? %>
+    <div class="diary-entry-container">
+        <h3><%= @show_diary_entry.headline %></h3>
+        <p><%= @show_diary_entry.date %></p>
+        <p><%= @show_diary_entry.content %></p>
+    </div>
+  <% else %>
+    <!-- NEW Diary Entry -->
+    <%= render partial: "form", locals: { trip: @trip, diary_entry: @diary_entry, date: @date } %>
+  <% end %>
+<% end %>
