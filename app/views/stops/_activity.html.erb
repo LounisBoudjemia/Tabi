@@ -1,9 +1,11 @@
-<%= link_to activity_path(activity), class: "text-decoration-none", data: { turbo_frame: "activity_show_#{activity.id}" } do %>
   <%= activity.start_date.strftime("%d-%m-%Y") %>
-  <li class="activity-card d-flex flex-row justify-content-between align-items-center rounded-3 px-3 py-2 mb-3" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" >
+<%= link_to activity_path(activity), class: "activity-name align-content-center flex-grow-1 text-decoration-none", data: { turbo_frame: "activity_show_#{activity.id}" } do %>
+  <li class="activity-card d-flex flex-row justify-content-between align-items-stretch rounded-3 px-3 py-2 mb-3"
+      data-bs-toggle="collapse" data-bs-target="#collapseExample"
+      aria-expanded="false" aria-controls="collapseExample" >
 
     <!-- ACTIVITY NAME -->
-    <div class="activity-name flex-grow-1">
+    <div class="activity-name">
       <%= activity.name %>
     </div>
 
@@ -11,30 +13,27 @@
     <!-- ICONS -->
     <div id="activity-icons" class="d-flex">
       <!-- EDIT ICON -->
-      <%= link_to edit_activity_path(activity), data: {turbo_frame: "activity_card_#{activity.id}"} do %>
-        <div class="button">
-            <i class="fa-regular fa-pen-to-square"></i>
-        </div>
+      <%= link_to edit_activity_path(activity), data: {turbo_frame: "activity_card_#{activity.id}"},
+          class: "edit-activity align-content-center" do %>
+        <i class="edit-activity-icon fa-regular fa-pen-to-square"></i>
       <% end %>
 
       <!-- TRASH ICON -->
-      <%= link_to activity_path(activity), method: :delete, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-        <div class="button ms-2">
-            <i class="fa-solid fa-trash"></i>
-        </div>
+      <%= link_to activity_path(activity), method: :delete, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+          class: "trash-activity ms-2 align-content-center" do %>
+        <i class="c fa-solid fa-trash"></i>
       <% end %>
 
       <!-- FAVORITE ICON -->
-      <%= turbo_frame_tag "activity_favorite_#{activity.id}" do%>
-        <div class="favorite ms-2">
-          <%= link_to favorite_activity_path(activity), data: {turbo_method: :patch} do %>
-            <% if activity.favorite %>
-              <i class="fa-solid fa-heart"></i>
-            <% else %>
-              <i class="fa-regular fa-heart"></i>
-            <% end %>
+      <%= turbo_frame_tag "activity_favorite_#{activity.id}", class: "d-flex align-items-stretch" do%>
+        <%= link_to favorite_activity_path(activity), data: {turbo_method: :patch},
+        class: "favorite-activity ms-2 align-content-center" do %>
+          <% if activity.favorite %>
+            <i class="favorite-activity-icon fa-solid fa-heart"></i>
+          <% else %>
+            <i class="favorite-activity-icon fa-regular fa-heart"></i>
           <% end %>
-        </div>
+        <% end %>
       <% end %>
     </div>
 
