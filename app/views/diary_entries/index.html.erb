@@ -15,14 +15,10 @@
             <h3><%= @show_diary_entry.headline %></h3>
             <p><%= @show_diary_entry.date %></p>
             <p><%= @show_diary_entry.content %></p>
-            <p>Test</p>
         </div>
       <% else %>
         <!-- NEW Diary Entry -->
-        <%# = turbo_frame_tag :form_show do %>
-          <%= render partial: "form", locals: { trip: @trip, diary_entry: @diary_entry, date: @date } %>
-        <%# end %>
-        <button><%= link_to "Add Diary Entry", new_trip_diary_entry_path(@trip) %></button>
+        <%= render partial: "form", locals: { trip: @trip, diary_entry: @diary_entry, date: @date } %>
       <% end %>
     <% end %>
 
