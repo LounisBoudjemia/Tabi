@@ -19,6 +19,7 @@ class DiaryEntriesController < ApplicationController
   end
 
   def new
+    @show_diary_entry = DiaryEntry.find_by(date: params[:date], trip_id: params[:trip_id])
     @diary_entry = DiaryEntry.new
     @trip = Trip.find(params[:trip_id])
     @date = params[:date] || Date.today
@@ -28,7 +29,6 @@ class DiaryEntriesController < ApplicationController
     @trip = Trip.find(params[:trip_id])
     @diary_entry = DiaryEntry.new(diary_params)
     @diary_entry.trip = @trip
-    @diary_entry.date = params[:date]
     @diary_entry.save
     redirect_to trip_diary_entries_path(@trip), notice: 'Diary Entry was successfully created.'
   end
@@ -45,6 +45,6 @@ class DiaryEntriesController < ApplicationController
   private
 
   def diary_params
-    params.require(:diary_entry).permit(:headline, :content, :date, :trip_id)
+    params.require(:diary_entry).permit(:headline, :content, :date)
   end
 end

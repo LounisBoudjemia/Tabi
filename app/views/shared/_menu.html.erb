@@ -1,25 +1,27 @@
 <div class="menu-items">
   <i class="fa-regular fa-circle-user" data-bs-toggle="dropdown" aria-expanded="false" style="font-size: 2rem;"></i>
   <ul class="dropdown-menu rounded-5 bg-light">
-    <li>
-      <%= link_to trip_path(@trip), class: "dropdown-item d-flex justify-content-between align-items-center rounded-5 rounded-bottom-0" do %>
-        <%= @trip.name %>
-        <i class="fa-solid fa-suitcase"></i>
-      <% end %>
-    </li>
-    <li>
-      <%= link_to trip_diary_entries_path(trip_id: @trip.id), class: "dropdown-item d-flex justify-content-between align-items-center rounded-5 rounded-bottom-0" do %>
-        Diary
-        <i class="fa-solid fa-book"></i>
-      <% end %>
-    </li>
-    <li>
-      <%= link_to trip_checklists_path(trip_id: @trip.id), class: "dropdown-item d-flex justify-content-between align-items-center" do %>
-        Suitcase List
-        <i class="fa-solid fa-list-ul"></i>
-      <% end %>
-    </li>
-    <li><hr class="dropdown-divider"></li>
+    <% if @trip.present? %>
+      <li>
+        <%= link_to trip_path(@trip), class: "dropdown-item d-flex justify-content-between align-items-center rounded-5 rounded-bottom-0" do %>
+          <%= @trip.name %>
+          <i class="fa-solid fa-suitcase"></i>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to trip_diary_entries_path(trip_id: @trip.id), class: "dropdown-item d-flex justify-content-between align-items-center rounded-5 rounded-bottom-0" do %>
+          Diary
+          <i class="fa-solid fa-book"></i>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to trip_checklists_path(trip_id: @trip.id), class: "dropdown-item d-flex justify-content-between align-items-center" do %>
+          Suitcase List
+          <i class="fa-solid fa-list-ul"></i>
+        <% end %>
+      </li>
+      <li><hr class="dropdown-divider"></li>
+    <% end %>
     <li>
       <%= link_to destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item rounded-5 rounded-top-0 d-flex justify-content-between align-items-center" do %>
         Log out
