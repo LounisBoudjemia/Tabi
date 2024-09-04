@@ -20,7 +20,10 @@ class ActivitiesController < ApplicationController
     @activity = Activity.find_by(id: params[:id])
     @stop = @activity.stop
     @activity.destroy
-    redirect_to stop_path(@stop)
+    respond_to do |format|
+      format.turbo_stream { render turbo_stream: turbo_stream.remove("activity_show_#{@activity.id}") }
+      format.html { redirect_to stop_path(@stop), notice: 'Activity was successfully deleted.' }
+    end
   end
 
   def edit
