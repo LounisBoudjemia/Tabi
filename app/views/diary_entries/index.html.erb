@@ -1,7 +1,4 @@
-<h1>Diary Entries</h1>
-
 <div class="flexed-page">
-
 
     <!-- SHOW Diary Entry -->
     <%= turbo_frame_tag :calendar_show do %>
@@ -31,7 +28,7 @@
   <!-- Calendar -->
   <div class="calendar-container">
     <%= month_calendar(attribute: :start_date, end_attribute: :end_date, events: @events) do |date, events|%>
-      <%= link_to date, new_trip_diary_entry_path(@trip, date: date), data: {turbo_frame: :calendar_show}, style: "text-decoration: none" %>
+      <%= link_to date.day, new_trip_diary_entry_path(@trip, date: date), data: {turbo_frame: :calendar_show}, style: "text-decoration: none" %>
 
       <% events.each do |event| %>
         <% if event.is_a?(Stop)  %>

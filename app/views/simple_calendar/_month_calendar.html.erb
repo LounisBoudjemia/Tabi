@@ -2,10 +2,10 @@
   <div class="calendar-heading">
     <time datetime="<%= start_date.strftime('%Y-%m') %>" class="calendar-title"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></time>
 
-    <nav>
-      <%= link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view %>
-      <%= link_to t('simple_calendar.today', default: 'Today'), calendar.url_for_today_view %>
-      <%= link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view %>
+    <nav class="calendar-nav">
+      <%= link_to t('simple_calendar.previous', default: '<'), calendar.url_for_previous_view, class: "btn btn-primary" %>
+      <%= link_to t('simple_calendar.today', default: 'today'), calendar.url_for_today_view, class: "btn btn-primary"  %>
+      <%= link_to t('simple_calendar.next', default: '>'), calendar.url_for_next_view, class: "btn btn-primary"  %>
     </nav>
   </div>
 
@@ -18,7 +18,7 @@
       </tr>
     </thead>
 
-    <tbody>
+    <tbody class="tbody">
       <% date_range.each_slice(7) do |week| %>
         <tr>
           <% week.each do |day| %>
