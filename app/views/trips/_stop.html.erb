@@ -1,5 +1,5 @@
-<%= link_to stop_path(stop), class: "text-decoration-none w-100" do %>
-  <li class="stop-card card d-flex flex-row justify-content-center align-items-center rounded-3 px-3 py-2 mb-3">
+<li class="stop-card card d-flex flex-row justify-content-center align-items-center rounded-3 px-3 py-2 mb-3">
+    <%= link_to stop_path(stop), class: "text-decoration-none w-100" do %>
       <!-- STOP INFO -->
     <div class="stop-body">
       <div class="stop-title">
@@ -14,11 +14,16 @@
       <div class="d-flex justifiy-content-between">
 
 
-      <div id="trash">
-        <i id="trash-icon" class="fa-regular fa-trash-alt"></i>
-</div>
+
 
     </div>
     </div>
-      </li>
+    <% end %>
+
+   <%= link_to stop_path(stop), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } do %>
+
+          <div id="trash">
+        <i id="trash-icon" class="fa-regular fa-trash-alt"></i>
+</div>
 <% end %>
+      </li>
