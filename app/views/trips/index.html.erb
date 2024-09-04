@@ -7,7 +7,7 @@
 
     <div id="upcoming-trips-body" class="d-flex flex-wrap w-100">
     <%# <ul id="trips-list" class="list-unstyled p-3 w-100 flex-row"> %>
-      <% @upcoming_trips[0].each do |trip|%>
+      <% @upcoming_trips.each do |trip|%>
 
           <div class="d-flex flex-row justify-content-between align-items-center flex-wrap rounded-3 px-3 py-2 mb-3">
           <%= link_to trip_path(trip), class: "text-decoration-none" do %>
@@ -35,7 +35,7 @@
 
     <div id="past-trips-body" class="d-flex flex-wrap w-100">
     <%# <ul id="trips-list" class="list-unstyled p-3 w-100 flex-row"> %>
-      <% @old_trips[0].each do |trip|%>
+      <% @old_trips.each do |trip|%>
 
           <div class="d-flex flex-row justify-content-between align-items-center flex-wrap rounded-3 px-3 py-2 mb-3">
           <%= link_to trip_path(trip), class: "text-decoration-none" do %>
