@@ -1,25 +1,4 @@
-<!--- NAVBAR --->
-<div id="checklists-header-navbar" class="navbar d-flex justify-content-between">
-  <div id="checklists-text" class="me-3">
-    <div id="name">
-      <p>TABI</p>
-    </div>
-  </div>
-  <div class="icons" >
-    <div class="d-flex justify-content-center">
-      <div id="link-home">
-        <%= link_to trips_path do %>
-          <i class="fa-solid fa-house" style="font-size: 2rem;"></i>
-        <% end %>
-      </div>
-      <div class="menu d-flex align-content-start">
-        <%= render "shared/menu"%>
-      </div>
-    </div>
-  </div>
-</div>
-
-  <!-- CONTENT -->
+<!-- CONTENT -->
 <div id="checklists-index-container" class="">
   <!-- LEFT BOX -->
   <%= render partial: "checklists_header", checklists: @checklists, checklist_templates: @checklist_templates, trip: @trip %>
