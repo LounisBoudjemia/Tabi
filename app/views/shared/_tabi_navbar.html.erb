@@ -1,8 +1,8 @@
-<div id="trip-header-navbar" class="navbar z-3 d-flex justify-content-between">
-  <div id="trip-text" class="d-flex me-3">
-    <div id="name">
+<div id="trip-header-navbar" class="navbar p-0 z-3 d-flex justify-content-between">
+  <div id="trip-text" class="d-flex pt-3 pb-0 me-3">
+    <%= link_to trips_path, id: "app-name", class: "text-decoration-none" do %>
       <p>TABI</p>
-    </div>
+    <% end %>
     <% if action_name == "show" && controller_name == "trips" || action_name == "index" && controller_name == "checklists" || action_name == "index" && controller_name == "diary_entries" %>
       <%= link_to trip_path(@trip), class: "d-flex text-decoration-none ms-5" do %>
         <i class="fa-solid fa-plane me-2 pt-1"></i>
@@ -20,18 +20,7 @@
         <p><%= @stop.name %></p>
       <% end %>
     <% end %>
-
   </div>
-  <div class="icons" >
-    <div class="d-flex justify-content-center">
-      <div id="link-home">
-        <%= link_to trips_path do %>
-          <i class="fa-solid fa-house" style="font-size: 2rem;"></i>
-        <% end %>
-      </div>
-      <div class="menu d-flex align-content-start">
-        <%= render "shared/menu"%>
-      </div>
-    </div>
+    <%= render "shared/menu"%>
   </div>
 </div>
