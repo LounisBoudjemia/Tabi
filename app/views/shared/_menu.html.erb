@@ -1,32 +1,33 @@
-<div class="menu-items">
-  <i class="fa-regular fa-circle-user" data-bs-toggle="dropdown" aria-expanded="false" style="font-size: 2rem;"></i>
-  <ul class="dropdown-menu rounded-5 bg-light">
-    <% if @trip&.persisted?  %>
+<div class="btn-group dropstart">
+  <i id="user-icon" class="fa-regular fa-circle-user" data-bs-toggle="dropdown" aria-expanded="false" style="font-size: 2.5rem;"></i>
+  <ul class="dropdown-menu dropdown-menu-dark rounded-3 ">
+    <%if @trip&.persisted?%>
+    <!-- NOT NEEDED BECAUSE IN THE NAVBAR -->
+      <!-- <li> -->
+        <%# = link_to trip_path(@trip), class: "dropdown-item d-flex justify-content-between align-items-center" do %>
+          <%# = @trip.name %>
+          <!-- <i class="fa-solid fa-plane"></i> -->
+        <%# end %>
+      <!-- </li> -->
       <li>
-        <%= link_to trip_path(@trip), class: "dropdown-item d-flex justify-content-between align-items-center rounded-5 rounded-bottom-0" do %>
-          <%= @trip.name %>
-          <i class="fa-solid fa-suitcase"></i>
-        <% end %>
-      </li>
-      <li>
-        <%= link_to trip_diary_entries_path(trip_id: @trip.id), class: "dropdown-item d-flex justify-content-between align-items-center rounded-5 rounded-bottom-0" do %>
+        <%= link_to trip_diary_entries_path(trip_id: @trip.id), class: "dropdown-item d-flex justify-content-between align-items-center" do%>
           Diary
           <i class="fa-solid fa-book"></i>
-        <% end %>
+        <%end%>
       </li>
       <li>
-        <%= link_to trip_checklists_path(trip_id: @trip.id), class: "dropdown-item d-flex justify-content-between align-items-center" do %>
+        <%= link_to trip_checklists_path(trip_id: @trip.id), class: "dropdown-item d-flex justify-content-between align-items-center" do%>
           Suitcase List
           <i class="fa-solid fa-list-ul"></i>
-        <% end %>
+        <%end%>
       </li>
       <li><hr class="dropdown-divider"></li>
-    <% end %>
+    <%end%>
     <li>
-      <%= link_to destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item rounded-5 rounded-top-0 d-flex justify-content-between align-items-center" do %>
+      <%= link_to destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item d-flex justify-content-between align-items-center" do%>
         Log out
         <i class="fa-solid fa-arrow-right-from-bracket"></i>
-      <% end %>
+      <%end%>
     </li>
   </ul>
 </div>
