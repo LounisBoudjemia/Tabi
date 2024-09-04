@@ -37,7 +37,9 @@ class StopsController < ApplicationController
   end
 
   def edit
+
     @stop = Stop.find(params[:id])
+    @trip = @stop.trip
   end
 
   def update
