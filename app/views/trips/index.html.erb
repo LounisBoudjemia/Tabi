@@ -6,15 +6,14 @@
         <p>Upcoming Trips</p>
       </div>
 
+    <%= turbo_frame_tag :new_trip, class: "fixed-top-right" do %>
       <div id="new-trip">
-        <%= link_to "Start your journey", new_trip_path , class: "btn btn-primary" %>
+        <%= link_to "Start your journey", new_trip_path, data: { turbo_frame: :new_trip } , class: "btn btn-primary" %>
       </div>
-
-
+    <% end %>
 
     </div>
     <div id="upcoming-trips-body" class="d-flex flex-wrap w-100">
-    <%# <ul id="trips-list" class="list-unstyled p-3 w-100 flex-row"> %>
       <% @upcoming_trips.each do |trip|%>
 
         <div class="d-flex flex-row justify-content-between align-items-center flex-wrap rounded-3 px-3 py-2 mb-3">
@@ -39,8 +38,7 @@
           </div>
         <% end %>
       <% end %>
-        <%# </ul> %>
-        </div>
+    </div>
   </div>
 
 

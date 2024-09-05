@@ -1,21 +1,17 @@
-
-
+<%= turbo_frame_tag :new_trip do %>
 <%= simple_form_for(trip) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs" data-controller="datepicker">
     <div class="mb-3" id="name">
-
       <%= f.input :name,
       label: "Trip name",
       class: "form-control",
       placeholder: ""%>
-
     </div>
 
     <div class="mb-3" id="start">
-
       <%= f.input :start_date, as: :string,
         input_html: {
           data: {
@@ -23,46 +19,32 @@
             action: "change->datepicker#setDate"
         }
         } %>
-
     </div>
 
     <div class="mb-3" id="end">
-
       <%= f.input :end_date, as: :string,
         input_html: {
           data: {
             datepicker_target: "end"
         }
         } %>
-
     </div>
 
     <div class="mb-3" id="photo" >
-
-    <%= f.input :photo, as: :file,
-        class: "form-control"%>
-
+      <%= f.input :photo, as: :file,
+          class: "form-control"%>
     </div>
-
   </div>
 
   <div class="form-actions">
-
     <div class="mb-3">
-
-    <%= f.button :submit,
-    class: "btn btn-primary",
-    id: "button-form"%>
-
-      </div>
+      <%= f.button :submit, class: "btn btn-primary",
+      id: "button-form"%>
+    </div>
 
     <div class="mb-3">
       <%= link_to "Back to all trips", trips_path, class: "btn btn-secondary", id: "button-form" %>
-
     </div>
-
   </div>
-
-
-
+<% end %>
 <% end %>
