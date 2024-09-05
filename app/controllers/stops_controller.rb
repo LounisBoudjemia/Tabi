@@ -37,22 +37,52 @@ class StopsController < ApplicationController
   end
 
   def edit
-
     @stop = Stop.find(params[:id])
     @trip = @stop.trip
   end
 
+  # def update
+  #   if @stop.update(stop_params)
+  #     redirect_to trip_path(@stop.trip), notice: 'You updated this stop successfully.'
+  #   else
+  #     render :update
+  #   end
+  # end
+
   def update
+    @trip = @stop.trip
     if @stop.update(stop_params)
-      redirect_to @stop, notice: 'You updated this stop successfully.'
+      respond_to do |format|
+        format.turbo_stream do
+          render turbo_stream: [
+            turbo_stream.replace("stop_card_#{@stop.id}", partial: "trips/stop", locals: { stop: @stop }), # Update the individual stop card
+            turbo_stream.replace(:stops_map, partial: "trips/map", locals: { markers: updated_markers }) # Refresh the map with updated markers
+          ]
+        end
+        format.html { redirect_to trip_path(@stop.trip), notice: 'You updated this stop successfully.' }
+      end
     else
-      render :show
+      respond_to do |format|
+        format.turbo_stream do
+          render turbo_stream: turbo_stream.replace("stop_card_#{@stop.id}", partial: "trips/stop", locals: { stop: @stop }) # Show validation errors on the same stop card
+        end
+        format.html { render :edit }
+      end
     end
   end
 
   def destroy
+    @trip = @stop.trip
     @stop.destroy
-    redirect_to trip_path
+    respond_to do |format|
+      format.turbo_stream do
+        render turbo_stream: [
+          turbo_stream.remove("stop_card_#{@stop.id}"),
+          turbo_stream.replace(:stops_map, partial: "trips/map", locals: {markers: updated_markers})
+        ]
+      end
+      format.html { redirect_to trip_path(@stop.trip), notice: 'Stop was successfully deleted.' }
+    end
   end
 
   private
@@ -63,5 +93,12 @@ class StopsController < ApplicationController
 
   def set_stop
     @stop = Stop.find(params[:id])
+  end
+
+  def updated_markers
+    # Assuming @trip is available and it has_many :stops
+    @trip.stops.map do |stop|
+      { lat: stop.latitude, lng: stop.longitude, title: stop.name }
+    end.to_json
   end
 end
