@@ -15,10 +15,15 @@
 
     <ul id="activities-list" class="list-unstyled p-3 d-flex flex-column w-100 ">
 
-      <% @activities.each do |activity|%>
-        <%= turbo_frame_tag "activity_card_#{activity.id}" do %>
-          <%= turbo_frame_tag "activity_show_#{activity.id}" do %>
-            <%= render "activity", activity: activity %>
+      <% @activity_dates.each do |date|%>
+        <div id="activity-date">
+         <%= date.strftime("%d-%m-%Y") %>
+         </div>
+          <% @activities.select{|activity| activity.start_date == date}.each do |activity|%>
+            <%= turbo_frame_tag "activity_card_#{activity.id}" do %>
+              <%= turbo_frame_tag "activity_show_#{activity.id}" do %>
+                <%= render "activity", activity: activity %>
+            <% end %>
           <% end %>
         <% end %>
       <% end %>

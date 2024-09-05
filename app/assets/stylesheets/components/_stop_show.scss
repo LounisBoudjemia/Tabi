@@ -74,6 +74,10 @@
       // font-weight: bold;
     }
 
+    p {
+      font-size: 15px;
+    }
+
   }
 
   .activity-card:hover {
@@ -88,4 +92,12 @@
   }
   .btn {
     width: 100%;
+  }
+
+  #activity-date {
+    font-size: 22px;
+    font-family: "Roboto";
+    font-weight: bold;
+    color: #2B7A78;
+    padding: 10px;
   }
