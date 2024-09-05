@@ -3,7 +3,7 @@
   <ul class="dropdown-menu dropdown-menu-dark rounded-3 ">
     <%if @trip&.persisted?%>
       <li>
-        <%= link_to trip_diary_entries_path(trip_id: @trip.id), class: "dropdown-item d-flex justify-content-between align-items-center" do%>
+        <%= link_to trip_diary_entries_path(trip_id: @trip.id, start_date: @trip.start_date), class: "dropdown-item d-flex justify-content-between align-items-center" do%>
           Diary
           <i class="fa-solid fa-book"></i>
         <%end%>
