@@ -130,3 +130,20 @@
     text-decoration: none;
     background-color: #C6E6E2;
   }
+  // .new-trip {
+  //   position: relative; /* Set the parent as the reference for the child */
+  //   // width: 400px;
+  //   // height: 300px;
+  //   // border: 2px solid #000;
+  //   // margin: 50px;
+  //   // overflow: hidden; /* If needed, to keep the child within the bounds */
+  // }
+  .fixed-top-right {
+      position: fixed;
+      top: 100px;
+      right: 20px;
+      z-index: 1000; /* Ensure it's above other elements in the parent */
+      // background-color: white; /* Ensure it stands out */
+      // padding: 10px;
+      // border: 1px solid #ddd;
+  }
