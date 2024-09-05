@@ -7,20 +7,22 @@
   align-items: center;
   border-radius: 8px;
   border-color: white;
-  text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.3);
+  text-shadow: 0.5px 0.5px 0.5px rgba(89, 84, 84, 0.397);
+  padding-left: 2px;
+  padding-right: 2px;
 }
 
 .simple-calendar {
 
   .day {
-    width: 200px !important;
+    width: 600px !important;
     height: 100px !important;
     background: white;
     border-color: #70417A;
   }
 
   .calendar-heading {
-    background-color: rgb(180, 180, 230) !important;
+    background-color: $teal !important;
     padding: 8px;
     border-radius: 8px;
     display: flex;

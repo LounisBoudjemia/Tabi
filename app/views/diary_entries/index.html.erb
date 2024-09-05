@@ -6,7 +6,6 @@
         <h3>
           <%= @current_stops.first.name %>
           <% if @current_stops.second.present? %>
-            >
             <%= @current_stops.second.name %>
           <% end %>
         </h3>
@@ -23,8 +22,6 @@
       <% end %>
     <% end %>
 
-
-
   <!-- Calendar -->
   <div class="calendar-container">
     <%= month_calendar(attribute: :start_date, end_attribute: :end_date, events: @events) do |date, events|%>
@@ -35,15 +32,11 @@
             <%= link_to event.name, stop_path(event), style: "color: white; text-decoration: none;" %>
           </div>
           <%else%>
-          <div class="calender-button bg-info p-1">
-            <%= event.name %>
+          <div class="calender-button p-1" style="background-color: #70417A;">
+            <%= link_to event.name, new_trip_diary_entry_path(@trip, date: date), data: {turbo_frame: :calendar_show}, style: "color: white; text-decoration: none;"  %>
           </div>
         <%end%>
       <%end%>
-
     <%end%>
   </div>
-
-
-
 </div>
