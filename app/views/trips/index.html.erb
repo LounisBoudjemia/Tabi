@@ -1,3 +1,12 @@
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content p-3">
+      <%= render "form", trip: @trip %>
+    </div>
+  </div>
+</div>
+
 <div class="trips-container">
   <!-- HEADER -->
   <div id="upcoming-container">
@@ -6,11 +15,10 @@
         <p>Upcoming Trips</p>
       </div>
 
-    <%= turbo_frame_tag :new_trip, class: "fixed-top-right" do %>
-      <div id="new-trip">
-        <%= link_to "Start your journey", new_trip_path, data: { turbo_frame: :new_trip } , class: "btn btn-primary" %>
-      </div>
-    <% end %>
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary h-25" style="width: 200px;" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        Start your journey
+      </button>
 
     </div>
     <div id="upcoming-trips-body" class="d-flex flex-wrap w-100">
