@@ -4,7 +4,7 @@
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs">
+  <div class="form-inputs" data-controller="datepicker">
     <div class="mb-3" id="name">
 
       <%= f.input :name,
@@ -19,8 +19,9 @@
       <%= f.input :start_date, as: :string,
         input_html: {
           data: {
-            controller: "datepicker"
-          }
+          datepicker_target: "start",
+          action: "change->datepicker#setDate"
+        }
         } %>
 
     </div>
@@ -29,9 +30,9 @@
 
       <%= f.input :end_date, as: :string,
         input_html: {
-          data: {
-            controller: "datepicker"
-          }
+           data: {
+          datepicker_target: "end"
+        }
         } %>
 
     </div>
