@@ -8,7 +8,7 @@
       <% if @checklist_templates.present? %>
         <% @checklist_templates.each do |checklist_template| %>
           <li class="text-center"><%= link_to checklist_template.name, checklist_template_path(checklist_template, trip_id: @trip),
-                  class: "text-decoration-none", data: { turbo_frame: :checklist_template_show } %></li>
+                  class: "text-decoration-none dropdown-item", data: { turbo_frame: :checklist_template_show } %></li>
         <%end%>
       <% end %>
     </ul>

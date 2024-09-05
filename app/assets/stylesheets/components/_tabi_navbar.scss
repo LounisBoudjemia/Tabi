@@ -10,6 +10,17 @@
       color: $danger;
     }
   }
+  #navbar-navigation {
+    i {
+      color: $danger;
+    }
+    p {
+      color: $primary;
+    }
+    p:hover {
+      color: $danger;
+    }
+  }
   #user-icon {
     color: $primary;
   }

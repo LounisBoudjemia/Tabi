@@ -4,52 +4,78 @@
     <div id="list-name" class="d-flex">
       <!-- IF LIST IS A CHECKLIST -->
       <% if list.respond_to?(:trip_id) %>
-        <%= turbo_frame_tag :edit_checklist do %>
+        <%= turbo_frame_tag :edit_checklist, class: "d-flex" do %>
           <h2 class="text-center">
             <%= list.name %>
           </h2>
-        <div id="checklist-buttons" class="px-5 text-center">
-          <%= link_to make_template_checklist_item_path(list, trip_id: @trip),
-              data: {turbo_method: :patch, turbo_confirm: "Dow you want to create a template from #{list.name} checklist?"},
-              style: "font-size: 1rem;",
-              class: "link-underline link-underline-opacity-0" do %>
-            <i class="fa-regular fa-copy"></i>
-          <% end %>
-          <%= link_to edit_checklist_path(list, trip: @trip),
-              class: "link-underline link-underline-opacity-0 icon-link icon-link-hover my-2",
-              style: "font-size: 1rem;", data: {turbo_frame: :edit_checklist} do %>
-            <i class="fa-regular fa-pen-to-square"></i>
-          <%end%>
-          <%= link_to checklist_path(list, trip: @trip), method: :delete, data: {turbo_method: :delete, turbo_confirm: "Are you sure?" },
-              class: "link-underline link-underline-opacity-0 icon-link icon-link-hover my-2",
-              style: "font-size: 1rem;" do %>
-            <i class="fa-solid fa-trash"></i>
-          <%end%>
-        </div>
+          <div class="btn-group dropstart align-items-center ms-3 pb-2">
+            <i class="fa-solid fa-bars" data-bs-toggle="dropdown" aria-expanded="false" style="font-size: 1.5rem;"></i>
+            <ul class="dropdown-menu dropdown-menu-dark rounded-3 ">
+              <li>
+                <%= link_to make_template_checklist_item_path(list, trip_id: @trip),
+                    data: {turbo_method: :patch, turbo_confirm: "Dow you want to create a template from #{list.name} checklist?"},
+                    style: "font-size: 1rem;",
+                    class: "dropdown-item d-flex justify-content-between align-items-center" do %>
+                  make template
+                  <i class="fa-regular fa-copy"></i>
+                <% end %>
+              </li>
+                <%= link_to edit_checklist_path(list, trip: @trip),
+                    class: "dropdown-item d-flex justify-content-between align-items-center",
+                    style: "font-size: 1rem;", data: {turbo_frame: :edit_checklist} do %>
+                  edit name
+                  <i class="fa-regular fa-pen-to-square"></i>
+                <%end%>
+              <li>
+                <%= link_to checklist_path(list, trip: @trip), method: :delete, data: {turbo_method: :delete, turbo_confirm: "Are you sure?" },
+                    class: "dropdown-item d-flex justify-content-between align-items-center",
+                    style: "font-size: 1rem;" do %>
+                  delete
+                  <i class="fa-solid fa-trash"></i>
+                <%end%>
+              </li>
+              <li>
+              </li>
+            </ul>
+          </div>
         <%end%>
+        <!-- <div id="checklist-buttons" class="px-5 text-center"> -->
+        <!-- </div> -->
       <!-- IF LIST IS A TEMPLATE -->
       <% elsif list.respond_to?(:user_id) %>
-        <%= turbo_frame_tag :edit_template do %>
+        <%= turbo_frame_tag :edit_template, class: "d-flex" do %>
           <h2 class="text-center">
             <%= list.name %>
           </h2>
-          <div id="template-buttons" class="px-3 text-center">
-            <%= link_to use_template_checklist_item_path(list, trip_id: @trip),
+          <div class="btn-group dropstart align-items-center ms-3 pb-2">
+            <i class="fa-solid fa-bars" data-bs-toggle="dropdown" aria-expanded="false" style="font-size: 1.5rem;"></i>
+            <ul class="dropdown-menu dropdown-menu-dark rounded-3 ">
+              <li>
+                <%= link_to use_template_checklist_item_path(list, trip_id: @trip),
                 data: {turbo_method: :patch, turbo_confirm: "Dow you want to create a checklist from #{list.name} template?"},
                 style: "font-size: 1rem;",
-                class: "link-underline link-underline-opacity-0" do %>
-              <i class="fa-regular fa-copy"></i>
-            <% end %>
-            <%= link_to edit_checklist_template_path(list, trip: @trip),
-                class: "link-underline link-underline-opacity-0 icon-link icon-link-hover my-2",
+                class: "dropdown-item d-flex justify-content-between align-items-center" do %>
+                  use template
+                  <i class="fa-regular fa-copy"></i>
+                <% end %>
+              </li>
+                <%= link_to edit_checklist_template_path(list, trip: @trip),
+                class: "dropdown-item d-flex justify-content-between align-items-center",
                 style: "font-size: 1rem;", data: {turbo_frame: :edit_template} do %>
-              <i class="fa-regular fa-pen-to-square"></i>
-            <%end%>
-            <%= link_to checklist_template_path(list, trip: @trip), method: :delete, data: {turbo_method: :delete, turbo_confirm: "Are you sure?" },
-                class: "link-underline link-underline-opacity-0 icon-link icon-link-hover my-2",
+                  edit name
+                  <i class="fa-regular fa-pen-to-square"></i>
+                <%end%>
+              <li>
+                <%= link_to checklist_template_path(list, trip: @trip), method: :delete, data: {turbo_method: :delete, turbo_confirm: "Are you sure?" },
+                class: "dropdown-item d-flex justify-content-between align-items-center",
                 style: "font-size: 1rem;" do %>
-              <i class="fa-solid fa-trash"></i>
-            <%end%>
+                  delete
+                  <i class="fa-solid fa-trash"></i>
+                <%end%>
+              </li>
+              <li>
+              </li>
+            </ul>
           </div>
         <% end %>
       <% end %>
@@ -62,7 +88,7 @@
       <%= turbo_frame_tag "new_#{list.name}_item" do %>
         <%= link_to new_checklist_item_path(list, trip: @trip),
             class: "link-underline link-underline-opacity-0 icon-link icon-link-hover my-2",
-            style: "font-size: 2rem;",
+            style: "font-size: 1.5rem;",
             data: {turbo_frame: :new_item} do %>
           <i class="fa-regular fa-circle-plus"></i>
         <%end%>
@@ -73,7 +99,7 @@
       <%= turbo_frame_tag "new_#{list.name}_item" do %>
         <%= link_to new_checklist_template_item_path(list, trip: @trip),
             class: "link-underline link-underline-opacity-0 icon-link icon-link-hover my-2",
-            style: "font-size: 2rem;",
+            style: "font-size: 1.5rem;",
             data: {turbo_frame: :new_item} do %>
           <i class="fa-regular fa-circle-plus"></i>
         <%end%>
