@@ -40,7 +40,7 @@
 
       </div>
 
-      <div class="mb-3" id="name">
+      <div class="mb-3" id="address">
 
         <%= f.input :address,
         label: "Address",
@@ -48,6 +48,17 @@
         placeholder: ""%>
 
       </div>
+
+    <div class="mb-3" id="description">
+
+        <%= f.input :description,
+        label: "Description",
+        class: "form-control",
+        placeholder: ""%>
+
+     </div>
+
+    </div>
 
     </div>
 
@@ -59,7 +70,7 @@
       class: "btn btn-primary",
       id: "button-form"%>
 
-        </div>
+      </div>
 
       <div class="mb-3">
         <%= link_to "Back to Trip", trip_path(@trip), class: "btn btn-secondary", id: "button-form" %>

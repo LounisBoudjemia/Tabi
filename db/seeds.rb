@@ -20,6 +20,7 @@ Trip.destroy_all
 User.destroy_all
 
 # CREATE USERS
+User.create!(email: "lounis@lounis.com", password: "password")
 puts "Users created!"
 
 # CREATE TRIPS
