@@ -8,7 +8,7 @@
 
 
 
-    <div class="form-inputs">
+    <div class="form-inputs" data-controller="datepicker">
       <div class="mb-3" id="name">
 
         <%= f.input :name,
@@ -23,7 +23,8 @@
         <%= f.input :start_date, as: :string,
           input_html: {
             data: {
-              controller: "datepicker"
+              datepicker_target: "start",
+              action: "change->datepicker#setDate"
             }
           } %>
 
@@ -34,7 +35,7 @@
         <%= f.input :end_date, as: :string,
           input_html: {
             data: {
-              controller: "datepicker"
+              datepicker_target: "end"
             }
           } %>
 
