@@ -58,7 +58,7 @@ class StopsController < ApplicationController
   private
 
   def stop_params
-    params.require(:stop).permit(:name, :start_date, :end_date, :address, :trip_id)
+    params.require(:stop).permit(:name, :start_date, :end_date, :address, :description, :trip_id)
   end
 
   def set_stop
