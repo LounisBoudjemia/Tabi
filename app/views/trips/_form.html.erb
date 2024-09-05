@@ -39,11 +39,11 @@
   <div class="form-actions">
     <div class="mb-3">
       <%= f.button :submit, class: "btn btn-primary",
-      id: "button-form"%>
+      id: "button-form", data: { turbo_frame: "_top"} %>
     </div>
 
     <div class="mb-3">
-      <%= link_to "Back to all trips", trips_path, class: "btn btn-secondary", id: "button-form" %>
+      <%= link_to "Back to all trips", trips_path, class: "btn btn-secondary", id: "button-form", data: { turbo_frame: "_top"} %>
     </div>
   </div>
 <% end %>
