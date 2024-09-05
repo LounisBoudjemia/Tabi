@@ -29,7 +29,6 @@
   <div class="calendar-container">
     <%= month_calendar(attribute: :start_date, end_attribute: :end_date, events: @events) do |date, events|%>
       <%= link_to date.day, new_trip_diary_entry_path(@trip, date: date), data: {turbo_frame: :calendar_show}, style: "text-decoration: none"%>
-
       <%events.each do |event|%>
         <%if event.is_a?(Stop)%>
           <div class="calender-button bg-danger">
