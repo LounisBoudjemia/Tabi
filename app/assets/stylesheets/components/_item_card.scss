@@ -1,0 +1,33 @@
+.item-card {
+  // text-align: center;
+  // background-size: cover;
+  // background-position: center;
+  transition: all .3s ease-in-out;
+  // width: 100%;
+  min-height: 20px;
+  font-family: "Roboto";
+  font-size: 16px;
+  background-color: #3AAFA9;
+  color: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+
+  h5 {
+    font-family: "Roboto";
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  i {
+    color: white;
+  }
+
+  .item-category {
+    font-size: 16px;
+    // font-weight: bold;
+  }
+
+}
+
+.item-card:hover {
+  transform: translateY(-10px);
+}
