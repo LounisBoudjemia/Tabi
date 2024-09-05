@@ -11,6 +11,8 @@
     }
   }
   #navbar-navigation {
+    display: flex;
+    justify-content: space-evenly;
     i {
       color: $danger;
     }
