@@ -25,7 +25,7 @@ class DiaryEntriesController < ApplicationController
     @show_diary_entry = DiaryEntry.find_by(date: params["date"], trip_id: @trip.id)
     @diary_entry = DiaryEntry.new
     @date = params[:date] || Date.today
-    @calendar_date = calendar_date = Date.parse(params[:date])
+    @calendar_date = Date.parse(params[:date])
     @stops = @trip.stops
     @current_stops = @stops.select { |stop| stop.includes_date?(@calendar_date) }
   end
