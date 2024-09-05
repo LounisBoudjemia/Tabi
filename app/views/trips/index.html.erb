@@ -29,7 +29,7 @@
               </div>
             <% else%>
               <div class="trip-index">
-                <div class="trip-index-img-top"> <%= cl_image_tag("w6qhypx79xucwmdzf416vt4b0v46",crop: :fill) %> </div>
+                <div class="trip-index-img-top"> <%= image_tag("Travel.jpg")  %>  </div>
                 <div class="trip-index-body">
                     <h5 class="card-index-title" ><%= trip.name  %></h5>
                     <p class="card-index-text"> <%= trip.start_date.strftime("%d-%m-%Y") %> - <%= trip.formatted_end %></p>
@@ -65,7 +65,7 @@
               </div>
             <% else%>
               <div class="trip-index">
-                <div class="trip-index-img-top"> <%= cl_image_tag("w6qhypx79xucwmdzf416vt4b0v46",crop: :fill) %> </div>
+                <div class="trip-index-img-top">  <%= image_tag("Travel.jpg")  %>  </div>
                 <div class="trip-index-body">
                     <h5 class="card-index-title" ><%= trip.name  %></h5>
                     <p class="card-index-text"> <%= trip.start_date.strftime("%d-%m-%Y") %> - <%= trip.formatted_end %></p>
