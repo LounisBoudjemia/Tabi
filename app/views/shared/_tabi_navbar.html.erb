@@ -4,13 +4,15 @@
       <p>TABI</p>
     <% end %>
   </div>
-  <div id="navbar-navigation" class=" d-flex justify-content-between pt-3">
+  <div id="navbar-navigation" class="d-flex align-items-center pt-3 me-2">
     <% if action_name == "show" && controller_name == "trips" || action_name == "index" && controller_name == "checklists" || action_name == "index" && controller_name == "diary_entries" %>
       <%= link_to trip_path(@trip), class: "d-flex text-decoration-none ms-5" do %>
         <i class="fa-solid fa-plane me-2 pt-1"></i>
-        <p><%= @trip.name %></p>
+        <p class="me-3"><%= @trip.name %></p>
       <% end %>
     <% end %>
+
+
     <% if action_name == "show" && controller_name == "stops" %>
       <%= link_to trip_path(@trip), class: "d-flex text-decoration-none ms-5" do %>
         <i class="fa-solid fa-plane me-2 pt-1"></i>
@@ -18,10 +20,21 @@
       <% end %>
       <%= link_to stop_path(@stop), class: "d-flex text-decoration-none ms-3" do %>
         <i class="fa-solid fa-location-dot me-2 pt-1"></i>
-        <p><%= @stop.name %></p>
+        <p class="me-3"><%= @stop.name %></p>
       <% end %>
     <% end %>
-  <%= render "shared/menu"%>
-  </div-navbar-navigation>
+  </div>
+    <div id="navbar-right" class="d-flex">
+      <%if @trip&.persisted?%>
+          <%= link_to trip_diary_entries_path(trip_id: @trip.id, start_date: @trip.start_date), class: "dropdown-item d-flex justify-content-between align-items-center me-2" do%>
+            <i class="fa-solid fa-book me-2"></i>
+          <%end%>
+
+          <%= link_to trip_checklists_path(trip_id: @trip.id), class: "dropdown-item d-flex justify-content-between align-items-center" do%>
+            <i class="fa-solid fa-list-ul me-2"></i>
+          <%end%>
+      <%end%>
+      <%= render "shared/menu"%>
+    </div>
   </div>
 </div>
