@@ -90,3 +90,37 @@
       border-top-right-radius: 20px;
     }
   }
+
+  .trip-index-alt {
+    background-color: #C6E6E2;
+    transition: all .3s ease-in-out;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    margin: 20px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    color: black;
+    border: none;
+    font-family: "Roboto";
+    margin-top:10px;
+    border-radius: 20px;
+
+    .trip-index-img-alt{
+      height: 180px;
+      width: 360px;
+      object-fit: cover;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+    }
+  }
+
+  .trip-index-body-alt {
+    font-family: "Roboto";
+    font-size: 14px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding: 10px;
+    margin-bottom: 0;
+    background-color: white;
+  }

@@ -11,20 +11,28 @@
 
           <div class="d-flex flex-row justify-content-between align-items-center flex-wrap rounded-3 px-3 py-2 mb-3">
           <%= link_to trip_path(trip), class: "text-decoration-none" do %>
-            <div class="trip-index">
-              <% if trip.photo.attached?%>
+            <% if trip.photo.attached?%>
+              <div class="trip-index">
                 <div class="trip-index-img-top"> <%= cl_image_tag trip.photo.key, crop: :fill %> </div>
-              <% end %>
-              <div class="trip-index-body">
-                  <h5 class="card-index-title" ><%= trip.name  %></h5>
-                  <p class="card-index-text"> <%= trip.start_date.strftime("%d-%m-%Y") %> - <%= trip.formatted_end %></p>
+                <div class="trip-index-body">
+                    <h5 class="card-index-title" ><%= trip.name  %></h5>
+                    <p class="card-index-text"> <%= trip.start_date.strftime("%d-%m-%Y") %> - <%= trip.formatted_end %></p>
+                </div>
               </div>
-            </div>
+            <% else%>
+              <div class="trip-index">
+                <div class="trip-index-img-top"> <%= cl_image_tag("w6qhypx79xucwmdzf416vt4b0v46",crop: :fill) %> </div>
+                <div class="trip-index-body">
+                    <h5 class="card-index-title" ><%= trip.name  %></h5>
+                    <p class="card-index-text"> <%= trip.start_date.strftime("%d-%m-%Y") %> - <%= trip.formatted_end %></p>
+                </div>
+              </div>
+          <% end %>
+          </div>
         <% end %>
+       <% end %>
+        <%# </ul> %>
         </div>
-      <% end %>
-      <%# </ul> %>
-      </div>
   </div>
 
 
