@@ -28,22 +28,23 @@
   <!-- Calendar -->
   <div class="calendar-container">
     <%= month_calendar(attribute: :start_date, end_attribute: :end_date, events: @events) do |date, events|%>
-      <%= link_to date.day, new_trip_diary_entry_path(@trip, date: date), data: {turbo_frame: :calendar_show}, style: "text-decoration: none" %>
+      <%= link_to date.day, new_trip_diary_entry_path(@trip, date: date), data: {turbo_frame: :calendar_show}, style: "text-decoration: none"%>
 
-      <% events.each do |event| %>
-        <% if event.is_a?(Stop)  %>
-          <div class="bg-danger">
-            <%= link_to event.name, stop_path(event), style: "text-decoration: none" %>
+      <%events.each do |event|%>
+        <%if event.is_a?(Stop)%>
+          <div class="calender-button bg-danger">
+            <%= link_to event.name, stop_path(event), style: "color: white; text-decoration: none;" %>
           </div>
-          <% else %>
-          <div class="bg-info p-1 rounded-circle">
+          <%else%>
+          <div class="calender-button bg-info p-1">
             <%= event.name %>
           </div>
-        <% end %>
-      <% end %>
+        <%end%>
+      <%end%>
 
     <%end%>
   </div>
 
+
+
 </div>
-  
