@@ -27,7 +27,8 @@ puts "Users created!"
 japan = Trip.create!(name: "Japan", start_date: "2023-09-05", end_date: "2023-09-30")
 italy = Trip.create!(name: "Italy", start_date: "2019-05-11", end_date: "2019-05-25")
 vietnam = Trip.create!(name: "Vietnam", start_date: "2022-06-24", end_date: "2022-07-06")
-france = Trip.create!(name: "France", start_date: "2024-12-21", end_date: "2025-01-05")
+france = Trip.create!(name: "France", start_date: "2024-09-14", end_date: "2024-10-02")
+usa = Trip.create!(name: "USA 2025", start_date: "2025-05-05", end_date: "2025-05-25")
 
 puts "Trips created!"
 
@@ -70,3 +71,77 @@ Activity.create!(stop: nagoya, name: "Ghibli",
   start_date:"2023-09-22", favorite: true, category: "Art",
   description: "Day at Ghibli Park",
   location: "Ghibli Park")
+
+paris = Stop.create!(trip: france, name: "Paris", start_date: "2024-09-14", end_date: "2024-09-19",
+address: "Paris", description: "I'm so excited and I just can't hide it!")
+
+dijon = Stop.create!(trip: france, name: "Dijon", start_date: "2024-09-19", end_date: "2024-09-21",
+address: "dijon")
+
+lyon = Stop.create!(trip: france, name: "Lyon", start_date: "2024-09-21", end_date: "2024-09-25",
+address: "Lyon")
+
+marseille = Stop.create!(trip: france, name: "Marseille", start_date: "2024-09-25", end_date: "2024-09-29",
+address: "Marseille")
+
+bordeaux = Stop.create!(trip: france, name: "Bordeaux", start_date: "2024-09-29", end_date: "2024-01-02",
+address: "Bordeaux")
+
+
+Activity.create!(stop: paris, name: "PSG Game!",
+  start_date:"2024-09-14", favorite: true, category: "Art",
+  description: "Game starts at 9PM. Plan enough time to get there and get in the stadium.",
+  location: "Parc des Princes, Paris")
+
+Activity.create!(stop: paris, name: "Eiffel Tower",
+  start_date:"2024-09-15", favorite: true, category: "Views",
+  description: "It's metal and not small and doesn't judge me at all.",
+  location: "Eiffel Tower, Paris")
+
+
+Activity.create!(stop: paris, name: "Musée d'Orsay",
+  start_date:"2024-09-15", favorite: true, category: "Museum",
+  description: "Impressionism impresses me!",
+  location: "Musée d'Orsay, Paris")
+
+Activity.create!(stop: paris, name: "Notre Dame",
+    start_date:"2024-09-16", favorite: true, category: "Views",
+    description: "She's mine, she's yours, she's Notre Dame.",
+    location: "Notre-Dame de Paris, Paris")
+
+Activity.create!(stop: paris, name: "Picnic in Jardin du Luxembourg",
+      start_date:"2024-09-16", favorite: true, category: "Food",
+      description: "We can nom nom nom there if the weather if nice",
+      location: "Jardin du Luxembourg, Paris")
+
+Activity.create!(stop: paris, name: "Stroll in the Latin Quarter",
+  start_date:"2024-09-16", favorite: true, category: "Views",
+  description: "Explore the neighborhood, checkout the Pantheon and the botanical garden.
+  They speak French, not Latin.",
+  location: "Latin Quarter, Paris")
+
+Activity.create!(stop: paris, name: "Dinner at Bouillon Julien",
+    start_date:"2024-09-16", favorite: true, category: "Food",
+    description: "Traditional Bouillon restaurant with a Art Nouveau style.",
+    location: "Bouillon Julien, Paris")
+
+Activity.create!(stop: paris, name: "Visit the Louvre",
+  start_date:"2024-09-17", favorite: true, category: "Art",
+  description: "Go there early before it gets too busy.",
+  location: "Musée du Louvre, Paris")
+
+Activity.create!(stop: paris, name: "Check out the Champs Élysées",
+    start_date:"2024-09-17", favorite: true, category: "Views",
+    description: "They call it the world's most beautiful avenue. We'll see about that.",
+    location: "Avenue des Champs Élysées, Paris")
+
+Activity.create!(stop: paris, name: "Evening at the Opéra",
+  start_date:"2024-09-17", favorite: true, category: "Art",
+  description: "Get some of that culture in you, it'll do you good.",
+  location: "Palais Garnier, Paris")
+
+
+Activity.create!(stop: paris, name: "Visit Cergy-Pontoise",
+    start_date:"2024-09-17", favorite: true, category: "Views",
+    description: "Hahahahahahahahaha. This place sucks.",
+    location: "Cergy, France")
