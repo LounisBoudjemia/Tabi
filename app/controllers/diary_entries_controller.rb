@@ -55,7 +55,7 @@ class DiaryEntriesController < ApplicationController
     @diary_entry = DiaryEntry.find(params[:id])
     @trip = @diary_entry.trip
     @diary_entry.destroy
-    redirect_to trip_diary_entries_path(@trip, date: @diary_entry.date), notice: 'Diary Entry was successfully deleted.'
+    redirect_to trip_diary_entries_path(@trip, date: @diary_entry.date, start_date: @diary_entry.date), notice: 'Diary Entry was successfully deleted.'
   end
 
   private

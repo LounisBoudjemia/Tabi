@@ -1,21 +1,32 @@
 .flexed-page {
-  margin-top: 30px;
+  margin-top: 15px;
   display: flex;
-  align-items: center;
+  align-items: start;
   justify-content: space-around;
 }
 
-.diary-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  flex-direction: column;
-}
+// .diary-container {
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-evenly;
+//   flex-direction: column;
+// }
 
-.diary-entry-container{
-  width: 500px;
+// .diary-entry-container{
+
+// }
+
+#calendar_show {
+  width: 600px;
+  margin-top: 78px;
 }
 
 .calendar-container {
-  width: 40%;
+  width: 50%;
+}
+
+.btn-diary-submit {
+  width: 100px !important;
+  border-radius: 8px !important;
+  justify-content: center !important;
 }
