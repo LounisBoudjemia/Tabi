@@ -96,13 +96,13 @@ Activity.create!(stop: paris, name: "PSG Game!",
 Activity.create!(stop: paris, name: "Eiffel Tower",
   start_date:"2024-09-15", favorite: true, category: "Views",
   description: "It's metal and not small and doesn't judge me at all.",
-  location: "Eiffel Tower, Paris")
+  location: "Tour Eiffel, Paris")
 
 
 Activity.create!(stop: paris, name: "Musée d'Orsay",
   start_date:"2024-09-15", favorite: true, category: "Museum",
   description: "Impressionism impresses me!",
-  location: "Musée d'Orsay, Paris")
+  location: "Quartier Latin, Paris")
 
 Activity.create!(stop: paris, name: "Notre Dame",
     start_date:"2024-09-16", favorite: true, category: "Views",
@@ -118,7 +118,7 @@ Activity.create!(stop: paris, name: "Stroll in the Latin Quarter",
   start_date:"2024-09-16", favorite: true, category: "Views",
   description: "Explore the neighborhood, checkout the Pantheon and the botanical garden.
   They speak French, not Latin.",
-  location: "Latin Quarter, Paris")
+  location: "Quartier Latin, Paris")
 
 Activity.create!(stop: paris, name: "Dinner at Bouillon Julien",
     start_date:"2024-09-16", favorite: true, category: "Food",
