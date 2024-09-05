@@ -11,8 +11,7 @@
     }
   }
   #navbar-navigation {
-    display: flex;
-    justify-content: space-evenly;
+
     i {
       color: $danger;
     }
@@ -20,6 +19,24 @@
       color: $info;
     }
     p:hover {
+      color: $danger;
+    }
+    #user-icon {
+      color: $info;
+    }
+    #user-icon:hover {
+      color: $danger;
+    }
+  }
+
+  #navbar-right {
+    i {
+      color: $info;
+    }
+    p {
+      color: $info;
+    }
+    i:hover {
       color: $danger;
     }
     #user-icon {

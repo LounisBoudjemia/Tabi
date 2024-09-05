@@ -28,7 +28,7 @@
       <%= link_to date.day, new_trip_diary_entry_path(@trip, date: date), data: {turbo_frame: :calendar_show}, style: "text-decoration: none"%>
       <%events.each do |event|%>
         <%if event.is_a?(Stop)%>
-          <div class="calender-button bg-danger">
+          <div class="calender-button bg-danger mb-2">
             <%= link_to event.name, stop_path(event), style: "color: white; text-decoration: none;" %>
           </div>
           <%else%>
