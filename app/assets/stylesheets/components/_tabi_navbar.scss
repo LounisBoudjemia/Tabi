@@ -4,16 +4,46 @@
       color: $danger;
     }
     p {
-      color: $primary;
+      color: $info;
     }
     p:hover {
       color: $danger;
     }
   }
-  #user-icon {
-    color: $primary;
+  #navbar-navigation {
+
+    i {
+      color: $danger;
+    }
+    p {
+      color: $info;
+    }
+    p:hover {
+      color: $danger;
+    }
+    #user-icon {
+      color: $info;
+    }
+    #user-icon:hover {
+      color: $danger;
+    }
   }
-  #user-icon:hover {
-    color: $danger;
+
+  #navbar-right {
+    i {
+      color: $info;
+    }
+    p {
+      color: $info;
+    }
+    i:hover {
+      color: $danger;
+    }
+    #user-icon {
+      color: $info;
+    }
+    #user-icon:hover {
+      color: $danger;
+    }
   }
 }

@@ -35,7 +35,7 @@ class ActivitiesController < ApplicationController
     if @activity.update(activity_params)
       redirect_to stop_path(@activity.stop), notice: 'You updated this activity successfully.'
     else
-      render :show
+      render :edit
     end
   end
 

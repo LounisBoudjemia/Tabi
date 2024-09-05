@@ -4,7 +4,7 @@
   <h3>New Checklist</h3>
   <%= link_to "Close", trip_checklists_path(trip_id: @trip.id),
             data: {turbo_frame: :checklists_header},
-            class: "btn btn-secondary mb-2 text-decoration-none" %>
+            class: "btn btn-secondary mb-2 text-decoration-none w-25" %>
 </div>
 
 <%= simple_form_for [@trip, @checklist] do |f|%>

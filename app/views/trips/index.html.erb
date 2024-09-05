@@ -1,56 +1,86 @@
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content p-3">
+      <%= render "form", trip: @trip %>
+    </div>
+  </div>
+</div>
+
 <div class="trips-container">
   <!-- HEADER -->
   <div id="upcoming-container">
-    <div id="trips-header-title">
+    <div id="headers" class="d-flex justify-content-between">
+      <div id="trips-header-title">
         <p>Upcoming Trips</p>
-    </div>
+      </div>
 
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary h-25" style="width: 200px;" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        Start your journey
+      </button>
+
+    </div>
     <div id="upcoming-trips-body" class="d-flex flex-wrap w-100">
-    <%# <ul id="trips-list" class="list-unstyled p-3 w-100 flex-row"> %>
       <% @upcoming_trips.each do |trip|%>
 
-          <div class="d-flex flex-row justify-content-between align-items-center flex-wrap rounded-3 px-3 py-2 mb-3">
+        <div class="d-flex flex-row justify-content-between align-items-center flex-wrap rounded-3 px-3 py-2 mb-3">
           <%= link_to trip_path(trip), class: "text-decoration-none" do %>
-            <div class="trip-index">
-              <% if trip.photo.attached?%>
+            <% if trip.photo.attached?%>
+              <div class="trip-index">
                 <div class="trip-index-img-top"> <%= cl_image_tag trip.photo.key, crop: :fill %> </div>
-              <% end %>
-              <div class="trip-index-body">
-                  <h5 class="card-index-title" ><%= trip.name  %></h5>
-                  <p class="card-index-text"> <%= trip.start_date.strftime("%d-%m-%Y") %> - <%= trip.formatted_end %></p>
+                <div class="trip-index-body">
+                    <h5 class="card-index-title" ><%= trip.name  %></h5>
+                    <p class="card-index-text"> <%= trip.start_date.strftime("%d-%m-%Y") %> - <%= trip.formatted_end %></p>
+                </div>
               </div>
-            </div>
+            <% else%>
+              <div class="trip-index">
+                <div class="trip-index-img-top"> <%= image_tag("Travel.jpg")  %>  </div>
+                <div class="trip-index-body">
+                    <h5 class="card-index-title" ><%= trip.name  %></h5>
+                    <p class="card-index-text"> <%= trip.start_date.strftime("%d-%m-%Y") %> - <%= trip.formatted_end %></p>
+                </div>
+              </div>
+            <% end %>
+          </div>
         <% end %>
-        </div>
       <% end %>
-      <%# </ul> %>
-      </div>
+    </div>
   </div>
 
 
   <div id="past-container">
     <div id="trips-header-title">
-        <p>You wish you were still there</p>
+        <p>My past trips</p>
     </div>
 
     <div id="past-trips-body" class="d-flex flex-wrap w-100">
     <%# <ul id="trips-list" class="list-unstyled p-3 w-100 flex-row"> %>
       <% @old_trips.each do |trip|%>
 
-          <div class="d-flex flex-row justify-content-between align-items-center flex-wrap rounded-3 px-3 py-2 mb-3">
+        <div class="d-flex flex-row justify-content-between align-items-center flex-wrap rounded-3 px-3 py-2 mb-3">
           <%= link_to trip_path(trip), class: "text-decoration-none" do %>
-            <div class="trip-index">
-              <% if trip.photo.attached?%>
+            <% if trip.photo.attached?%>
+              <div class="trip-index">
                 <div class="trip-index-img-top"> <%= cl_image_tag trip.photo.key, crop: :fill %> </div>
-              <% end %>
-              <div class="trip-index-body">
-                  <h5 class="card-index-title" ><%= trip.name  %></h5>
-                  <p class="card-index-text"> <%= trip.start_date.strftime("%d-%m-%Y") %> - <%= trip.formatted_end %></p>
+                <div class="trip-index-body">
+                    <h5 class="card-index-title" ><%= trip.name  %></h5>
+                    <p class="card-index-text"> <%= trip.start_date.strftime("%d-%m-%Y") %> - <%= trip.formatted_end %></p>
+                </div>
               </div>
-            </div>
-        <% end %>
-        </div>
-      <% end %>
+            <% else%>
+              <div class="trip-index">
+                <div class="trip-index-img-top">  <%= image_tag("Travel.jpg")  %>  </div>
+                <div class="trip-index-body">
+                    <h5 class="card-index-title" ><%= trip.name  %></h5>
+                    <p class="card-index-text"> <%= trip.start_date.strftime("%d-%m-%Y") %> - <%= trip.formatted_end %></p>
+                </div>
+              </div>
+            <% end %>
+          </div>
+          <% end %>
+    <% end %>
       <%# </ul> %>
       </div>
   </div>

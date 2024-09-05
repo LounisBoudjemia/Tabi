@@ -1,37 +1,51 @@
-.table {
-  background-color: aqua ;
-  border-radius: 20% !important;
+
+.calender-button {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  border-color: white;
+  text-shadow: 0.5px 0.5px 0.5px rgba(89, 84, 84, 0.397);
+  padding-left: 2px;
+  padding-right: 2px;
 }
 
 .simple-calendar {
 
   .day {
-    width: 200px !important;
+    width: 600px !important;
     height: 100px !important;
     background: white;
-    border-color: blue;
-  }
-
-  .tbody {
-    border-radius: 20%;
-    background-color: blue !important;
-    background: blue !important;
+    border-color: #70417A;
   }
 
   .calendar-heading {
-    background-color: rgb(180, 180, 230) !important;
+    background-color: $teal !important;
     padding: 8px;
     border-radius: 8px;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
   }
 
   .calendar-nav {
+    // display: flex !important;
+    // align-items: center !important;
+    // justify-content: space-between !important;
+    // padding: 8px;
     display: flex !important;
+    align-items: center !important;
+    justify-content: center !important; /* Buttons zentrieren */
+    gap: 6px; /* Abstand zwischen den Buttons */
+    padding: 8px;
   }
 
-  .table-striped {height: 150px;}
+  .table-striped {
+    width: 100%;
+    table-layout: fixed;
+  }
   .wday-0 {}
   .wday-1 {}
   .wday-2 {}

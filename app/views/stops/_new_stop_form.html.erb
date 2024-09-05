@@ -1,84 +1,63 @@
 <%= turbo_frame_tag :new_stop do %>
+  <div id="stop-form" class="d-flex justify-content-center mb-3 p-3">
+    <%= simple_form_for [@trip, @stop], input_html: { class: 'w-75' } do |f| %>
+      <%= f.error_notification %>
+      <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-<div class="card d-flex flex-fill align-items-center p-3 rounded-5">
-  <%= simple_form_for [@trip, @stop],
-    data: {turbo_frame: '_top' } do |f| %>
-    <%= f.error_notification %>
-    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-
-
-
-    <div class="form-inputs">
-      <div class="mb-3" id="name">
-
-        <%= f.input :name,
-        label: "Stop name",
-        class: "form-control",
-        placeholder: ""%>
-
-      </div>
-
-      <div class="mb-3" id="start">
-
-        <%= f.input :start_date, as: :string,
-          input_html: {
-            data: {
-              controller: "datepicker"
-            }
-          } %>
-
-      </div>
-
-      <div class="mb-3" id="end">
-
-        <%= f.input :end_date, as: :string,
-          input_html: {
-            data: {
-              controller: "datepicker"
-            }
-          } %>
-
-      </div>
-
-      <div class="mb-3" id="name">
-
-        <%= f.input :address,
-        label: "Address",
-        class: "form-control",
-        placeholder: ""%>
-
-      </div>
-
-     <div class="mb-3" id="name">
-
-        <%= f.input :description,
-        label: "Description",
-        class: "form-control",
-        placeholder: ""%>
-
-      </div>
-
-    </div>
-
-    <div class="form-actions">
-
-      <div class="mb-3">
-
-      <%= f.button :submit,
-      class: "btn btn-primary",
-      id: "button-form"%>
-
+      <div class="form-inputs" data-controller="datepicker">
+        <div class="mb-3" id="name">
+          <%= f.input :name,
+          label: "Stop name",
+          class: "form-control",
+          placeholder: ""%>
         </div>
 
-      <div class="mb-3">
-        <%= link_to "Back to Trip", trips_path, class: "btn btn-secondary", id: "button-form" %>
+        <div class="mb-3" id="start">
+          <%= f.input :start_date, as: :string,
+            input_html: {
+              data: {
+                datepicker_target: "start",
+                action: "change->datepicker#setDate"
+              }
+            } %>
+        </div>
 
+        <div class="mb-3" id="end">
+          <%= f.input :end_date, as: :string,
+            input_html: {
+              data: {
+                datepicker_target: "end"
+              }
+            } %>
+        </div>
+
+        <div class="mb-3" id="name">
+          <%= f.input :address,
+          label: "Address",
+          class: "form-control",
+          placeholder: ""%>
+        </div>
+
+        <div class="mb-3" id="name">
+          <%= f.input :description,
+          label: "Description",
+          class: "form-control",
+          placeholder: ""%>
+        </div>
       </div>
 
-    </div>
+      <div id="stop-form-new-links" class="d-flex flex-row justify-content-between">
+        <div class="mb-3">
+          <%= link_to "Close", trip_path(@trip),
+            data: {turbo_frame: :new_stop},
+            class: "btn btn-secondary", id: "button-form" %>
+        </div>
 
-
-
-  <% end %>
-</div>
+        <div class="mb-3">
+          <%= f.button :submit, class: "btn btn-primary",
+              data: {turbo_frame: :new_stop} %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 <% end %>

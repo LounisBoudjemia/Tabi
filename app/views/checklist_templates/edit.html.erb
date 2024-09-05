@@ -1,6 +1,6 @@
 <%= turbo_frame_tag :edit_template do %>
-  <%= simple_form_for [@checklist_template] do |f|%>
-    <%= f.input :name, label: false, placeholder: @checklist_template.name %>
-    <%= hidden_field_tag :trip_id, @trip.id %>
+  <%= simple_form_for [@checklist_template], html: { class: 'px-5 mx-5 mb-0' } do |f|%>
+    <%= f.input :name, label: false, placeholder: @checklist_template.name, inputhtml: { class: 'mb-0' } %>
+    <%= hidden_field_tag :trip_id, @trip.id, class: 'mb-0' %>
   <%end%>
 <%end%>
