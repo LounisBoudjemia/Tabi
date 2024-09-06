@@ -1,4 +1,4 @@
-<%= turbo_frame_tag "new_#{@list.name}_item" do %>
+<%= turbo_frame_tag "new_#{@list.list_type?}_#{@list.id}_item" do %>
 
   <%= simple_form_for [@list, @item] do |f|%>
   <%= f.input :name, label: false %>

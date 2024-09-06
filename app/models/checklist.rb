@@ -23,4 +23,8 @@ class Checklist < ApplicationRecord
 
     [unchecked_items, checked_items]
   end
+
+  def list_type?
+    "checklist"
+  end
 end

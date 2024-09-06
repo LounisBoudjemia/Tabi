@@ -37,11 +37,14 @@ class ChecklistItemsController < ApplicationController
       checklistable_id: @checklist.id)
     end
     respond_to do |format|
+      @checklists = Checklist.where(trip: @trip)
       format.html { redirect_to trip_checklists_path(trip_id: @trip.id) }
       format.turbo_stream do
         render turbo_stream: [
         turbo_stream.replace(:checklist_show, partial: 'shared/list',
                             locals: { list: @checklist, trip: @trip }),
+        turbo_stream.replace(:checklist_menu, partial: 'checklists/checklist_menu',
+                            locals: { checklists: @checklists, trip: @trip })
       ]
       end
     end
@@ -58,11 +61,15 @@ class ChecklistItemsController < ApplicationController
                             checklistable_id: @checklist_template.id)
     end
     respond_to do |format|
+      @checklist_templates = ChecklistTemplate.where(user: @user)
       format.html { redirect_to trip_checklists_path(trip_id: @trip.id) }
       format.turbo_stream do
         render turbo_stream: [
         turbo_stream.replace(:checklist_template_show, partial: 'shared/list',
                             locals: { list: @checklist_template, trip: @trip }),
+        turbo_stream.replace(:checklist_template_menu, partial: 'checklist_templates/checklist_template_menu',
+                            locals: { checklists: @checklist_templates, trip: @trip })
+
       ]
       end
     end

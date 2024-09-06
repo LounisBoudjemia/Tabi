@@ -1,4 +1,4 @@
-<%= turbo_frame_tag :checklist_show, class: "" do %>
+<%= turbo_frame_tag "#{list.list_type?}_show", class: "" do %>
 
   <div id="list-header" class="d-flex justify-content-center">
     <div id="list-name" class="d-flex">
@@ -85,7 +85,7 @@
   <!-- ADD BUTTON -->
   <% if list.respond_to?(:trip_id) %>
     <div id="add-checklist-item" class="px-5 mx-5 text-center">
-      <%= turbo_frame_tag "new_#{list.name}_item" do %>
+      <%= turbo_frame_tag "new_#{list.list_type?}_#{list.id}_item" do %>
         <%= link_to new_checklist_item_path(list, trip: @trip),
             class: "link-underline link-underline-opacity-0 icon-link icon-link-hover my-2",
             style: "font-size: 1.5rem;",
@@ -96,7 +96,7 @@
     </div>
   <% elsif list.respond_to?(:user_id) %>
     <div id="add-template-item" class="px-5 mx-5 text-center">
-      <%= turbo_frame_tag "new_#{list.name}_item" do %>
+      <%= turbo_frame_tag "new_#{list.list_type?}_#{list.id}_item" do %>
         <%= link_to new_checklist_template_item_path(list, trip: @trip),
             class: "link-underline link-underline-opacity-0 icon-link icon-link-hover my-2",
             style: "font-size: 1.5rem;",
