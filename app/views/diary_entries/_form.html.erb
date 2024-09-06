@@ -1,9 +1,10 @@
-<%= turbo_frame_tag "diary_entry_#{diary_entry.id}" do %>
-<%= simple_form_for [trip, diary_entry],
+<%= turbo_frame_tag :edit_diary_entry do %>
+  <%= simple_form_for [trip, diary_entry],
     data: {turbo_frame: '_top'} do |f| %>
     <%= f.input :headline %>
-    <%= f.input :date, html5: true, input_html: { value: date, style: 'width: 150px; height: 30px; font-size: 14px; padding: 5px;' } %>
-    <%= f.input :content, as: :text, input_html: { rows: 10, cols: 50 } %>
-    <%= f.submit "submit", class: "btn btn-primary btn-diary-submit" %>
+    <%= f.input :content %>
+    <%= f.input :date, html5: true, input_html: { value: date } %>
+    <%= f.submit "submit", class: "btn" %>
+  <% end %>
 <% end %>
 <% end %>
