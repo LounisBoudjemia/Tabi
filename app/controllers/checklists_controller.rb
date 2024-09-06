@@ -23,7 +23,10 @@ class ChecklistsController < ApplicationController
             render turbo_stream: [
           turbo_stream.replace(:checklist_show, partial: 'shared/list',
                               locals: { list: @checklist, trip: @trip }),
-          turbo_stream.replace(:checklists_header, partial: 'checklists/checklists_header')
+          turbo_stream.replace(:checklists_header, partial: 'checklists/checklists_header'),
+          turbo_stream.replace(:checklist_menu, partial: 'checklists/checklist_menu',
+                              locals: { checklists: @checklists, trip: @trip })
+
           ]
           end
       else
@@ -63,8 +66,8 @@ class ChecklistsController < ApplicationController
     @checklist_items = ChecklistItem.where(checklistable_type: "Checklist", checklistable_id: @checklist.id)
 
     @checklist_items.each do |checklist_item|
-      item = Item.find(checklist_item.item_id)
       checklist_item.destroy
+      item = Item.find(checklist_item.item_id)
       item.destroy if ChecklistItem.where(item_id: item.id).empty?
     end
 
@@ -74,7 +77,7 @@ class ChecklistsController < ApplicationController
         format.html { redirect_to trip_checklists_path(trip_id: @trip.id) }
         format.turbo_stream do
           render turbo_stream: turbo_stream.replace(:checklist_container, partial: 'checklists/checklist_container',
-                                                    locals: { checklists: Checklist.all, trip: @trip })
+                                                    locals: { checklists: @checklists, trip: @trip })
         end
       else
         format.html { render :new }

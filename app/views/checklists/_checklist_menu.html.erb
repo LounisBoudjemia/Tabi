@@ -1,0 +1,15 @@
+<%= turbo_frame_tag :checklist_menu do%>
+  <%if @checklists.present?%>
+    <div class="dropdown mb-3 ms-5 w-25">
+      <button class="btn btn-secondary dropdown-toggle ms-5" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Checklists
+      </button>
+      <ul class="dropdown-menu dropdown-menu-dark">
+        <% @checklists.each do |checklist| %>
+          <li class="text-center"><%= link_to checklist.name, checklist_path(checklist, trip_id: @trip),
+                  class: "text-decoration-none dropdown-item", data: { turbo_frame: :checklist_show } %></li>
+        <%end%>
+      </ul>
+    </div>
+  <%end%>
+<% end %>
