@@ -1,21 +1,6 @@
 <div class="btn-group dropstart align-items-center mx-3 pb-2">
   <i id="user-icon" class="fa-regular fa-circle-user" data-bs-toggle="dropdown" aria-expanded="false" style="font-size: 2.5rem;"></i>
   <ul class="dropdown-menu dropdown-menu-dark rounded-3 ">
-    <%if @trip&.persisted?%>
-      <li>
-        <%= link_to trip_diary_entries_path(trip_id: @trip.id, start_date: @trip.start_date), class: "dropdown-item d-flex justify-content-between align-items-center" do%>
-          Diary
-          <i class="fa-solid fa-book"></i>
-        <%end%>
-      </li>
-      <li>
-        <%= link_to trip_checklists_path(trip_id: @trip.id), class: "dropdown-item d-flex justify-content-between align-items-center" do%>
-          Suitcase List
-          <i class="fa-solid fa-list-ul"></i>
-        <%end%>
-      </li>
-      <li><hr class="dropdown-divider"></li>
-    <%end%>
     <li>
       <%= link_to destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item d-flex justify-content-between align-items-center" do%>
         Log out
