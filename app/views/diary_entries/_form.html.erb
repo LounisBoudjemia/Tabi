@@ -1,4 +1,4 @@
-<%= turbo_frame_tag :edit_diary_entry do %>
+<%= turbo_frame_tag :calendar_show do %>
   <%= simple_form_for [trip, diary_entry],
     data: {turbo_frame: '_top'} do |f| %>
     <%= f.input :headline %>
