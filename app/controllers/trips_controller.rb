@@ -1,5 +1,5 @@
 class TripsController < ApplicationController
-  before_action :set_trip, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, :set_trip, only: [:show, :edit, :update, :destroy]
   def index
     @trip = Trip.new
     @trips = Trip.all.order(start_date: :asc)
@@ -26,6 +26,8 @@ class TripsController < ApplicationController
 
   def create
     @trip = Trip.new(trip_params)
+    @user = current_user
+    @trip.user = @user
     if @trip.save
       redirect_to @trip, notice: "Let's fucking plan a fucking trip!"
     else

@@ -20,6 +20,8 @@ Rails.application.routes.draw do
         end
       end
     end
+
+
   end
 
   resources :checklist_templates do
@@ -30,10 +32,15 @@ Rails.application.routes.draw do
       end
       resources :items, only: [:show, :edit, :update, :destroy], shallow: true
     end
+
+    authenticated :user do
+      get "profile", to: "trips"
+    end
+
+    unauthenticated do
+      get "profile", to: "users#sign_in"
+    end
   end
-
-
-
   # resources :stops, only: [] do
   #   resources :activities, only: [:new, :create]
   # end
