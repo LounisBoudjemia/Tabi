@@ -21,9 +21,9 @@
       </div>
 
       <div id="trip-share" >
-          <div>
-           <button class="fa-solid fa-share"></button>
-          
+          <div id="share">
+           <i class="fa-solid fa-share"></i>
+
           </div>
        </div>
 
@@ -34,7 +34,7 @@
         url: '<%= trip_path(@trip)%>',
       };
 
-      const btn = document.querySelector('button');
+      const btn = document.querySelector('#share');
       const resultPara = document.querySelector('.result');
 
    btn.addEventListener("click", async () => {
