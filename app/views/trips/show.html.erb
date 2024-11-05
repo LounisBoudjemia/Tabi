@@ -20,33 +20,36 @@
         <% end %>
       </div>
 
-      <div id="trip-share" >
-          <div id="share">
-           <i class="fa-solid fa-share"></i>
+<div id="trip-share" >
 
-          </div>
-       </div>
+    <i id="share" class="fa-solid fa-share"></i>
 
-       <script>
-      let shareData = {
-        title: 'Check out my trip on Tabi',
-        text: 'Let me know what you think!',
-        url: '<%= trip_path(@trip)%>',
-      };
-
-      const btn = document.querySelector('#share');
-      const resultPara = document.querySelector('.result');
-
-   btn.addEventListener("click", async () => {
-  try {
-    await navigator.share(shareData);
-    resultPara.textContent = "Trip shared successfully";
-  } catch (err) {
-    resultPara.textContent = `Error: ${err}`;
-  }
-});
-    </script>
+  <div class="popup">
+    <header>
+      <span>Share Modal</span>
+      <div class="close"><i class="uil uil-times"></i></div>
+    </header>
+    <div class="content">
+      <p>Share this link via</p>
+      <ul class="icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+      </ul>
+      <p>Or copy link</p>
+      <div class="field">
+        <i class="url-icon uil uil-link"></i>
+        <input type="text" readonly value="https://codepen.io/coding_dev_">
+        <button>Copy</button>
+      </div>
+      <script src="index.js"></script>
     </div>
+
+  </div>
+ </div>
+    </div>
+
 
   <div id="trip-header-dates">
 
