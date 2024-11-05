@@ -191,7 +191,7 @@
     font-weight: bold;
     font-size: 18px;
     padding: 10px 25px;
-    //background: rgb(113, 5, 156);
+    background: rgb(113, 5, 156);
     //transform: translate(-50%, -50%);
   }
   .popup{
@@ -205,9 +205,9 @@
     pointer-events: none;
     box-shadow: 0px 10px 15px rgba(0,0,0,0.1);
     transform: translate(-50%, -50%) scale(1.2);
-    //transition: top 0s 0.2s ease-in-out,
-                //opacity 0.2s 0s ease-in-out,
-                //transform 0.2s 0s ease-in-out;
+    transition: top 0s 0.2s ease-in-out,
+                opacity 0.2s 0s ease-in-out,
+                transform 0.2s 0s ease-in-out;
   }
   .popup.show{
     top: 50%;
