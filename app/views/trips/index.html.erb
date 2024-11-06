@@ -22,7 +22,7 @@
 
     </div>
     <div id="upcoming-trips-body" class="d-flex flex-wrap w-100">
-      <% @upcoming_trips.each do |trip|%>
+      <% @trips.each do |trip|%>
 
         <div class="d-flex flex-row justify-content-between align-items-center flex-wrap rounded-3 px-3 py-2 mb-3">
           <%= link_to trip_path(trip), class: "text-decoration-none" do %>
