@@ -2,7 +2,8 @@ class TripsController < ApplicationController
   before_action :set_trip, only: [:show, :edit, :update, :destroy]
   def index
     @trip = Trip.new
-    @trips = Trip.all.order(start_date: :asc)
+    # @trips = Trip.all.order(start_date: :asc)
+    @trips = current_user.trips.order(start_date: :asc)
     @upcoming_trips = @trips.partition { |trip| trip.start_date > Date.today }[0]
     @old_trips = @trips.partition { |trip| trip.end_date < Date.today }[0].sort {|trip| trip.start_date}
   end
